@@ -1,19 +1,20 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
+import { NavItemProps } from "deco-sites/superepi/components/header/Header.tsx";
 
 export interface Props {
-  items: SiteNavigationElement[];
+  items: NavItemProps[];
 }
 
-function MenuItem({ item }: { item: SiteNavigationElement }) {
+function MenuItem({ item }: { item: NavItemProps }) {
   return (
     <div class="collapse collapse-plus">
       <input type="checkbox" />
-      <div class="collapse-title">{item.name}</div>
+      <div class="collapse-title">{item.label}</div>
       <div class="collapse-content">
         <ul>
           <li>
-            <a class="underline text-sm" href={item.url}>Ver todos</a>
+            <a class="underline text-sm" href={item.href}>Ver todos</a>
           </li>
           {item.children?.map((node) => (
             <li>

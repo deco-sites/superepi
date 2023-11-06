@@ -11,6 +11,7 @@ import Social from "$store/components/footer/Social.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import PoweredByDeco from "apps/website/components/PoweredByDeco.tsx";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
 
 export type Item = {
   label: string;
@@ -68,7 +69,8 @@ export interface Layout {
     | "Variation 2"
     | "Variation 3"
     | "Variation 4"
-    | "Variation 5";
+    | "Variation 5"
+    | "Variation 6";
   hide?: {
     logo?: boolean;
     newsletter?: boolean;
@@ -109,6 +111,33 @@ export interface Props {
     text?: string;
   };
   layout?: Layout;
+}
+
+const Image = (src: string) => {
+  return (
+    <Picture>
+      <Source
+        media="(max-width: 767px)"
+        src={src}
+        width={100}
+        height={50}
+      />
+      <Source
+        media="(min-width: 768px)"
+        src={src}
+        width={200}
+        height={100}
+      />
+      <img
+        class=""
+        sizes="(max-width: 640px) 100vw, 30vw"
+        src={src}
+        alt={'Payment methods'}
+        decoding="async"
+        loading="lazy"
+      />
+    </Picture>
+  )
 }
 
 function Footer({
@@ -200,7 +229,7 @@ function Footer({
     ? <></>
     : <Social content={social} vertical={layout?.variation == "Variation 3"} />;
   const _payments = layout?.hide?.paymentMethods
-    ? <></>
+    ? Image('https://texf1k9mfq.map.azionedge.net/Custom/Content/Themes/HardCore/Imagens/meios-pagamento.png?v=l')
     : <PaymentMethods content={payments} />;
   const _apps = layout?.hide?.mobileApps
     ? <></>
@@ -325,7 +354,7 @@ function Footer({
             {_logo}
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}
-              <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">
+              <div class="flex flex-col md:flex-row gap-10 md:w-2/5 lg:pl-10">
                 {_payments}
                 {_social}
                 {_apps}

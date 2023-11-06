@@ -2,13 +2,46 @@ import type { Props as SearchbarProps } from "$store/components/search/Searchbar
 import Drawers from "$store/islands/Header/Drawers.tsx";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import { AvailableIcons } from "$store/components/ui/Icon.tsx";
+
+export interface AlertInfos {
+  column1: Column1[];
+  column2: Column2[];
+}
+
+export interface Column1 {
+  labelIcon: AvailableIcons;
+  text: string;
+  link: string;
+}
+
+export interface Column2 {
+  text: string;
+  link: string;
+}
+
+export interface NavItemProps {
+  label: string;
+  href: string;
+  children?: Array<{
+    label: string;
+    href: string;
+    children?: Array<{
+      label: string;
+      href: string;
+    }>;
+  }>;
+  image?: {
+    src?: ImageWidget;
+    alt?: string;
+  };
+}
 
 export interface Props {
-  alerts: string[];
+  alerts?: AlertInfos;
 
   /** @title Search Bar */
   searchbar?: Omit<SearchbarProps, "platform">;
@@ -17,14 +50,14 @@ export interface Props {
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
    */
-  navItems?: SiteNavigationElement[] | null;
+  navItems?: NavItemProps[];
 
   /** @title Logo */
   logo?: { src: ImageWidget; alt: string };
 }
 
 function Header({
-  alerts,
+  alerts = { column1: [], column2: [] },
   searchbar,
   navItems,
   logo,

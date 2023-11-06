@@ -1,32 +1,30 @@
-import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
+import { AlertInfos } from "deco-sites/superepi/components/header/Header.tsx";
+import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 
-export interface Props {
-  alerts: string[];
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
-  interval?: number;
-}
-
-function Alert({ alerts = [], interval = 5 }: Props) {
+function Alert({ alerts: { column1, column2 } }: { alerts: AlertInfos }) {
   const id = useId();
 
   return (
-    <div id={id}>
-      <Slider class="carousel carousel-center w-screen bg-secondary gap-6">
-        {alerts.map((alert, index) => (
-          <Slider.Item index={index} class="carousel-item">
-            <span class="text-sm text-secondary-content flex justify-center items-center w-screen h-[38px]">
-              {alert}
-            </span>
-          </Slider.Item>
-        ))}
-      </Slider>
-
-      <SliderJS rootId={id} interval={interval && interval * 1e3} />
+    <div id={id} class="bg-[#f0f0f0] hidden md:block">
+      <div class="max-w-[1440px] mx-auto flex justify-center md:justify-between">
+        <div class="flex gap-3 items-center">
+          { column1?.map(({ labelIcon, link, text }) => (
+            <a href={link ?? "#"} class="flex items-center gap-1 text-[#8f8f8f] first:text-[#f8a531]">
+              <Icon id={labelIcon} size={30} />
+              <p class="font-bold md:text-[10px] lg:text-xs xl:text-sm">{ text }</p>
+            </a>
+          )) }
+        </div>
+        <div class="hidden md:flex">
+          { column2?.map(({ text, link }) => (
+            <a href={link ?? "#"}
+              class="bg-[#8f8f8f] hover:bg-[#f2f2f2] text-[#FFF] hover:text-[#8f8f8f] font-bold md:text-[10px] md:py-2 md:px-4 lg:text-xs lg:py-4 lg:px-6">
+              {text}
+            </a>
+          )) }
+        </div>
+      </div>
     </div>
   );
 }
