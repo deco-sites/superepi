@@ -9,12 +9,13 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Icon from "$store/components/ui/Icon.tsx";
+import TimerCampaign from "$store/components/ui/TimerCampaign.tsx";
 import { SendEventOnLoad } from "$store/components/Analytics.tsx";
 
 export interface TimerProps {
   /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
   initial: string;
-  
+
   /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
   finish: string;
 }
@@ -49,7 +50,7 @@ export default function ShelfCampaign({
 
   const ctaComponent = !cta?.text ? <></> : (
     <div>
-      <a href={cta?.href ?? "#"} class="bg-black text-white font-semibold">
+      <a href={cta?.href ?? "#"} class="bg-black text-white font-semibold px-6 py-4">
         {cta?.text}
       </a>
     </div>
@@ -60,10 +61,12 @@ export default function ShelfCampaign({
   return (
     <div class="bg-[#F5F5F5]">
       <div class="lg:container grid grid-cols-2 grid-row-3">
-        <div class="flex flex-col">
+        <div class="flex flex-col justify-center items-center row-span-full">
           {title && <h2>{title}</h2>}
           {description && <p>{description}</p>}
-          <div></div>
+          <div>
+          <TimerCampaign />
+          </div>
           {ctaComponent}
         </div>
         <div
