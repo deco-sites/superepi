@@ -36,7 +36,7 @@ export interface Props {
     /** @default 2 */
     mobile?: 1 | 2;
     /** @default 4 */
-    desktop?: 1 | 2 | 4 | 6 | 8;
+    desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
   /**
    * @description Item's border radius in px
@@ -87,7 +87,7 @@ const RADIUS_DESKTOP = {
 };
 
 const DEFAULT_PROPS: Props = {
-  title: "Summer bags",
+  title: "",
   banners: [
     {
       alt: "a",
