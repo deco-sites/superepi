@@ -1,7 +1,12 @@
 import Header from "$store/components/ui/SectionHeader.tsx";
 
 export interface Form {
-  placeholder?: string;
+  name: {
+    placeholder?: string;
+  };
+  email: {
+    placeholder?: string;
+  }
   buttonText?: string;
   /** @format html */
   helpText?: string;
@@ -23,13 +28,16 @@ export interface Props {
 }
 
 const DEFAULT_PROPS: Props = {
-  title: "",
-  description: "",
+  title: "SEJA UM CLIENTE PREFERENCIAL SUPER EPI",
+  description: "Receba novidades e ofertas com exclusividade.",
   form: {
-    placeholder: "Digite seu email",
-    buttonText: "Inscrever",
-    helpText:
-      'Ao se inscrever, você concorda com nossa <a class="link" href="/politica-de-privacidade">Política de privacidade</a>.',
+    name: {
+      placeholder: "Digite seu nome",
+    },
+    email: {
+      placeholder: "Digite seu email",
+    },
+    buttonText: "ENVIAR"
   },
   layout: {
     headerFontSize: "Large",
@@ -58,11 +66,18 @@ export default function Newsletter(props: Props) {
   const formLayout = form && (
     <form action="/" class="flex flex-col gap-4">
       <div class="flex flex-col lg:flex-row gap-3">
-        <input
-          class="input input-bordered lg:w-80"
-          type="text"
-          placeholder={form.placeholder}
-        />
+        <div class="flex gap-2">
+          <input
+            class="input input-bordered lg:w-80"
+            type="text"
+            placeholder={form.name.placeholder}
+          />
+          <input
+            class="input input-bordered lg:w-80"
+            type="text"
+            placeholder={form.email.placeholder}
+          />
+        </div>
         <button
           class={`btn ${isReverse ? "btn-accent" : ""}`}
           type="submit"
@@ -114,7 +129,7 @@ export default function Newsletter(props: Props) {
       )}
       {layout?.content?.alignment === "Side to side" && (
         <div
-          class={`container flex flex-col rounded justify-between lg:flex-row p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+          class={`container flex flex-col rounded justify-between md:flex-row p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
         >
           {headerLayout}
           <div class="flex justify-center">

@@ -11,7 +11,7 @@ import SearchInput from "$store/islands/Header/SearchInput.tsx";
 import ServiceButton from "$store/islands/Header/ServiceButton.tsx";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import Image from "apps/website/components/Image.tsx";
-import NavItem from "./NavItem.tsx";
+import ContainerNavItem from "$store/islands/ContainerNavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { NavItemProps } from "deco-sites/superepi/components/header/Header.tsx";
 
@@ -93,9 +93,7 @@ function Navbar({ items, searchbar, logo }: {
             {platform === "shopify" && <CartButtonShopify />}
           </div>
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
+        <ContainerNavItem items={items} />
       </div>
     </>
   );
