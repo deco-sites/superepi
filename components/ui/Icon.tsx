@@ -120,7 +120,7 @@ export type AvailableIcons =
   | "Linxcommerce"
   | "Logo"
   | "Percentage"
-  | "Store"
+  | "Store";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

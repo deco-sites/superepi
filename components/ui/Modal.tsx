@@ -19,7 +19,7 @@ function Modal(props: Props) {
     onClose,
     loading = "lazy",
     class: classModal = "",
-    style: styleModal = {}
+    style: styleModal = {},
   } = props;
   const lazy = useSignal(loading === "lazy" && !open);
   const id = useId();
@@ -48,9 +48,7 @@ function Modal(props: Props) {
         class="modal-toggle"
         onChange={(e) => e.currentTarget.checked === false && onClose?.()}
       />
-      <div class={`modal ${classModal}`}
-        style={{ ...styleModal }}
-      >
+      <div class={`modal ${classModal}`} style={{ ...styleModal }}>
         {!lazy.value && children}
         <label class="modal-backdrop" for={id}>Close</label>
       </div>

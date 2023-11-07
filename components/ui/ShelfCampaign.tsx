@@ -15,22 +15,22 @@ export interface ShelfCampaignProps {
   cta?: {
     text?: string;
     href?: string;
-  }
+  };
   date: {
-    initial: Date
-    finish: Date
-  },
+    initial: Date;
+    finish: Date;
+  };
   products: Product[] | null;
-  cardLayout: cardLayout 
+  cardLayout: cardLayout;
 }
 
-export default function ShelfCampaign({ 
-  title, 
-  description, 
-  cta, 
-  date, 
-  products, 
-  cardLayout 
+export default function ShelfCampaign({
+  title,
+  description,
+  cta,
+  date,
+  products,
+  cardLayout,
 }: ShelfCampaignProps) {
   const id = useId();
   const platform = usePlatform();
@@ -39,28 +39,24 @@ export default function ShelfCampaign({
     return null;
   }
 
-  const cta = !cta?.text ? <></> : (
+  const ctaComponent = !cta?.text ? <></> : (
     <div>
       <a href={cta?.href ?? "#"} class="bg-black text-white font-semibold">
         {cta?.text}
       </a>
     </div>
-  )
+  );
 
-  console.log(date, "DATE")
+  console.log(date, "DATE");
 
   return (
     <div class="bg-[#F5F5F5]">
       <div class="lg:container flex justify-center">
         <div class="flex flex-col">
-          { title && (
-            <h2>{title}</h2>
-          ) }
-          { description && (
-            <p>{description}</p>
-          ) }
+          {title && <h2>{title}</h2>}
+          {description && <p>{description}</p>}
           <div></div>
-          {cta}
+          {ctaComponent}
         </div>
         <div
           id={id}
@@ -113,5 +109,5 @@ export default function ShelfCampaign({
         </div>
       </div>
     </div>
-  )
+  );
 }

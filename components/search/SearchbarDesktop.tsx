@@ -32,30 +32,30 @@ export interface Props {
      */
     placeholder?: string;
     /**
-      * @title Page path
-      * @description When user clicks on the search button, navigate it to
-      * @default /s
-      */
+     * @title Page path
+     * @description When user clicks on the search button, navigate it to
+     * @default /s
+     */
     action?: string;
     /**
-      * @title Term name
-      * @description Querystring param used when navigating the user
-      * @default q
-      */
+     * @title Term name
+     * @description Querystring param used when navigating the user
+     * @default q
+     */
     name?: string;
-  
+
     /**
-      * @title Suggestions Integration
-      * @todo: improve this typings ({query: string, count: number}) => Suggestions
-      */
+     * @title Suggestions Integration
+     * @todo: improve this typings ({query: string, count: number}) => Suggestions
+     */
     loader: Resolved<Suggestion | null>;
-  
+
     platform?: Platform;
-  }
-  query?: string
+  };
+  query?: string;
 }
 
-function Searchbar({ 
+function Searchbar({
   searchbar: {
     placeholder = "What are you looking for?",
     action = "/s",
@@ -63,7 +63,7 @@ function Searchbar({
     loader,
     platform,
   },
-  query
+  query,
 }: Props) {
   const id = useId();
   const { displaySearchPopup } = useUI();
@@ -88,9 +88,9 @@ function Searchbar({
   return (
     <div
       class="w-full grid gap-8 px-4 py-6 overflow-y-hidden"
-      style={{ 
+      style={{
         gridTemplateRows: "min-content auto",
-     }}
+      }}
     >
       <div
         class={`overflow-y-scroll ${!hasProducts && !hasTerms ? "hidden" : ""}`}

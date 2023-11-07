@@ -3,7 +3,6 @@ import { useSignal } from "@preact/signals";
 
 function useBackToTop(percentageToAppear: number) {
   const isVisible = useSignal(false);
-  
 
   useEffect(() => {
     function handleScroll() {

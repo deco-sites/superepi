@@ -38,7 +38,7 @@ export default function Benefits(
     layout,
   } = props;
 
-  const isRow = !layout?.orientation || layout?.orientation === "Row" 
+  const isRow = !layout?.orientation || layout?.orientation === "Row";
 
   const listOfBenefits = benefits.map((benefit, index) => {
     const showDivider = index < benefits.length - 1;
@@ -51,7 +51,11 @@ export default function Benefits(
       <div
         class={`${
           reverse ? "bg-primary text-primary-content p-4 lg:px-8 lg:py-4" : ""
-        } flex gap-4 ${isRow ? "flex-row items-center text-center" : "flex-col items-center text-center"} ${
+        } flex gap-4 ${
+          isRow
+            ? "flex-row items-center text-center"
+            : "flex-col items-center text-center"
+        } ${
           showDivider && benefitLayout !== "piledup"
             ? isRow ? "" : "border-b border-neutral-300"
             : ""
@@ -100,7 +104,11 @@ export default function Benefits(
               alignment={layout?.headerAlignment || "center"}
             />
             <div class="w-full flex justify-center">
-              <div class={`flex ${isRow ? 'flex-row' : 'flex-col' } gap-4 lg:gap-8 w-full lg:grid grid-flow-col auto-cols-fr`}>
+              <div
+                class={`flex ${
+                  isRow ? "flex-row" : "flex-col"
+                } gap-4 lg:gap-8 w-full lg:grid grid-flow-col auto-cols-fr`}
+              >
                 {listOfBenefits}
               </div>
             </div>

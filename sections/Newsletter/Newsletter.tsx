@@ -6,7 +6,7 @@ export interface Form {
   };
   email: {
     placeholder?: string;
-  }
+  };
   buttonText?: string;
   /** @format html */
   helpText?: string;
@@ -37,7 +37,7 @@ const DEFAULT_PROPS: Props = {
     email: {
       placeholder: "Digite seu email",
     },
-    buttonText: "ENVIAR"
+    buttonText: "ENVIAR",
   },
   layout: {
     headerFontSize: "Large",

@@ -5,13 +5,16 @@ import SearchbarDesktop from "$store/islands/Header/SearchbarDesktop.tsx";
 import { useSignal } from "@preact/signals";
 import Modal from "$store/components/ui/Modal.tsx";
 
-export default function SearchInput({searchbar}: {searchbar?: SearchbarProps;}) {
+export default function SearchInput(
+  { searchbar }: { searchbar?: SearchbarProps },
+) {
   const { displaySearchPopup } = useUI();
-  const query = useSignal('')
-  let widthContainerSearch = 0
+  const query = useSignal("");
+  let widthContainerSearch = 0;
 
   if (displaySearchPopup.value) {
-    widthContainerSearch = document.querySelector('.searchbarContainer').clientWidth
+    widthContainerSearch =
+      document.querySelector(".searchbarContainer").clientWidth;
   }
 
   return (
@@ -20,17 +23,20 @@ export default function SearchInput({searchbar}: {searchbar?: SearchbarProps;}) 
         <input
           class="hidden sm:block w-full p-4 h-full absolute bg-[#F2F2F2] rounded-lg text-[#181212]"
           aria-label="search icon button"
-          placeholder={searchbar?.placeholder ?? ''}
+          placeholder={searchbar?.placeholder ?? ""}
           onChange={({ target }) => {
             if (target.value) {
-              displaySearchPopup.value = true
-              query.value = target.value
+              displaySearchPopup.value = true;
+              query.value = target.value;
             } else {
-              displaySearchPopup.value = false
+              displaySearchPopup.value = false;
             }
           }}
         />
-        <a href={`/s?q=${query.value}`} class="absolute right-1 p-1 h-full flex items-center">
+        <a
+          href={`/s?q=${query.value}`}
+          class="absolute right-1 p-1 h-full flex items-center"
+        >
           <Icon id="MagnifyingGlass" size={24} strokeWidth={0.1} />
         </a>
         <Button
@@ -41,25 +47,24 @@ export default function SearchInput({searchbar}: {searchbar?: SearchbarProps;}) 
           <Icon id="XMark" size={24} strokeWidth={2} />
         </Button>
       </div>
-      { query?.value?.length > 0 && (
+      {query?.value?.length > 0 && (
         <Modal
           loading="lazy"
           open={displaySearchPopup.value}
           onClose={() => displaySearchPopup.value = false}
-          style={{ backgroundColor: 'transparent' }}
+          style={{ backgroundColor: "transparent" }}
         >
           <div
             class={`absolute top-0 bg-base-100 container `}
-            style={{ 
-              marginTop: '90px',
-              maxWidth: widthContainerSearch
+            style={{
+              marginTop: "90px",
+              maxWidth: widthContainerSearch,
             }}
           >
-            <SearchbarDesktop searchbar={searchbar} query={query.value} />  
+            <SearchbarDesktop searchbar={searchbar} query={query.value} />
           </div>
         </Modal>
       )}
     </>
   );
 }
-  

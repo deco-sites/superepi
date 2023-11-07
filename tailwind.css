@@ -20,6 +20,10 @@
     margin: 0;
   }
 
+  .animate-walk {
+    animation: walk 30s ease-in-out alternate infinite;
+  }
+
   /* Disable scroll once drawer/modal is openned */
   body:has(.drawer-toggle:checked),
   body:has(.modal-toggle:checked) {
@@ -39,5 +43,15 @@
 
   to {
     --dot-progress: 100%
+  }
+}
+
+
+@keyframes walk {
+  from {
+    transform: translateX(0%)
+  }
+  to {
+    transform: translateX(-50%)
   }
 }

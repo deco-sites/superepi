@@ -132,13 +132,13 @@ const Image = (src: string) => {
         class=""
         sizes="(max-width: 640px) 100vw, 30vw"
         src={src}
-        alt={'Payment methods'}
+        alt={"Payment methods"}
         decoding="async"
         loading="lazy"
       />
     </Picture>
-  )
-}
+  );
+};
 
 function Footer({
   logo,
@@ -229,7 +229,9 @@ function Footer({
     ? <></>
     : <Social content={social} vertical={layout?.variation == "Variation 3"} />;
   const _payments = layout?.hide?.paymentMethods
-    ? Image('https://texf1k9mfq.map.azionedge.net/Custom/Content/Themes/HardCore/Imagens/meios-pagamento.png?v=l')
+    ? Image(
+      "https://texf1k9mfq.map.azionedge.net/Custom/Content/Themes/HardCore/Imagens/meios-pagamento.png?v=l",
+    )
     : <PaymentMethods content={payments} />;
   const _apps = layout?.hide?.mobileApps
     ? <></>

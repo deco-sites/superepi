@@ -26,7 +26,7 @@ function Navbar({ items, searchbar, logo }: {
     <>
       {/* Mobile Version */}
       <div
-        style={{ height: '75px' }}
+        style={{ height: "75px" }}
         class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2 py-4"
       >
         <MenuButton />
@@ -37,18 +37,24 @@ function Navbar({ items, searchbar, logo }: {
             class="flex-grow inline-flex items-center pb-3"
             aria-label="Store logo"
           >
-            <Image className="w-full" src={logo.src} alt={logo.alt} width={85} height={25} />
+            <Image
+              className="w-full"
+              src={logo.src}
+              alt={logo.alt}
+              width={85}
+              height={25}
+            />
           </a>
         )}
 
         <div class="flex gap-1">
           <SearchButton />
           <a
-              class="btn btn-circle btn-sm btn-ghost flex items-center gap-2"
-              href="/login"
-              aria-label="Log in"
-            >
-              <Icon id="Login" size={24} strokeWidth={0.4} />
+            class="btn btn-circle btn-sm btn-ghost flex items-center gap-2"
+            href="/login"
+            aria-label="Log in"
+          >
+            <Icon id="Login" size={24} strokeWidth={0.4} />
           </a>
           {platform === "vtex" && <CartButtonVTEX />}
           {platform === "vnda" && <CartButtonVDNA />}
@@ -66,7 +72,13 @@ function Navbar({ items, searchbar, logo }: {
                 aria-label="Store logo"
                 class="block px-4 py-3 w-[160px]"
               >
-                <Image className="w-full" src={logo.src} alt={logo.alt} width={85} height={25} />
+                <Image
+                  className="w-full"
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={85}
+                  height={25}
+                />
               </a>
             )}
           </div>
