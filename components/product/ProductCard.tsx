@@ -57,8 +57,18 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-const WIDTH = 200;
-const HEIGHT = 279;
+const installmentsSerialize = (offer: number) => {
+  switch (offer) {
+    case offer < 18.50:
+    return `1x de ${offer}`
+    break
+    case offer < 28:
+    return `2x de ${(offer / 2).toFixed(2)}`
+    break
+    case offer > 28:
+    return `3x de ${(offer / 3).toFixed(3)}`
+  }
+}
 
 function ProductCard(
   { product, preload, itemListName, layout, platform, index }: Props,
@@ -79,6 +89,8 @@ function ProductCard(
   const { listPrice, price, installments } = useOffer(offers);
   const possibilities = useVariantPossibilities(hasVariant, product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
+
+  console.log("PRODUTO", installments, offers.offers)
 
   const l = layout;
   const align =
@@ -137,30 +149,8 @@ function ProductCard(
       />
       <figure
         class="relative overflow-hidden"
-        style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
+        style={{ aspectRatio: `130 /150` }}
       >
-        {/* Wishlist button */}
-        <div
-          class={`absolute top-2 z-10
-          ${
-            l?.elementsPositions?.favoriteIcon === "Top left"
-              ? "left-2"
-              : "right-2"
-          }
-          ${
-            l?.onMouseOver?.showFavoriteIcon
-              ? "lg:hidden lg:group-hover:block"
-              : "lg:hidden"
-          }
-        `}
-        >
-          {platform === "vtex" && (
-            <WishlistButton
-              productGroupID={productGroupID}
-              productID={productID}
-            />
-          )}
-        </div>
         {/* Product Images */}
         <a
           href={url && relative(url)}
@@ -170,8 +160,8 @@ function ProductCard(
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={WIDTH}
-            height={HEIGHT}
+            width={130}
+            height={150}
             class={`bg-base-100 col-span-full row-span-full rounded w-full ${
               l?.onMouseOver?.image == "Zoom image"
                 ? "duration-100 transition-scale scale-100 lg:group-hover:scale-125"
@@ -187,8 +177,8 @@ function ProductCard(
             <Image
               src={back?.url ?? front.url!}
               alt={back?.alternateName ?? front.alternateName}
-              width={WIDTH}
-              height={HEIGHT}
+              width={130}
+              height={150}
               class="bg-base-100 col-span-full row-span-full transition-opacity rounded w-full opacity-0 lg:group-hover:opacity-100"
               sizes="(max-width: 640px) 50vw, 20vw"
               loading="lazy"
@@ -273,7 +263,7 @@ function ProductCard(
               ? ""
               : (
                 <div class="text-base-300 text-sm lg:text-base truncate">
-                  ou {installments}
+                  {installmentsSerialize(price)}
                 </div>
               )}
           </div>

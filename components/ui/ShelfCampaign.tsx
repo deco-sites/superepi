@@ -8,6 +8,16 @@ import { useId } from "$store/sdk/useId.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { SendEventOnLoad } from "$store/components/Analytics.tsx";
+
+export interface TimerProps {
+  /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
+  initial: string;
+  
+  /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
+  finish: string;
+}
 
 export interface ShelfCampaignProps {
   title?: string;
@@ -16,13 +26,11 @@ export interface ShelfCampaignProps {
     text?: string;
     href?: string;
   };
-  date: {
-    initial: Date;
-    finish: Date;
-  };
+  date: TimerProps;
   products: Product[] | null;
   cardLayout: cardLayout;
 }
+
 
 export default function ShelfCampaign({
   title,
@@ -51,7 +59,7 @@ export default function ShelfCampaign({
 
   return (
     <div class="bg-[#F5F5F5]">
-      <div class="lg:container flex justify-center">
+      <div class="lg:container grid grid-cols-2 grid-row-3">
         <div class="flex flex-col">
           {title && <h2>{title}</h2>}
           {description && <p>{description}</p>}

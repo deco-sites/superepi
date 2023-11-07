@@ -55,7 +55,7 @@ export default function SearchInput(
           style={{ backgroundColor: "transparent" }}
         >
           <div
-            class={`absolute top-0 bg-base-100 container `}
+            class={`absolute top-0 bg-base-100 container translate-x-[-60px] `}
             style={{
               marginTop: "90px",
               maxWidth: widthContainerSearch,

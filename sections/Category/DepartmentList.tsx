@@ -129,7 +129,7 @@ function DeparmentList(props: Props) {
                     layout?.categoryCard?.textAlignment === "left"
                       ? "justify-start"
                       : "justify-center"
-                  } z-10 text-base flex items-center py-3 w-full bg-[#0054A6]`}
+                  } z-10 text-base flex items-center py-3 w-full bg-[#000000b8]`}
                 >
                   <CardText
                     tag={tag}
