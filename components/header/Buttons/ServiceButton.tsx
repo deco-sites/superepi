@@ -20,7 +20,7 @@ export default function ServiceButton() {
       </a>
       {openPopUp.value && (
         <div
-          class="absolute top-10 flex flex-col items-center bg-white -left-4 px-4 pb-4"
+          class="absolute top-10 flex flex-col items-center bg-white -left-4 px-4 pb-4 w-[200px]"
           onMouseEnter={() => openPopUp.value = true}
           onMouseLeave={() => openPopUp.value = false}
         >
@@ -42,7 +42,7 @@ export default function ServiceButton() {
           >
             Cotações
           </a>
-          <button class="w-full border py-2 px-4 border-[#181212">
+          <button class="w-full border py-2 px-4 border-[#181212 mb-2">
             Horário de atendimento Segunda à Quinta das 9:00H às 18:00H Sexta
             das 8:00H às 17:00H
           </button>
