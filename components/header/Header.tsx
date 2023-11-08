@@ -32,6 +32,10 @@ export interface NavItemProps {
     children?: Array<{
       label: string;
       href: string;
+      children?: Array<{
+        label: string;
+        href: string;
+      }>;
     }>;
   }>;
   image?: {

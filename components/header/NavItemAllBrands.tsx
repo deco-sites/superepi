@@ -2,12 +2,12 @@ import Image from "apps/website/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
 import { NavItemProps } from "$store/components/header/Header.tsx";
 
-function NavItem({ item }: { item: NavItemProps }) {
+function NavItemAllBrands({ item }: { item: NavItemProps }) {
   const { href, label, children } = item;
   const image = item?.image;
 
   return (
-    <li class="group flex items-center relative">
+    <li class="group flex items-center">
       <a href={href} class="py-3">
         <span class="group-hover:underline text-[10px] lg:text-xs xl:text-base">
           {label}
@@ -17,8 +17,8 @@ function NavItem({ item }: { item: NavItemProps }) {
       {children && children.length > 0 &&
         (
           <div
-            class="absolute hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
+            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
+            style={{ top: "68px", left: "0px", marginTop: headerHeight }}
             >
             <ul style={{ columnCount: 3 }} class="max-h-[550px] py-6 px-4">
               {children.map((node) => (
@@ -55,4 +55,4 @@ function NavItem({ item }: { item: NavItemProps }) {
   );
 }
 
-export default NavItem;
+export default NavItemAllBrands;

@@ -60,18 +60,18 @@ export default function ShelfCampaign({
 
   return (
     <div class="bg-[#F5F5F5]">
-      <div class="lg:container grid grid-cols-2 grid-row-3">
+      <div class="lg:container grid grid-cols-2 grid-row-3 py-4">
         <div class="flex flex-col justify-center items-center row-span-full">
-          {title && <h2>{title}</h2>}
+          {title && <h2 class="text-xl font-semibold">{title}</h2>}
           {description && <p>{description}</p>}
-          <div>
-          <TimerCampaign />
+          <div class="pb-8">
+            <TimerCampaign />
           </div>
           {ctaComponent}
         </div>
         <div
           id={id}
-          class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5"
+          class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 grid-rows-[48px_1fr_1fr_1fr_48px]"
         >
           <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
             {products?.map((product, index) => (
@@ -92,12 +92,12 @@ export default function ShelfCampaign({
 
           <>
             <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-              <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
+              <Slider.PrevButton class="btn btn-circle btn-outline absolute rounded-none right-1/2 bg-base-100">
                 <Icon size={24} id="ChevronLeft" strokeWidth={3} />
               </Slider.PrevButton>
             </div>
             <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-              <Slider.NextButton class="btn btn-circle btn-outline absolute left-1/2 bg-base-100">
+              <Slider.NextButton class="btn btn-circle btn-outline absolute rounded-none left-1/2 bg-base-100">
                 <Icon size={24} id="ChevronRight" strokeWidth={3} />
               </Slider.NextButton>
             </div>

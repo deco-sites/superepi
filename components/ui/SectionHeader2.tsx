@@ -1,50 +1,34 @@
 interface Props {
-  titleTop?: string;
-  titleBottom?: string;
+  title?: string;
   fontSize?: "Normal" | "Large";
   description?: string;
   alignment: "center" | "left";
-  colorReverse?: boolean;
+  color?: boolean;
 }
 
 function HeaderSections(props: Props) {
   return (
     <>
-      {props.titleTop || props.description
+      {props?.title || props?.description
         ? (
           <div
             class={`flex flex-col ${
               props.alignment === "left" ? "justify-start" : "justify-center"
-            } border-b pb-1 border-b-[#181812]`}
+            } pb-1`}
           >
-            {props.titleTop &&
+            {props.title &&
               (
                 <h1
                   class={`text-xl md:text-2xl lg:text-3xl leading-2
                   ${
-                    props.colorReverse
-                      ? "text-primary-content"
-                      : "text-[#181812]"
+                    props.color
+                    ? `text-[${color}]`
+                    : "text-base-content"
                   }
                 `}
                 >
-                  {props.titleTop}
+                  {props.title}
                 </h1>
-              )}
-            {props.titleBottom &&
-              (
-                <h2
-                  class={`text-xl leading-2 font-bold pb-2
-                ${
-                    props.colorReverse
-                      ? "text-primary-content"
-                      : "text-[#565656]"
-                  }
-                ${props.fontSize === "Normal" ? "text-xl" : "lg:text-2xl"}
-                `}
-                >
-                  {props.titleBottom}
-                </h2>
               )}
             {props.description &&
               (
@@ -52,7 +36,9 @@ function HeaderSections(props: Props) {
                   class={`
                   leading-6 lg:leading-8
                   ${
-                    props.colorReverse ? "text-primary-content" : "text-neutral"
+                    props.color
+                      ? `text-[${color}]`
+                      : "text-neutral"
                   }
                   ${props.fontSize === "Normal" ? "lg:text-xl" : "lg:text-2xl"}
                 `}

@@ -90,7 +90,7 @@ function ProductCard(
   const possibilities = useVariantPossibilities(hasVariant, product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
-  console.log("PRODUTO", installments, offers.offers)
+  console.log("PRODUTO", product)
 
   const l = layout;
   const align =

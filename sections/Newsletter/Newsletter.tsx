@@ -58,7 +58,7 @@ export default function Newsletter(props: Props) {
       title={title}
       description={description}
       alignment={layout?.content?.alignment === "Left" ? "left" : "center"}
-      colorReverse={isReverse}
+      color={'#f8a531'}
       fontSize={layout?.headerFontSize}
     />
   );
@@ -79,7 +79,7 @@ export default function Newsletter(props: Props) {
           />
         </div>
         <button
-          class={`btn ${isReverse ? "btn-accent" : ""}`}
+          class={`btn ${isReverse ? "btn-accent bg-[#f8a531]" : ""}`}
           type="submit"
         >
           {form.buttonText}

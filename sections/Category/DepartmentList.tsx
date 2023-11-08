@@ -26,8 +26,7 @@ export type BorderRadius =
 
 export interface Props {
   header?: {
-    titleTop?: string;
-    titleBottom?: string;
+    title?: string;
     description?: string;
   };
   list?: Category[];
@@ -68,8 +67,7 @@ function DeparmentList(props: Props) {
   const id = `category-list-${useId()}`;
   const {
     header = {
-      titleTop: "",
-      titleBottom: "",
+      title: "",
       description: "",
     },
     list = [
@@ -99,10 +97,10 @@ function DeparmentList(props: Props) {
       class="container py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
     >
       <HeaderSections
-        titleTop={header.titleTop}
-        titleBottom={header.titleBottom}
-        description={header.description || ""}
-        alignment={layout.headerAlignment || "center"}
+        title={header?.title || ""}
+        description={header?.description || ""}
+        fontSize={"Large"}
+        alignment={layout?.headerAlignment || "center"}
       />
 
       <Slider class="carousel carousel-start gap-4 lg:gap-6 row-start-2 row-end-5">
