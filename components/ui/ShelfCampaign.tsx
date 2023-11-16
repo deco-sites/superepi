@@ -49,8 +49,6 @@ export default function ShelfCampaign({
     </div>
   );
 
-  console.log(date, "DATE");
-
   return (
     <div class="bg-[#F5F5F5]">
       <div class="lg:container grid grid-cols-2 grid-row-3 py-4">

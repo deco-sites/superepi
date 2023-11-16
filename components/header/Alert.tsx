@@ -6,7 +6,7 @@ function Alert({ alerts: { column1, column2 } }: { alerts: AlertInfos }) {
   const id = useId();
 
   return (
-    <div id={id} class="bg-[#f0f0f0] hidden md:block">
+    <div id={id} class="bg-[#f0f0f0] hidden md:block px-4">
       <div class="max-w-[1440px] mx-auto flex justify-center md:justify-between">
         <div class="flex gap-3 items-center">
           {column1?.map(({ labelIcon, link, text }) => (

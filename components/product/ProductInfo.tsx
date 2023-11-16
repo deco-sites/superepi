@@ -63,8 +63,7 @@ function ProductInfo({ page, layout }: Props) {
   console.log(product, "PDP")
 
   const sku = product.sku?.includes('SKU') ? product.sku?.split('SKU-')[1] : product.sku?.split('/')[0];
-  const content = additionalProperty.find(({ name }) => name === "Variações")
-  console.log(additionalProperty, 'PDP')
+  const content = additionalProperty.length > 1 ? additionalProperty.find(({ name }) => name === "Variações") : ""
   
 
   return (
@@ -92,8 +91,8 @@ function ProductInfo({ page, layout }: Props) {
         { brand?.logo && <div className="flex gap-2"><img src={brand?.logo} alt={`Logo ${brand?.name}`} className="w-10 object-contain" /></div>}
         <div className="flex gap-1 flex-col"><span class="font-semibold">Marca:</span><span>{brand?.name}</span></div>
         <div className="flex gap-1 flex-col"><span class="font-semibold">Referência:</span><span>{sku}</span></div>
-        <div className="flex gap-1 flex-col"><span class="font-semibold">Conteúdo:</span><span>{content?.value}</span></div>
-        <div className="flex gap-1 flex-col"><span class="font-semibold">Disponilidade:</span><span>{"Em estoque"}</span></div>
+        { content && <div className="flex gap-1 flex-col"><span class="font-semibold">Conteúdo:</span><span>{content?.value}</span></div>}
+        <div className="flex gap-1 flex-col"><span class="font-semibold">Disponilidade:</span><span>{availability === "https://schema.org/InStock" ? "Em estoque" : "Indisponível"}</span></div>
       </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6">

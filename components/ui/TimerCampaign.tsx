@@ -30,7 +30,6 @@ export default function TimerCampaign({ initial, finish }: Props) {
     if (dateInitial.getTime() < new Date().getTime() && new Date().getTime() < dateFinish.getTime()) {
       let timestampBetweenDateNowandDateFinish = dateFinish.getTime() - new Date().getTime();
       setInterval((e) => {
-        console.log('INTERVAL ATIVO')
         timestampBetweenDateNowandDateFinish -= 1000;
         if (timestampBetweenDateNowandDateFinish !== 0) {
           const days = timestampBetweenDateNowandDateFinish / (1000 * 3600 * 24);
