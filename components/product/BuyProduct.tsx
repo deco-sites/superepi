@@ -16,6 +16,7 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import ProductSelector from "./ProductVariantSelector.tsx";
 import BtnPayment from "$store/islands/BtnPayment.tsx"
 import Icon from "$store/components/ui/Icon.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 interface Props {
   page: ProductDetailsPage | null;
@@ -175,6 +176,11 @@ function BuyProduct({ page, layout }: Props) {
             }]}
           />
         )}
+      </div>
+
+      {/* Site blindado */}
+      <div class="flex justify-center mt-4">
+        <Image class="w-28" src="https://seal.siteblindado.com/www.superepi.com.br/seal.png" alt="Logo siteblindado" width={53} height={16} />
       </div>
       {/* Analytics Event */}
       <SendEventOnLoad
