@@ -76,18 +76,18 @@ function BuyProduct({ page, layout }: Props) {
             </span>
           )}
           { discountTicket ? (
-            <span class="font-medium text-xl text-black flex gap-2 items-end">
+            <span class="font-semibold text-xl md:text-3xl text-[#37CC6D] flex flex-col gap-2 items-start">
+            <span class="text-sm text-base-300 text-medium">à vista com <strong class="text-base-300">5% OFF no Boleto ou PIX</strong></span>
             {formatPrice(discountTicket, offers?.priceCurrency)}
-            <strong class="text-sm">no Pix/Boleto</strong>
           </span>
           ) : (
-            <span class="font-medium text-xl text-secondary">
+            <span class="font-semibold text-xl text-secondary">
               {formatPrice(price, offers?.priceCurrency)}
             </span>
           ) }
         </div>
         <span class="text-sm text-base-300">
-          {installments}
+          { discountTicket ? `ou ${formatPrice(price, offers?.priceCurrency)} em até ${installments} ` : installments}
         </span>
       </div>
       {/* Add to Cart and Favorites button */}
@@ -158,10 +158,12 @@ function BuyProduct({ page, layout }: Props) {
           )
           : <OutOfStock productID={productID} />}
       </div>
-      <div class="flex items-center">
-        <Icon id="CreditCards" size={30} />
-        <BtnPayment cardPayment={price} ticketPayment={discountTicket} />
-      </div>
+      {availability === "https://schema.org/InStock" && (
+        <div class="flex items-center mt-8">
+          <Icon id="CreditCards" size={30} />
+          <BtnPayment cardPayment={price} ticketPayment={discountTicket} />
+        </div>
+      )}
       {/* Shipping Simulation */}
       <div class="mt-8">
         {platform === "vtex" && (
