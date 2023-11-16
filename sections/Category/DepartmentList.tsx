@@ -1,5 +1,6 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import { useId } from "preact/hooks";
+import Icon from "$store/components/ui/Icon.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import HeaderSections from "$store/components/ui/SectionHeader2.tsx";
 import Image from "apps/website/components/Image.tsx";
@@ -63,6 +64,32 @@ function CardText(
   );
 }
 
+
+function Buttons() {
+  return (
+    <>
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-1">
+        <Slider.PrevButton class="btn btn-circle btn-outline rounded-none bg-base-100 text-[#181212]">
+          <Icon
+            size={24}
+            id="ChevronLeft"
+            strokeWidth={3}
+          />
+        </Slider.PrevButton>
+      </div>
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-1">
+        <Slider.NextButton class="btn btn-circle btn-outline rounded-none bg-base-100 text-[#181212]">
+          <Icon
+            size={24}
+            id="ChevronRight"
+            strokeWidth={3}
+          />
+        </Slider.NextButton>
+      </div>
+    </>
+  );
+}
+
 function DeparmentList(props: Props) {
   const id = `category-list-${useId()}`;
   const {
@@ -93,15 +120,20 @@ function DeparmentList(props: Props) {
 
   return (
     <div
-      id={id}
-      class="container py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
+    id={id}
+    class="container py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
     >
-      <HeaderSections
-        title={header?.title || ""}
-        description={header?.description || ""}
-        fontSize={"Large"}
-        alignment={layout?.headerAlignment || "center"}
-      />
+      <div class="flex justify-between">
+        <HeaderSections
+          title={header?.title || ""}
+          description={header?.description || ""}
+          fontSize={"Large"}
+          alignment={layout?.headerAlignment || "center"}
+        />
+        <div class="flex gap-2">
+          <Buttons />
+        </div>
+      </div>
 
       <Slider class="carousel carousel-start gap-4 lg:gap-6 row-start-2 row-end-5">
         {list.map((
@@ -164,6 +196,7 @@ function DeparmentList(props: Props) {
           </Slider.Item>
         ))}
       </Slider>
+
 
       <SliderJS rootId={id} />
     </div>

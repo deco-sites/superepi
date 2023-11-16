@@ -9,16 +9,9 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Icon from "$store/components/ui/Icon.tsx";
-import TimerCampaign from "$store/components/ui/TimerCampaign.tsx";
+import TimerCampaign from "$store/islands/TimerCampaign.tsx";
 import { SendEventOnLoad } from "$store/components/Analytics.tsx";
-
-export interface TimerProps {
-  /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
-  initial: string;
-
-  /** @description Digite no formato YYYY-MM-DDTHH:MM:SS */
-  finish: string;
-}
+import type { Props as TimerProps } from "$store/components/ui/TimerCampaign.tsx"
 
 export interface ShelfCampaignProps {
   title?: string;
@@ -65,7 +58,7 @@ export default function ShelfCampaign({
           {title && <h2 class="text-xl font-semibold">{title}</h2>}
           {description && <p>{description}</p>}
           <div class="pb-8">
-            <TimerCampaign />
+            <TimerCampaign initial={date?.initial} finish={date?.finish} />
           </div>
           {ctaComponent}
         </div>

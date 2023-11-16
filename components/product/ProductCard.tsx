@@ -58,16 +58,9 @@ const relative = (url: string) => {
 };
 
 const installmentsSerialize = (offer: number) => {
-  switch (offer) {
-    case offer < 18.50:
-    return `1x de ${offer}`
-    break
-    case offer < 28:
-    return `2x de ${(offer / 2).toFixed(2)}`
-    break
-    case offer > 28:
-    return `3x de ${(offer / 3).toFixed(3)}`
-  }
+  if (offer < 18.50) return `ou 1x de ${offer.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+  else if (offer < 28) return `ou 2x de ${(offer / 2).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}` 
+  else if (offer > 28) return `ou 3x de ${(offer / 3).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
 }
 
 function ProductCard(
@@ -86,11 +79,14 @@ function ProductCard(
   const productGroupID = isVariantOf?.productGroupID;
   const description = product.description || isVariantOf?.description;
   const [front, back] = images ?? [];
-  const { listPrice, price, installments } = useOffer(offers);
+  const { 
+    listPrice,
+    price,
+    installments,
+    discountTicket 
+  } = useOffer(offers);
   const possibilities = useVariantPossibilities(hasVariant, product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
-
-  console.log("PRODUTO", product)
 
   const l = layout;
   const align =
@@ -116,6 +112,8 @@ function ProductCard(
       {l?.basics?.ctaText || "Ver produto"}
     </a>
   );
+
+  console.log({price, discount: price - (price / 20)}, "PRICE")
 
   return (
     <div
@@ -221,51 +219,65 @@ function ProductCard(
           </>
         )}
 
-        {l?.hide?.productName && l?.hide?.productDescription
+        {l?.hide?.productName
           ? ""
           : (
-            <div class="flex flex-col gap-0">
-              {l?.hide?.productName ? "" : (
+            <div class="flex flex-col gap-1">
+               {!product?.brand?.name ? "" : (
+                <div
+                  class="truncate text-sm lg:text-sm text-neutral"
+                  dangerouslySetInnerHTML={{ __html: product?.brand?.name }}
+                />
+              )}
                 <h2
                   class="truncate text-base lg:text-lg text-base-content"
                   dangerouslySetInnerHTML={{ __html: name ?? "" }}
                 />
-              )}
-              {l?.hide?.productDescription ? "" : (
-                <div
-                  class="truncate text-sm lg:text-sm text-neutral"
-                  dangerouslySetInnerHTML={{ __html: description ?? "" }}
-                />
-              )}
             </div>
           )}
         {l?.hide?.allPrices ? "" : (
-          <div class="flex flex-col gap-2">
-            <div
-              class={`flex flex-col gap-0 ${
-                l?.basics?.oldPriceSize === "Normal"
-                  ? "lg:flex-row lg:gap-2"
-                  : ""
-              } ${align === "center" ? "justify-center" : "justify-start"}`}
-            >
+          <div class={`flex relative ${align === 'center' ? 'justify-center' : 'justify-between' }`}>
+            <div class="flex flex-col">
               <div
-                class={`line-through text-base-300 text-xs ${
-                  l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
-                }`}
+                class={`flex flex-col gap-0 ${align === "center" ? "justify-center" : "justify-start"}`}
               >
-                {formatPrice(listPrice, offers?.priceCurrency)}
+                { listPrice === price ? (
+                  <div class="text-black text-base lg:text-xl font-semibold flex flex-col">
+                    <span class="text-sm">A partir de</span>
+                    {formatPrice(price - (price / 20), offers?.priceCurrency)}
+                  </div>
+                ) : (
+                  <>
+                    <div
+                      class={`line-through text-base-300 text-xs ${
+                        l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
+                      }`}
+                    >
+                      {formatPrice(listPrice, offers?.priceCurrency)}
+                    </div>
+                    <div class="text-black font-semibold text-base lg:text-xl flex gap-2 items-end">
+                      {formatPrice(price - (price / 20), offers?.priceCurrency)}
+                      <strong class="text-sm">no Pix/Boleto</strong>
+                    </div>
+                  </>
+                ) }
               </div>
-              <div class="text-accent text-base lg:text-xl">
-                {formatPrice(price, offers?.priceCurrency)}
-              </div>
+              {l?.hide?.installments
+                ? ""
+                : installments ? (
+                  <div class="text-black text-sm lg:text-base truncate">
+                    {installments}
+                  </div>
+                ) : (
+                  <div class="text-black text-sm lg:text-base truncate">
+                    {listPrice ? installmentsSerialize(listPrice) : price && installmentsSerialize(price)}
+                  </div>
+                )}
             </div>
-            {l?.hide?.installments
-              ? ""
-              : (
-                <div class="text-base-300 text-sm lg:text-base truncate">
-                  {installmentsSerialize(price)}
-                </div>
-              )}
+            <div class="bg-[#ffff00] px-4 py-2 flex flex-col items-center justify-center text-black absolute right-2">
+              <strong>5%</strong>
+              OFF
+            </div>
           </div>
         )}
 

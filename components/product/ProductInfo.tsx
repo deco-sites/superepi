@@ -46,35 +46,39 @@ function ProductInfo({ page, layout }: Props) {
     gtin,
     isVariantOf,
     additionalProperty = [],
+    brand = {},
   } = product;
   const description = product.description || isVariantOf?.description;
   const {
     price = 0,
     listPrice,
     seller = "1",
+    discountTicket,
     installments,
     availability,
   } = useOffer(offers);
   const productGroupID = isVariantOf?.productGroupID ?? "";
   const discount = price && listPrice ? listPrice - price : 0;
 
+  console.log(product, "PDP")
+
+  const sku = product.sku?.includes('SKU') ? product.sku?.split('SKU-')[1] : product.sku?.split('/')[0];
+  const content = additionalProperty.find(({ name }) => name === "Variações")
+  console.log(additionalProperty, 'PDP')
+  
+
   return (
-    <div class="flex flex-col">
-      {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-      />
-      {/* Code and name */}
+    <div class="flex flex-col max-w-[450px]">
       <div class="mt-4 sm:mt-8">
-        <div>
-          {gtin && (
-            <span class="text-sm text-base-300">
-              Cod. {gtin}
-            </span>
-          )}
+        <div class="hidden md:flex">
+          {/* Breadcrumb */}
+          <Breadcrumb
+            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          />
         </div>
+        {/* Name */}
         <h1>
-          <span class="font-medium text-xl capitalize">
+          <span class="text-[22px] text-[#151515] font-semibold capitalize">
             {layout?.name === "concat"
               ? `${isVariantOf?.name} ${name}`
               : layout?.name === "productGroup"
@@ -83,117 +87,28 @@ function ProductInfo({ page, layout }: Props) {
           </span>
         </h1>
       </div>
-      {/* Prices */}
-      <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
-          {(listPrice ?? 0) > price && (
-            <span class="line-through text-base-300 text-xs">
-              {formatPrice(listPrice, offers?.priceCurrency)}
-            </span>
-          )}
-          <span class="font-medium text-xl text-secondary">
-            {formatPrice(price, offers?.priceCurrency)}
-          </span>
-        </div>
-        <span class="text-sm text-base-300">
-          {installments}
-        </span>
-      </div>
-      {/* Sku Selector */}
-      <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} />
-      </div>
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              {platform === "vtex" && (
-                <>
-                  <AddToCartButtonVTEX
-                    url={url || ""}
-                    name={name}
-                    productID={productID}
-                    productGroupID={productGroupID}
-                    price={price}
-                    discount={discount}
-                    seller={seller}
-                  />
-                  <WishlistButton
-                    variant="full"
-                    productID={productID}
-                    productGroupID={productGroupID}
-                  />
-                </>
-              )}
-              {platform === "wake" && (
-                <AddToCartButtonWake
-                  url={url || ""}
-                  name={name}
-                  productID={productID}
-                  productGroupID={productGroupID}
-                  price={price}
-                  discount={discount}
-                />
-              )}
-              {platform === "linx" && (
-                <AddToCartButtonLinx
-                  url={url || ""}
-                  name={name}
-                  productID={productID}
-                  productGroupID={productGroupID}
-                  price={price}
-                  discount={discount}
-                />
-              )}
-              {platform === "vnda" && (
-                <AddToCartButtonVNDA
-                  url={url || ""}
-                  name={name}
-                  productID={productID}
-                  productGroupID={productGroupID}
-                  price={price}
-                  discount={discount}
-                  additionalProperty={additionalProperty}
-                />
-              )}
-              {platform === "shopify" && (
-                <AddToCartButtonShopify
-                  url={url || ""}
-                  name={name}
-                  productID={productID}
-                  productGroupID={productGroupID}
-                  price={price}
-                  discount={discount}
-                />
-              )}
-            </>
-          )
-          : <OutOfStock productID={productID} />}
-      </div>
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        {platform === "vtex" && (
-          <ShippingSimulation
-            items={[{
-              id: Number(product.sku),
-              quantity: 1,
-              seller: seller,
-            }]}
-          />
-        )}
+      {/* Infos */}
+      <div className="grid grid-cols-2 gap-4">
+        { brand?.logo && <div className="flex gap-2"><img src={brand?.logo} alt={`Logo ${brand?.name}`} className="w-10 object-contain" /></div>}
+        <div className="flex gap-1 flex-col"><span class="font-semibold">Marca:</span><span>{brand?.name}</span></div>
+        <div className="flex gap-1 flex-col"><span class="font-semibold">Referência:</span><span>{sku}</span></div>
+        <div className="flex gap-1 flex-col"><span class="font-semibold">Conteúdo:</span><span>{content?.value}</span></div>
+        <div className="flex gap-1 flex-col"><span class="font-semibold">Disponilidade:</span><span>{"Em estoque"}</span></div>
       </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">
           {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
+            // <details>
+            //   <summary class="cursor-pointer">Descrição</summary>
+            <>
+              <h2 class="text-lg md:text-xl font-semibold">Descrição</h2>
               <div
                 class="ml-2 mt-2"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
-            </details>
+            </>
+            // </details>
           )}
         </span>
       </div>

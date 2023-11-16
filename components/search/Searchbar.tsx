@@ -1,6 +1,6 @@
 /**
- * We use a custom route at /s?q= to perform the search. This component
- * redirects the user to /s?q={term} when the user either clicks on the
+ * We use a custom route at /pesquisa?t= to perform the search. This component
+ * redirects the user to /pesquisa?t={term} when the user either clicks on the
  * button or submits the form. Make sure this page exists in deco.cx/admin
  * of yout site. If not, create a new page on this route and add the appropriate
  * loader.
@@ -136,7 +136,7 @@ function Searchbar({
             <ul id="search-suggestion" class="flex flex-col gap-6">
               {searches.map(({ term }) => (
                 <li>
-                  <a href={`/s?q=${term}`} class="flex gap-4 items-center">
+                  <a href={`/pesquisa?t=${term}`} class="flex gap-4 items-center">
                     <span>
                       <Icon
                         id="MagnifyingGlass"

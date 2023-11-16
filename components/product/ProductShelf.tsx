@@ -39,12 +39,26 @@ function ProductShelf({
 
   return (
     <div class="w-full container  py-8 flex flex-col gap-12 lg:gap-16 lg:py-10">
-      <Header
-        title={title || ""}
-        description={description || ""}
-        fontSize={layout?.headerfontSize || "Large"}
-        alignment={layout?.headerAlignment || "center"}
-      />
+      <div class="flex justify-between pr-6">
+        <Header
+          title={title || ""}
+          description={description || ""}
+          fontSize={layout?.headerfontSize || "Large"}
+          alignment={layout?.headerAlignment || "center"}
+        />
+        <div class="flex gap-2">
+          <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
+            <Slider.PrevButton class="btn btn-circle btn-outline absolute rounded-none right-1/2 bg-base-100">
+              <Icon size={24} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+          </div>
+          <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
+            <Slider.NextButton class="btn btn-circle btn-outline absolute rounded-none left-1/2 bg-base-100">
+              <Icon size={30} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+          </div>
+        </div>
+      </div>
 
       <div
         id={id}
@@ -66,19 +80,6 @@ function ProductShelf({
             </Slider.Item>
           ))}
         </Slider>
-
-        <>
-          <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-            <Slider.PrevButton class="btn btn-circle btn-outline absolute rounded-none right-1/2 bg-base-100">
-              <Icon size={24} id="ChevronLeft" strokeWidth={3} />
-            </Slider.PrevButton>
-          </div>
-          <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-            <Slider.NextButton class="btn btn-circle btn-outline absolute rounded-none left-1/2 bg-base-100">
-              <Icon size={24} id="ChevronRight" strokeWidth={3} />
-            </Slider.NextButton>
-          </div>
-        </>
         <SliderJS rootId={id} />
         <SendEventOnLoad
           event={{

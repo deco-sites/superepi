@@ -173,7 +173,7 @@ function Buttons() {
   return (
     <>
       <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="btn btn-circle bg-transparent hover:bg-[#f8a531] rounded-none">
+        <Slider.PrevButton class="btn btn-circle bg-transparent hover:bg-[#f8a531] transition-all duration-500 rounded-none">
           <Icon
             class="text-base-100"
             size={24}
@@ -183,7 +183,7 @@ function Buttons() {
         </Slider.PrevButton>
       </div>
       <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
-        <Slider.NextButton class="btn btn-circle bg-transparent hover:bg-[#f8a531] rounded-none">
+        <Slider.NextButton class="btn btn-circle bg-transparent hover:bg-[#f8a531] transition-all duration-500 rounded-none">
           <Icon
             class="text-base-100"
             size={24}

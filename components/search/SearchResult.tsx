@@ -34,6 +34,14 @@ function NotFound() {
   );
 }
 
+function renderPageIndex(pages: number) {
+  let array: number[] | [] = [];
+  for (let index = 1; index <= pages; index++) {
+    array = [...array, index];
+  }
+  return array;
+}
+
 function Result({
   page,
   layout,
@@ -42,7 +50,11 @@ function Result({
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
   const perPage = pageInfo.recordPerPage || products.length;
   const offset = pageInfo.currentPage * perPage;
+  const pages = Math.ceil(
+    pageInfo.records as number / (pageInfo?.recordPerPage ?? 1) as number,
+  );
 
+  console.log(pages, pageInfo, "AQUI")
   return (
     <>
       <div class="container px-4 sm:py-10">
@@ -70,25 +82,39 @@ function Result({
 
         <div class="flex justify-center my-4">
           <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo.previousPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronLeft" size={24} strokeWidth={2} />
-            </a>
+            {pageInfo?.currentPage + 1 === 1 ? "" : (
+              <a
+                aria-label="previous page link"
+                rel="prev"
+                href={pageInfo.previousPage ?? "#"}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="ChevronLeft" size={24} strokeWidth={2} />
+              </a>
+            )}
             <span class="btn btn-ghost join-item">
-              Page {pageInfo.currentPage + 1}
+              {renderPageIndex(pages).map((page) => (
+                <span
+                  class={`${
+                    page === pageInfo?.currentPage + 1
+                      ? "font-bold text-[17px] border bg-[#F8A531] p-2 text-white"
+                      : "font-medium text-base"
+                  }`}
+                >
+                  {page}
+                </span>
+              ))}
             </span>
-            <a
-              aria-label="next page link"
-              rel="next"
-              href={pageInfo.nextPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronRight" size={24} strokeWidth={2} />
-            </a>
+            {pageInfo?.currentPage + 1 === pages ? "" : (
+              <a
+                aria-label="next page link"
+                rel="next"
+                href={pageInfo.nextPage ?? "#"}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="ChevronRight" size={24} strokeWidth={2} />
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -79,7 +79,7 @@ export default function Newsletter(props: Props) {
           />
         </div>
         <button
-          class={`btn ${isReverse ? "btn-accent bg-[#f8a531]" : ""}`}
+          class={`btn btn-accent ${isReverse ? "" : "bg-[#f8a531]"}`}
           type="submit"
         >
           {form.buttonText}
@@ -109,7 +109,7 @@ export default function Newsletter(props: Props) {
       {(!layout?.content?.alignment ||
         layout?.content?.alignment === "Center") && (
         <div
-          class={`container flex flex-col rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+          class={`container flex flex-col md:flex-row rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
         >
           {headerLayout}
           <div class="flex justify-center">

@@ -9,11 +9,11 @@ function AddToCartButton(props: Props) {
   return (
     <Button
       {...props}
-      onAddItem={() =>
+      onAddItem={(quantity) =>
         addItem({
           ProductID: props.productGroupID,
           SkuID: props.productID,
-          Quantity: 1,
+          Quantity: quantity,
         })}
     />
   );

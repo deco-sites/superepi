@@ -9,6 +9,8 @@ const bestInstallment = (
 ) => {
   if (curr.priceComponentType !== "https://schema.org/Installment") {
     return acc;
+  } else if (curr.name !== "CreditCard") {
+    return acc;
   }
 
   if (!acc) {
@@ -58,12 +60,16 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
   const installment = offer?.priceSpecification.reduce(bestInstallment, null);
   const seller = offer?.seller;
   const price = offer?.price;
+  const discountTicket = offer?.priceSpecification.find((spec) => {
+    return spec.name === "PaymentSlip"
+  });
   const availability = offer?.availability;
 
   return {
     price,
     listPrice: listPrice?.price,
     availability,
+    discountTicket : discountTicket?.price,
     seller,
     installments: installment && price
       ? installmentToString(installment, price)

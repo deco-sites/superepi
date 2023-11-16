@@ -8,9 +8,9 @@ export interface Props extends Omit<BtnProps, "onAddItem" | "platform"> {
 
 function AddToCartButton(props: Props) {
   const { addItem } = useCart();
-  const onAddItem = () =>
+  const onAddItem = (quantity) =>
     addItem({
-      quantity: 1,
+      quantity,
       itemId: props.productID,
       attributes: Object.fromEntries(
         props.additionalProperty.map(({ name, value }) => [name, value]),

@@ -29,19 +29,20 @@ import * as $$$$$$21 from "./sections/Product/ProductShelf.tsx";
 import * as $$$$$$22 from "./sections/Product/Wishlist.tsx";
 import * as $$$$$$23 from "./sections/Product/NotFoundChallenge.tsx";
 import * as $$$$$$24 from "./sections/Product/ImageGallerySlider.tsx";
-import * as $$$$$$25 from "./sections/Links/LinkTree.tsx";
-import * as $$$$$$26 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$27 from "./sections/Category/Partners.tsx";
-import * as $$$$$$28 from "./sections/Category/CategoryList.tsx";
-import * as $$$$$$29 from "./sections/Category/CategoryBanner.tsx";
-import * as $$$$$$30 from "./sections/Category/DepartmentList.tsx";
-import * as $$$$$$31 from "./sections/Theme/Theme.tsx";
-import * as $$$$$$32 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$33 from "./sections/Content/Benefits.tsx";
-import * as $$$$$$34 from "./sections/Content/Faq.tsx";
-import * as $$$$$$35 from "./sections/Content/Logos.tsx";
-import * as $$$$$$36 from "./sections/Footer/Footer.tsx";
-import * as $$$$$$37 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$25 from "./sections/Product/BuyProduct.tsx";
+import * as $$$$$$26 from "./sections/Links/LinkTree.tsx";
+import * as $$$$$$27 from "./sections/Links/Shortcuts.tsx";
+import * as $$$$$$28 from "./sections/Category/Partners.tsx";
+import * as $$$$$$29 from "./sections/Category/CategoryList.tsx";
+import * as $$$$$$30 from "./sections/Category/CategoryBanner.tsx";
+import * as $$$$$$31 from "./sections/Category/DepartmentList.tsx";
+import * as $$$$$$32 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$33 from "./sections/Content/Testimonials.tsx";
+import * as $$$$$$34 from "./sections/Content/Benefits.tsx";
+import * as $$$$$$35 from "./sections/Content/Faq.tsx";
+import * as $$$$$$36 from "./sections/Content/Logos.tsx";
+import * as $$$$$$37 from "./sections/Footer/Footer.tsx";
+import * as $$$$$$38 from "./sections/Newsletter/Newsletter.tsx";
 import * as $$$$$$$$$$$0 from "./apps/site.ts";
 import * as $$$$$$$$$$$1 from "./apps/decohub.ts";
 
@@ -51,15 +52,15 @@ const manifest = {
     "deco-sites/storefront/loaders/List/Sections.tsx": $$$1,
   },
   "sections": {
-    "deco-sites/storefront/sections/Category/CategoryBanner.tsx": $$$$$$29,
-    "deco-sites/storefront/sections/Category/CategoryList.tsx": $$$$$$28,
-    "deco-sites/storefront/sections/Category/DepartmentList.tsx": $$$$$$30,
-    "deco-sites/storefront/sections/Category/Partners.tsx": $$$$$$27,
-    "deco-sites/storefront/sections/Content/Benefits.tsx": $$$$$$33,
-    "deco-sites/storefront/sections/Content/Faq.tsx": $$$$$$34,
-    "deco-sites/storefront/sections/Content/Logos.tsx": $$$$$$35,
-    "deco-sites/storefront/sections/Content/Testimonials.tsx": $$$$$$32,
-    "deco-sites/storefront/sections/Footer/Footer.tsx": $$$$$$36,
+    "deco-sites/storefront/sections/Category/CategoryBanner.tsx": $$$$$$30,
+    "deco-sites/storefront/sections/Category/CategoryList.tsx": $$$$$$29,
+    "deco-sites/storefront/sections/Category/DepartmentList.tsx": $$$$$$31,
+    "deco-sites/storefront/sections/Category/Partners.tsx": $$$$$$28,
+    "deco-sites/storefront/sections/Content/Benefits.tsx": $$$$$$34,
+    "deco-sites/storefront/sections/Content/Faq.tsx": $$$$$$35,
+    "deco-sites/storefront/sections/Content/Logos.tsx": $$$$$$36,
+    "deco-sites/storefront/sections/Content/Testimonials.tsx": $$$$$$33,
+    "deco-sites/storefront/sections/Footer/Footer.tsx": $$$$$$37,
     "deco-sites/storefront/sections/Gallery.tsx": $$$$$$14,
     "deco-sites/storefront/sections/Header/Header.tsx": $$$$$$9,
     "deco-sites/storefront/sections/Images/Banner.tsx": $$$$$$5,
@@ -71,11 +72,12 @@ const manifest = {
     "deco-sites/storefront/sections/Layout/Flex.tsx": $$$$$$12,
     "deco-sites/storefront/sections/Layout/Grid.tsx": $$$$$$11,
     "deco-sites/storefront/sections/Layout/GridItem.tsx": $$$$$$13,
-    "deco-sites/storefront/sections/Links/LinkTree.tsx": $$$$$$25,
-    "deco-sites/storefront/sections/Links/Shortcuts.tsx": $$$$$$26,
+    "deco-sites/storefront/sections/Links/LinkTree.tsx": $$$$$$26,
+    "deco-sites/storefront/sections/Links/Shortcuts.tsx": $$$$$$27,
     "deco-sites/storefront/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$0,
     "deco-sites/storefront/sections/Miscellaneous/CookieConsent.tsx": $$$$$$1,
-    "deco-sites/storefront/sections/Newsletter/Newsletter.tsx": $$$$$$37,
+    "deco-sites/storefront/sections/Newsletter/Newsletter.tsx": $$$$$$38,
+    "deco-sites/storefront/sections/Product/BuyProduct.tsx": $$$$$$25,
     "deco-sites/storefront/sections/Product/ImageGalleryFrontBack.tsx":
       $$$$$$15,
     "deco-sites/storefront/sections/Product/ImageGallerySlider.tsx": $$$$$$24,
@@ -89,7 +91,7 @@ const manifest = {
     "deco-sites/storefront/sections/Product/Wishlist.tsx": $$$$$$22,
     "deco-sites/storefront/sections/Social/InstagramPosts.tsx": $$$$$$2,
     "deco-sites/storefront/sections/Social/WhatsApp.tsx": $$$$$$3,
-    "deco-sites/storefront/sections/Theme/Theme.tsx": $$$$$$31,
+    "deco-sites/storefront/sections/Theme/Theme.tsx": $$$$$$32,
   },
   "apps": {
     "deco-sites/storefront/apps/decohub.ts": $$$$$$$$$$$1,

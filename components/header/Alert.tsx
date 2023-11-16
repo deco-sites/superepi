@@ -25,7 +25,7 @@ function Alert({ alerts: { column1, column2 } }: { alerts: AlertInfos }) {
           {column2?.map(({ text, link }) => (
             <a
               href={link ?? "#"}
-              class="bg-[#8f8f8f] hover:bg-[#f2f2f2] text-[#FFF] hover:text-[#8f8f8f] font-bold md:text-[10px] md:py-2 md:px-4 lg:text-xs lg:py-4 lg:px-6"
+              class="bg-[#8f8f8f] hover:bg-[#f2f2f2] text-[#FFF] hover:text-[#8f8f8f] font-bold md:text-[10px] md:py-2 md:px-4 lg:text-xs lg:py-4 lg:px-6 transition-all duration-500"
             >
               {text}
             </a>

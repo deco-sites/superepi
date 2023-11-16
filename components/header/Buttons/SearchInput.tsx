@@ -34,7 +34,7 @@ export default function SearchInput(
           }}
         />
         <a
-          href={`/s?q=${query.value}`}
+          href={`/pesquisa?t=${query.value}`}
           class="absolute right-1 p-1 h-full flex items-center"
         >
           <Icon id="MagnifyingGlass" size={24} strokeWidth={0.1} />
