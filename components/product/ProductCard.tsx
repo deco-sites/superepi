@@ -113,7 +113,7 @@ function ProductCard(
     </a>
   );
 
-  console.log({price, discount: price - (price / 20)}, "PRICE")
+  // console.log({price, discount: price - (price / 20)}, "PRICE")
 
   return (
     <div

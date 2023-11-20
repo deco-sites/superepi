@@ -12,7 +12,7 @@ export default function ServiceButton() {
         onMouseEnter={() => openPopUp.value = true}
         onMouseLeave={() => openPopUp.value = false}
       >
-        <Icon id="Service" size={34} strokeWidth={0.4} />
+        <Icon id="Service" size={30} strokeWidth={0.4} />
         <div class="flex flex-col">
           <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">Quer ajuda?</p>
           <p class="text-xs lg:text-[13px] xl:text-sm">(11) 2628-0078</p>

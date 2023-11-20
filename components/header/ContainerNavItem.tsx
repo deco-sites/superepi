@@ -18,7 +18,7 @@ export default function ContainerNavItem({ items }: ContainerNavItemProps) {
     <>
       {!isVisible && (
         <div 
-          class="flex-auto flex justify-center items-center gap-3 relative bg-[#FFF] md:px-4"
+          class="flex-auto flex justify-between items-center gap-3 max-w-[1440px] w-full mx-auto md:px-4"
         >
           {items.map((item, index) => index > 0 ? <NavItem item={item} /> : <NavItemAllBrands item={item} />)}
           <div class="relative flex flex-col">

@@ -8,7 +8,7 @@ function NavItem({ item }: { item: NavItemProps }) {
   return (
     <li class="group flex items-center">
       <a href={href} class="py-3">
-        <span class="hover:border-b border-[#F8A531] pb-1 items-center text-[10px] lg:text-[11px] xl:text-xs 2xl:text-base font-semibold transition-all duration-75">
+        <span class="hover:border-b border-[#F8A531] pb-1 items-center text-[10px] lg:text-[11px] xl:text-xs font-semibold transition-all duration-75">
           {label}
         </span>
       </a>
@@ -27,7 +27,7 @@ function NavItem({ item }: { item: NavItemProps }) {
               {children.map((node) => (
                 <li class="p-3">
                   <a class="hover:underline transition-all duration-500" href={node.href}>
-                    <span>{node.label}</span>
+                    <span class="text-xs font-semibold">{node.label}</span>
                   </a>
 
                   <ul class="">

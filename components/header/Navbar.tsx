@@ -64,7 +64,7 @@ function Navbar({ items, searchbar, logo }: {
 
       {/* Desktop Version */}
       <div class="hidden md:flex flex-col">
-        <div class="flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-4 max-w-[1440px] xl:container mx-auto">
+        <div class="flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-4 max-w-[1440px] mx-auto">
           <div class="flex-none w-44">
             {logo && (
               <a
@@ -87,14 +87,14 @@ function Navbar({ items, searchbar, logo }: {
             {/* <SearchButton />
             <Searchbar searchbar={searchbar} /> */}
           </div>
-          <div class="flex-none flex items-center justify-end gap-4 flex-shrink-[10] w-full">
+          <div class="flex-none flex items-center justify-evenly gap-4 flex-shrink-[9] w-full">
             <ServiceButton />
             <a
               class="flex items-center gap-2"
               href="/login"
               aria-label="Log in"
             >
-              <Icon id="Login" size={34} strokeWidth={0.4} />
+              <Icon id="Login" size={30} strokeWidth={0.4} />
               <div class="flex flex-col">
                 <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">Olá, Visitante</p>
                 <p class="text-xs lg:text-[13px] xl:text-sm">Faça seu login</p>
@@ -107,7 +107,9 @@ function Navbar({ items, searchbar, logo }: {
             {platform === "shopify" && <CartButtonShopify />}
           </div>
         </div>
-        <ContainerNavItem items={items} />
+        <div class="relative bg-[#FFF] w-full">
+          <ContainerNavItem items={items} />
+        </div>
       </div>
     </>
   );

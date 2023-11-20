@@ -12,7 +12,7 @@ export interface Props {
   price: number;
   discount: number;
   url: string;
-  onAddItem: () => Promise<void>;
+  onAddItem: (quantity: number) => Promise<void>;
 }
 
 const useAddToCart = ({

@@ -67,15 +67,15 @@ export default function Benefits(
           <Icon
             id={benefit.icon}
             class={reverse ? "text-base-100" : "text-primary"}
-            width={36}
-            height={36}
+            width={20}
+            height={20}
             strokeWidth={0.01}
             fill="currentColor"
           />
         </div>
         <div class="flex-auto flex flex-col gap-1 lg:gap-2">
           <div
-            class={`text-base md:text-xs lg:text-sm xl:text-lg leading-7 ${
+            class={`md:text-[10px] lg:text-sm leading-7 ${
               reverse ? "text-base-100" : "text-base-content"
             }`}
           >

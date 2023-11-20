@@ -102,6 +102,7 @@ export type AvailableIcons =
   | "ContactUsPhone"
   | "FooterPhone"
   | "Timer"
+  | "TimerCampaign"
   | "ShelfTitle"
   | "Shelf3mTitle"
   | "ShelfAnsellTitle"

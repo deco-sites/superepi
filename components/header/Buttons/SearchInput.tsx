@@ -44,7 +44,7 @@ export default function SearchInput(
           class="join-item btn-ghost btn-square hidden sm:inline-flex"
           onClick={() => displaySearchPopup.value = false}
         >
-          <Icon id="XMark" size={24} strokeWidth={2} />
+          <Icon id="XMark" size={16} strokeWidth={2} />
         </Button>
       </div>
       {query?.value?.length > 0 && (

@@ -53,8 +53,11 @@ export default function ShelfCampaign({
     <div class="bg-[#F5F5F5]">
       <div class="lg:container grid grid-cols-2 grid-row-3 py-4">
         <div class="flex flex-col justify-center items-center row-span-full">
-          {title && <h2 class="text-xl font-semibold">{title}</h2>}
-          {description && <p>{description}</p>}
+          <div class="flex gap-2 items-center">
+            <Icon id="TimerCampaign" size={40} />
+            {title && <h2 class="text-[35px] font-semibold text-[#000]">{title}</h2>}
+          </div>
+          {description && <p class="text-[#000] font-medium pb-2">{description}</p>}
           <div class="pb-8">
             <TimerCampaign initial={date?.initial} finish={date?.finish} />
           </div>
