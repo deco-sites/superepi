@@ -53,27 +53,43 @@ export default function Newsletter(props: Props) {
   const isReverse = layout?.content?.bgColor === "Reverse";
   const bordered = Boolean(layout?.content?.border);
 
-  const headerLayout = (
-    <Header
-      title={title}
-      description={description}
-      alignment={layout?.content?.alignment === "Left" ? "left" : "center"}
-      color={'#f8a531'}
-      fontSize={layout?.headerFontSize}
-    />
-  );
+  const headerLayout = title || description ? (
+        <div
+          class={`flex flex-col gap-2 ${
+            layout?.content?.alignment === "Left" ? "text-left" : "text-center"
+          }`}
+        >
+          {title &&
+            (
+              <h1
+                class={`text-[20px] text-[#F8A531] font-bold`}
+              >
+                {title}
+              </h1>
+            )}
+          {description &&
+            (
+              <h2
+                class="text-lg"
+              >
+                {description}
+              </h2>
+            )}
+        </div>
+      )
+      : null
 
   const formLayout = form && (
     <form action="/" class="flex flex-col gap-4">
       <div class="flex flex-col lg:flex-row gap-3">
         <div class="flex gap-2">
           <input
-            class="input input-bordered lg:w-80"
+            class="input input-bordered lg:w-80 bg-[#F8F8F8] text-[#000]"
             type="text"
             placeholder={form.name.placeholder}
           />
           <input
-            class="input input-bordered lg:w-80"
+            class="input input-bordered lg:w-80 bg-[#F8F8F8] text-[#000]"
             type="text"
             placeholder={form.email.placeholder}
           />
@@ -109,7 +125,7 @@ export default function Newsletter(props: Props) {
       {(!layout?.content?.alignment ||
         layout?.content?.alignment === "Center") && (
         <div
-          class={`container flex flex-col md:flex-row rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+          class={`container flex flex-col md:flex-row md:justify-around rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
         >
           {headerLayout}
           <div class="flex justify-center">
@@ -119,7 +135,7 @@ export default function Newsletter(props: Props) {
       )}
       {layout?.content?.alignment === "Left" && (
         <div
-          class={`container flex flex-col rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+          class={`container flex flex-col rounded p-4 gap-10 lg:p-16 md:gap-16 ${bgLayout}`}
         >
           {headerLayout}
           <div class="flex justify-start">
