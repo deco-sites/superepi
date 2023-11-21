@@ -25,28 +25,28 @@ export default function ServiceButton() {
           onMouseLeave={() => openPopUp.value = false}
         >
           <a
-            class="w-full border py-2 px-4"
+            class="flex justify-center w-full border py-2 px-4"
             href="tel: (11) 2628-0078"
           >
             (11) 2628-0078
           </a>
           <a
-            class="w-full border py-2 px-4"
+            class="flex justify-center w-full border py-2 px-4"
             href="/conteudo/institucional/atendimento-ao-cliente"
           >
             FAQ
           </a>
           <a
-            class="w-full border py-2 px-4"
+            class="flex justify-center w-full border py-2 px-4"
             href="mailto:cotacao@superepi.com.br"
           >
             Cotações
           </a>
-          <button class="w-full border py-2 px-4">
-            Horário de atendimento Segunda à Quinta das 9:00H às 18:00H Sexta
+          <button class="flex justify-center w-full border py-2 px-4">
+            <span class="semibold">Horário de atendimento</span> <br /> Segunda à Quinta <br /> das 9:00H às 18:00H <br /> Sexta <br />
             das 8:00H às 17:00H
           </button>
-          Horário de atendimento Loja Segunda à Quinta das 9:00H às 17:30H Sexta
+          <span class="semibold">Horário de atendimento Loja</span> <br /> Segunda à Quinta <br /> das 9:00H às 17:30H <br /> Sexta <br />
           das 8:00H às 16:30H
         </div>
       )}

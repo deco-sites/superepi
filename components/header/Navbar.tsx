@@ -63,8 +63,9 @@ function Navbar({ items, searchbar, logo }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-col">
-        <div class="flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-4 max-w-[1440px] mx-auto">
+      <div class="hidden md:flex flex-col shadow-md">
+        <div
+          class="flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-4 max-w-[1440px] mx-auto">
           <div class="flex-none w-44">
             {logo && (
               <a
