@@ -42,7 +42,7 @@ export default function ServiceButton() {
           >
             Cotações
           </a>
-          <button class="flex justify-center w-full border py-2 px-4">
+          <button class="flex flex-col justify-center items-center w-full border py-2 px-4">
             <span class="semibold">Horário de atendimento</span> <br /> Segunda à Quinta <br /> das 9:00H às 18:00H <br /> Sexta <br />
             das 8:00H às 17:00H
           </button>
