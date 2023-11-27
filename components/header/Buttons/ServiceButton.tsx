@@ -46,7 +46,7 @@ export default function ServiceButton() {
             <span class="semibold">Horário de atendimento</span> <br /> Segunda à Quinta <br /> das 9:00H às 18:00H <br /> Sexta <br />
             das 8:00H às 17:00H
           </button>
-          <span class="semibold">Horário de atendimento Loja</span> <br /> Segunda à Quinta <br /> das 9:00H às 17:30H <br /> Sexta <br />
+          <span class="semibold px-3">Horário de atendimento Loja</span> <br /> Segunda à Quinta <br /> das 9:00H às 17:30H <br /> Sexta <br />
           das 8:00H às 16:30H
         </div>
       )}
