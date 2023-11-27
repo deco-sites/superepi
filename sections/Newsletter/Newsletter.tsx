@@ -81,15 +81,15 @@ export default function Newsletter(props: Props) {
 
   const formLayout = form && (
     <form action="/" class="flex flex-col gap-4">
-      <div class="flex flex-col lg:flex-row gap-3">
-        <div class="flex gap-2">
+      <div class="flex flex-col xl:flex-row gap-3">
+        <div class="flex flex-col xl:flex-row gap-2">
           <input
-            class="input input-bordered lg:w-80 bg-[#F8F8F8] text-[#000]"
+            class="input input-bordered w-full xl:w-80 bg-[#F8F8F8] text-[#000]"
             type="text"
             placeholder={form.name.placeholder}
           />
           <input
-            class="input input-bordered lg:w-80 bg-[#F8F8F8] text-[#000]"
+            class="input input-bordered w-full xl:w-80 bg-[#F8F8F8] text-[#000]"
             type="text"
             placeholder={form.email.placeholder}
           />
@@ -125,7 +125,7 @@ export default function Newsletter(props: Props) {
       {(!layout?.content?.alignment ||
         layout?.content?.alignment === "Center") && (
         <div
-          class={`container flex flex-col md:flex-row md:justify-around rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+          class={`container flex flex-col xl:flex-row md:justify-around rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
         >
           {headerLayout}
           <div class="flex justify-center">
