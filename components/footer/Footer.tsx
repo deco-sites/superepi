@@ -259,7 +259,10 @@ function Footer({
             </div>
             <Divider />
             <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
-              {_payments}
+              <div class="flex flex-col items-center gap-4">
+                <h2 className="font-semibold text-[15px] text-[#000]">Pagamento</h2>
+                {_payments}
+              </div>
               {_social}
               <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
                 {_apps}
@@ -357,7 +360,10 @@ function Footer({
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row gap-10 md:w-2/5 lg:pl-10">
-                {_payments}
+                <div class="flex flex-col items-center gap-4">
+                  <h2 className="font-semibold text-[15px] text-[#000]">Pagamento</h2>
+                  {_payments}
+                </div>
                 {_social}
                 {_apps}
               </div>
