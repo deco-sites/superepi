@@ -19,10 +19,10 @@ function HeaderSections(props: Props) {
             {props.title &&
               (
                 <h1
-                  class={`text-xl md:text-2xl lg:text-3xl leading-2
+                  class={`text-xl leading-2
                   ${
                     props.color
-                    ? `text-[${color}]`
+                    ? `text-[${props.color ?? ""}]`
                     : "text-base-content"
                   }
                 `}
@@ -37,7 +37,7 @@ function HeaderSections(props: Props) {
                   leading-6 lg:leading-8
                   ${
                     props.color
-                      ? `text-[${color}]`
+                      ? `text-[${props.color}]`
                       : "text-neutral"
                   }
                   ${props.fontSize === "Normal" ? "lg:text-xl" : "lg:text-2xl"}
