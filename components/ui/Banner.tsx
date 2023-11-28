@@ -83,7 +83,7 @@ export default function Banner({
 }: Props) {
   return (
     <section
-      class={`xl:container w-full mx-auto py-2 md:pb-12 ${
+      class={`max-w-[1300px] mx-auto w-full py-2 md:pb-12 ${
         fullWidth ? "px-0" : "px-5"
       }`}
     >

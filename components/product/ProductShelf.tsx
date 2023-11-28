@@ -38,7 +38,7 @@ function ProductShelf({
   }
 
   return (
-    <div class="w-full container  py-8 flex flex-col gap-12 lg:gap-16 lg:py-10">
+    <div class="w-full max-w-[1300px] mx-auto py-8 flex flex-col gap-12 lg:gap-16 lg:py-10">
       <div class="flex justify-between pr-6">
         <Header
           title={title || ""}

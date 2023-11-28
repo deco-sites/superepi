@@ -51,7 +51,7 @@ export default function ShelfCampaign({
 
   return (
     <div class="bg-[#F5F5F5]">
-      <div class="lg:container grid grid-cols-2 grid-row-3 py-4">
+      <div class="max-w-[1300px] mx-auto grid grid-cols-2 grid-row-3 py-4">
         <div class="flex flex-col justify-center items-center row-span-full">
           <div class="flex gap-2 items-center">
             <Icon id="TimerCampaign" size={40} />
@@ -65,7 +65,7 @@ export default function ShelfCampaign({
         </div>
         <div
           id={id}
-          class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 grid-rows-[48px_1fr_1fr_1fr_48px]"
+          class="row-span-full grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 grid-rows-[48px_1fr_1fr_1fr_48px]"
         >
           <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
             {products?.map((product, index) => (

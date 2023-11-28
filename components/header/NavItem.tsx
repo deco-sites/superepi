@@ -6,9 +6,9 @@ function NavItem({ item }: { item: NavItemProps }) {
   const image = item?.image;
 
   return (
-    <li class="group flex items-center">
-      <a href={href} class="py-3">
-        <span class="hover:border-b border-[#F8A531] pb-1 items-center text-[10px] lg:text-[11px] xl:text-xs font-semibold transition-all duration-75">
+    <li class="group flex items-center h-full">
+      <a href={href} class="h-full flex">
+        <span class="hover:border-b border-[#F8A531] py-3 h-full items-center text-[10px] lg:text-[11px] xl:text-xs font-semibold transition-all duration-75">
           {label}
         </span>
       </a>
@@ -18,7 +18,7 @@ function NavItem({ item }: { item: NavItemProps }) {
           <div
             class="absolute hidden hover:flex group-hover:flex bg-[#f2f2f2] z-[-1] items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
             style={{ 
-              top: "50px",
+              top: "48px",
               left: "0px", 
               // marginTop: headerHeight 
             }}

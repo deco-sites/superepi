@@ -1,13 +1,15 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Header from "$store/components/ui/SectionHeader.tsx";
+import HTMLRenderer from "deco-sites/std/components/HTMLRenderer.tsx";
+import type { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
 
 export interface Props {
   title?: string;
   description?: string;
   benefits?: Array<{
-    label: string;
+    label: HTML;
     icon: AvailableIcons;
-    description?: string;
+    description?: HTML;
   }>;
   layout?: {
     orientation?: "Row" | "Col";
@@ -49,7 +51,8 @@ export default function Benefits(
 
     return (
       <div
-        class={`${
+        class={`
+        ${
           reverse ? "bg-primary text-primary-content p-4 lg:px-8 lg:py-4" : ""
         } flex gap-4 ${
           isRow
@@ -59,7 +62,7 @@ export default function Benefits(
           showDivider && benefitLayout !== "piledup"
             ? isRow ? "" : "border-b border-neutral-300"
             : ""
-        } ${showDivider ? "lg:pr-8 lg:border-r lg:border-b-0" : ""} ${
+        } ${showDivider ? "lg:pr-8 lg:border-b-0" : ""} ${
           showDivider && !reverse ? "lg:pb-0" : ""
         }`}
       >
@@ -74,20 +77,18 @@ export default function Benefits(
           />
         </div>
         <div class="flex-auto flex flex-col gap-1 lg:gap-2">
-          <div
-            class={`md:text-[10px] lg:text-sm leading-7 ${
-              reverse ? "text-base-100" : "text-base-content"
+          <HTMLRenderer
+            class={`text-[10px] leading-7 ${
+              reverse ? "text-base-100" : "text-[#000]"
             }`}
-          >
-            {benefit.label}
-          </div>
-          <p
+            html={benefit.label || ""}
+          />
+          <HTMLRenderer
             class={`text-[10px] leading-5 ${
               reverse ? "text-base-100" : "text-neutral"
             } ${benefitLayout == "piledup" ? "hidden lg:block" : ""}`}
-          >
-            {benefit.description}
-          </p>
+            html={benefit.description || ""}
+          />
         </div>
       </div>
     );
@@ -97,7 +98,7 @@ export default function Benefits(
     <>
       {!layout?.variation || layout?.variation === "Simple"
         ? (
-          <div class="w-full container px-4 py-8 flex flex-col gap-8 lg:gap-10 lg:py-10 lg:px-0">
+          <div class="max-w-[1300px] mx-auto w-full px-4 py-8 flex flex-col gap-8 lg:gap-10 lg:py-10 lg:px-0">
             <Header
               title={title}
               description={description}
@@ -116,7 +117,7 @@ export default function Benefits(
         )
         : ""}
       {layout?.variation === "With border" && (
-        <div class="w-full container flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
+        <div class="max-w-[1300px] mx-auto w-full flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
           <Header
             title={title}
             description={description}
@@ -130,7 +131,7 @@ export default function Benefits(
         </div>
       )}
       {layout?.variation === "Color reverse" && (
-        <div class="w-full container flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
+        <div class="max-w-[1300px] mx-auto w-full flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
           <Header
             title={title}
             description={description}

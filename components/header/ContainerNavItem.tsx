@@ -4,7 +4,6 @@ import NavItemAllBrands from "./NavItemAllBrands.tsx";
 import { NavItemProps } from "deco-sites/superepi/components/header/Header.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
 
 export interface ContainerNavItemProps {
   items: NavItemProps[];
@@ -18,7 +17,7 @@ export default function ContainerNavItem({ items }: ContainerNavItemProps) {
     <>
       {!isVisible && (
         <div 
-          class="flex-auto flex justify-between items-center gap-3 max-w-[1440px] w-full mx-auto md:px-4"
+          class="flex-auto flex justify-between items-center gap-3 max-w-[1300px] w-full h-full mx-auto md:px-4"
         >
           {items.map((item, index) => index > 0 ? <NavItem item={item} /> : <NavItemAllBrands item={item} />)}
           <div class="relative flex flex-col">

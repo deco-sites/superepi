@@ -121,7 +121,7 @@ function DeparmentList(props: Props) {
   return (
     <div
     id={id}
-    class="container py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
+    class="max-w-[1300px] mx-auto py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
     >
       <div class="flex justify-between">
         <HeaderSections

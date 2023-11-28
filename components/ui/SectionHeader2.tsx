@@ -19,7 +19,7 @@ function HeaderSections(props: Props) {
             {props.title &&
               (
                 <h1
-                  class={`text-xl leading-2
+                  class={`text-xl leading-2 font-semibold tracking-widest
                   ${
                     props.color
                     ? `text-[${props.color ?? ""}]`

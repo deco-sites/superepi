@@ -25,7 +25,7 @@ function NavItemAllBrands({ item }: { item: NavItemProps }) {
           <div
             class="absolute hidden hover:flex group-hover:flex bg-[#f2f2f2] z-[-1] items-start justify-between gap-6 border-t border-b-2 border-base-200 w-screen transition-all duration-500"
             style={{
-              top: "50px",
+              top: "48px",
               left: "0px",
               // marginTop: headerHeight 
             }}
