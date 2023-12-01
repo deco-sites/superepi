@@ -7,12 +7,11 @@ import Image from "apps/website/components/Image.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
 
 export interface Category {
-  tag?: string;
   label?: string;
-  description?: string;
   href?: string;
   image?: ImageWidget;
   buttonText?: string;
+  children?: { label: string, href: string }[]
 }
 
 export type BorderRadius =
@@ -42,24 +41,43 @@ export interface Props {
 }
 
 function CardText(
-  { tag, label, description, alignment }: {
-    tag?: string;
+  { label, alignment, children }: {
     label?: string;
-    description?: string;
     alignment?: "center" | "left";
   },
 ) {
   return (
     <div
-      class={`flex flex-col min-h-[50px] ${
+      class={`group flex flex-col min-h-[50px] ${
         alignment === "left" ? "justify-start" : "justify-center"
       }`}
     >
-      {tag && <div class="text-sm text-white">{tag}</div>}
       {label && (
-        <h3 class="text-base lg:text-lg text-white text-center">{label}</h3>
+        <h3 class="text-base lg:text-lg font-bold text-white text-center transition-all duration-75">{label}</h3>
       )}
-      {description && <div class="text-sm text-white">{description}</div>}
+
+      {children && children.length > 0 &&
+        (
+          <div
+            class="hidden hover:flex group-hover:flex bg-[#f2f2f2] z-[-1] items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
+            style={{ 
+              top: "48px",
+              left: "0px", 
+            }}
+          >
+             <ul class="max-h-[550px] py-6 px-4 pt-10">
+              {children.map((node) => (
+                <li class="p-3">
+                  <a class="hover:underline transition-all duration-500" href={node.href}>
+                    <span class="text-xs font-semibold">{node.label}</span>
+                  </a>
+                </li>
+              ))}
+             </ul>
+          </div>
+        )
+      }
+      
     </div>
   );
 }

@@ -53,16 +53,16 @@ export default function Benefits(
       <div
         class={`
         ${
-          reverse ? "bg-primary text-primary-content p-4 lg:px-8 lg:py-4" : ""
+          reverse ? "bg-primary text-primary-content p-4 lg:py-4" : ""
         } flex gap-4 ${
           isRow
-            ? "flex-row items-center text-center"
+            ? "flex-row items-center justify-center text-center"
             : "flex-col items-center text-center"
         } ${
           showDivider && benefitLayout !== "piledup"
             ? isRow ? "" : "border-b border-neutral-300"
             : ""
-        } ${showDivider ? "lg:pr-8 lg:border-b-0" : ""} ${
+        } ${showDivider ? "lg:border-b-0" : ""} ${
           showDivider && !reverse ? "lg:pb-0" : ""
         }`}
       >
@@ -76,7 +76,7 @@ export default function Benefits(
             fill="currentColor"
           />
         </div>
-        <div class="flex-auto flex flex-col gap-1 lg:gap-2">
+        <div class="flex flex-col gap-1 lg:gap-2">
           <HTMLRenderer
             class={`text-[10px] leading-7 ${
               reverse ? "text-base-100" : "text-[#000]"
