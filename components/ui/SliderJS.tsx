@@ -197,7 +197,7 @@ function Slider({
     infinite,
   ]);
 
-  return <div data-slider-controller-js />;
+  return <div className="sm:hidden" data-slider-controller-js />;
 }
 
 export default Slider;
