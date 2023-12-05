@@ -1,0 +1,1 @@
+export { default } from "deco-sites/superepi/components/carouselShelf/Shelf/Shelf.tsx";
