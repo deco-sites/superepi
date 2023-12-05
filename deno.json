@@ -4,7 +4,7 @@
     "deco-sites/storefront/": "./",
     "$store/": "./",
     "deco-sites/std/": "https://denopkg.com/deco-sites/std@1.22.11/",
-    "deco/": "https://denopkg.com/deco-cx/deco@1.43.0/",
+    "deco/": "https://denopkg.com/deco-cx/deco@1.42.0/",
     "apps/": "https://denopkg.com/deco-cx/apps@0.16.1/",
     "$fresh/": "https://denopkg.com/deco-cx/fresh@1.4.4/",
     "preact": "https://esm.sh/preact@10.15.1",
