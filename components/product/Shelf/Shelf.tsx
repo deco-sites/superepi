@@ -11,8 +11,6 @@ export const Shelf = ({
   heading,
   products
 }: Props) => {
-  console.log(products);
-
   return (
     <h1>
       Shelf

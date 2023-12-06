@@ -60,8 +60,6 @@ function ProductInfo({ page, layout }: Props) {
   const productGroupID = isVariantOf?.productGroupID ?? "";
   const discount = price && listPrice ? listPrice - price : 0;
 
-  console.log(product, additionalProperty, isVariantOf, "PDP")
-
   const sku = product.sku?.includes('SKU') ? product.sku?.split('SKU-')[1] : product.sku?.split('/')[0];
   const content = additionalProperty.length > 1 ? additionalProperty.find(({ name }) => name === "Variações") : ""
   

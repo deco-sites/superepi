@@ -48,7 +48,6 @@ export default function TimerCampaign({ initial, finish }: Props) {
       }, 1000)
       isDayCampaign.value = true
     } else {
-      console.log("ELSE")
       isDayCampaign.value = false
     }
   }, [])

@@ -7,7 +7,6 @@ function NavItemAllBrands({ item }: { item: NavItemProps }) {
   const { href, label, children } = item;
   const image = item?.image;
   const indexListItems = useSignal(0);
-  console.log(children[indexListItems.value], "AQUI")
 
   return (
     <li class="group flex items-center">

@@ -27,7 +27,10 @@ export const DepartmentCarousel = ({
     >
       <div className="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
         <div className="sm:grid sm:grid-cols-[1fr_auto] sm:items-center sm:w-full">
-          <h2 className="sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase">
+          <h2 className={clx(
+            "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+            "lg:leading-normal lg:text-xl"
+          )}>
             {heading}
           </h2>
 

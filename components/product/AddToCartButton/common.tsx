@@ -31,8 +31,6 @@ const useAddToCart = ({
     e.preventDefault();
     e.stopPropagation();
 
-    console.log("ONCLICK")
-
     try {
       setLoading(true);
 

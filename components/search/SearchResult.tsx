@@ -49,16 +49,12 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  console.log({
-    filters
-  }, "AQUIII")
   const perPage = pageInfo.recordPerPage || products.length;
   const offset = pageInfo.currentPage * perPage;
   const pages = Math.ceil(
     pageInfo.records as number / (pageInfo?.recordPerPage ?? 1) as number,
   );
 
-  console.log(pages, pageInfo, "AQUI")
   return (
     <>
       <div class="container px-4 sm:py-10">
