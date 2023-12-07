@@ -1,6 +1,7 @@
 import { Product } from "apps/commerce/types.ts";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
+import { Product as ProductComponent } from "deco-sites/superepi/components/product/ShelfWithTabs/Product/Product.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 /** @titleBy name */
@@ -38,15 +39,15 @@ export const Tab = ({
       </Slider.PrevButton>
 
       <Slider
-        className="carousel sm:gap-3 sm:w-full"
+        className="carousel sm:gap-3 sm:items-stretch sm:w-full"
         role="list"
       >
         {products.map((product, index) => (
           <Slider.Item
-            className="carousel-item sm:bg-red-600 sm:h-6 sm:max-w-full sm:w-[19.75rem]"
+            className="carousel-item sm:h-auto sm:max-w-full sm:w-[19.75rem]"
             index={index}
           >
-            {product.name}
+            <ProductComponent product={product} />
           </Slider.Item>
         ))}
       </Slider>

@@ -1,3 +1,5 @@
+import { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 import {
   Tab,
   TabProps
@@ -10,6 +12,8 @@ import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
 
 export interface Props {
+  /** @description Ícone que fica ao lado do título */
+  icon?: ImageWidget;
   /** @description Título da sessão */
   heading: string;
   /** @description Listagem das tabs */
@@ -17,6 +21,7 @@ export interface Props {
 };
 
 export const ShelfWithTabs = ({
+  icon,
   heading,
   tabs = []
 }: Props) => {
@@ -34,12 +39,24 @@ export const ShelfWithTabs = ({
     >
       <div className="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
         <div className="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:w-full">
-          <h2 className={clx(
-            "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
-            "lg:leading-normal lg:text-xl"
-          )}>
-            {heading}
-          </h2>
+          <div className="sm:flex sm:gap-4 sm:w-full">
+            {icon !== undefined && (
+              <Image
+                alt=""
+                className="sm:flex-shrink-0 sm:h-8 sm:object-cover sm:w-8"
+                height={32}
+                src={icon}
+                width={32}
+              />
+            )}
+
+            <h2 className={clx(
+              "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+              "lg:leading-normal lg:text-xl"
+            )}>
+              {heading}
+            </h2>
+          </div>
 
           <div className={clx(
             "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
