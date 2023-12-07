@@ -13,7 +13,7 @@ export const Lower = ({
   return (
     <div className={clx(
       "sm:flex sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
-      "lg:gap-8"
+      "lg:gap-[0rem_2rem]"
     )}>
       {menus.map(({
         name,
@@ -21,6 +21,7 @@ export const Lower = ({
       }, index) => (
         <div
           className="dropdown dropdown-hover"
+          key={index}
           style={{ position: "initial" }}
         >
           <div

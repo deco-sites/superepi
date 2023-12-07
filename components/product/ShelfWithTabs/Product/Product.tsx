@@ -26,7 +26,6 @@ export const Product = ({
   } = useOffer(offers);
 
   const discount = listPrice !== price;
-  console.log(product);
 
   return (
     <article className="group sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:gap-4 sm:h-full sm:p-4 sm:relative sm:transition-shadow sm:w-full" >
