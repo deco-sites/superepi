@@ -22,7 +22,10 @@ export const GridBanners = ({
   if (banners.length === 0) return null;
 
   return (
-    <div className="sm:flex sm:px-6 sm:w-full">
+    <div className={clx(
+      "sm:flex sm:px-6 sm:py-5 sm:w-full",
+      "lg:py-7"
+    )}>
       <ul className={clx(
         "sm:gap-6 sm:grid sm:grid-cols-1 sm:max-w-page-container sm:mx-auto sm:w-full",
         "md:grid-cols-2",

@@ -23,6 +23,7 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
       id={`tabpanel-${valueProp}-${id}`}
       hidden={value.value !== valueProp}
       ref={ref}
+      role="tabpanel"
       tabIndex={0}
     />
   );
