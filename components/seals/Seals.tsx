@@ -27,7 +27,7 @@ export const Seals = ({
   return (
     <div className={clx(
       "sm:flex sm:px-4 sm:py-5 sm:w-full",
-      "lg:py-6"
+      "lg:py-7"
     )}>
       <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
         <ul className={clx(

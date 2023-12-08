@@ -32,7 +32,7 @@ export const BannerCarousel = ({
     <div
       className={clx(
         "sm:flex sm:pb-5 sm:w-full",
-        "lg:pb-6"
+        "lg:pb-7"
       )}
       id={id}
     >
@@ -43,6 +43,7 @@ export const BannerCarousel = ({
         >
           {banners.map(({
             alt,
+            href,
             src
           }, index) => (
             <Slider.Item
@@ -50,19 +51,24 @@ export const BannerCarousel = ({
               index={index}
               role="listitem"
             >
-              <Image
-                alt={alt}
-                className="sm:aspect-[1440/400] sm:w-full"
-                height={400}
-                loading={index === 0 ? "eager" : "lazy"}
-                src={src}
-                width={1440}
-              />
+              <a
+                className="sm:flex sm:w-full"
+                href={href}
+              >
+                <Image
+                  alt={alt}
+                  className="sm:aspect-[1440/400] sm:w-full"
+                  height={400}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  src={src}
+                  width={1440}
+                />
+              </a>
             </Slider.Item>
           ))}
         </Slider>
 
-        <div className="sm:absolute sm:flex sm:gap-8 sm:items-center sm:justify-between sm:max-w-[83.25rem] sm:mx-auto sm:px-4 sm:w-full sm:z-10">
+        <div className="sm:absolute sm:flex sm:gap-8 sm:items-center sm:justify-between sm:max-w-[83.25rem] sm:mx-auto sm:pointer-events-none sm:px-4 sm:w-full sm:z-10">
           <Slider.PrevButton className={clx(
             "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
             "sm:hover:bg-black sm:hover:text-white",

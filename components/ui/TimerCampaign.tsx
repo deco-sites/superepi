@@ -52,14 +52,14 @@ export default function TimerCampaign({ initial, finish }: Props) {
     }
   }, [])
   return (
-    <div class="flex gap-2 text-black">
-      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-semibold flex flex-col items-center">{ Math.floor(timer.value.days) } <strong>DIAS</strong></span>
-      <span class="p-2 text-black font-bold">:</span>
-      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-semibold flex flex-col items-center">{ Math.floor(timer.value.hours) } <strong>HORAS</strong></span>
-      <span class="p-2 text-black font-bold">:</span>
-      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-semibold flex flex-col items-center">{ Math.floor(timer.value.min) } <strong>MIN</strong></span>
-      <span class="p-2 text-black font-bold">:</span>
-      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-semibold flex flex-col items-center">{ Math.floor(timer.value.seg) } <strong>SEG</strong></span>
+    <div class="flex sm:items-center gap-2 sm:max-w-full text-black sm:w-fit">
+      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-bold flex flex-col sm:text-2xl items-center">{ Math.floor(timer.value.days) } <strong className="sm:text-sm">DIAS</strong></span>
+      <span class="p-2 text-black font-black">:</span>
+      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-bold flex flex-col sm:text-2xl items-center">{ Math.floor(timer.value.hours) } <strong className="sm:text-sm">HORAS</strong></span>
+      <span class="p-2 text-black font-black">:</span>
+      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-bold flex flex-col sm:text-2xl items-center">{ Math.floor(timer.value.min) } <strong className="sm:text-sm">MIN</strong></span>
+      <span class="p-2 text-black font-black">:</span>
+      <span class="w-[72px] bg-[#f8a531] p-2 text-white font-bold flex flex-col sm:text-2xl items-center">{ Math.floor(timer.value.seg) } <strong className="sm:text-sm">SEG</strong></span>
     </div>
   )
 }

@@ -20,7 +20,10 @@ export const Lower = ({
         ...other
       }, index) => (
         <div
-          className="dropdown dropdown-hover"
+          className={clx(
+            "dropdown dropdown-hover",
+            "sm:[&_div]:pointer-events-auto"
+          )}
           key={index}
           style={{ position: "initial" }}
         >
@@ -39,9 +42,10 @@ export const Lower = ({
 
           <div
             className={clx(
-              "sm:bg-[#f0f0f0] dropdown-content sm:absolute sm:bottom-0 sm:h-fit sm:left-0 sm:top-full sm:px-6 sm:w-full",
-              "sm:data-[background=true]:focus:bg-[#00000080]"
+              "sm:bg-[#f0f0f0] dropdown-content sm:absolute sm:bottom-0 sm:h-fit sm:left-0 sm:top-full sm:pointer-events-none sm:px-6 sm:w-full",
+              "sm:data-[background=true]:focus:bg-[#00000080]",
             )}
+            data-size="large"
             tabIndex={0}
           >
             <MenuDropdown

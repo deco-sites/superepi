@@ -1,139 +1,105 @@
-import type { Platform } from "$store/apps/site.ts";
-import { SendEventOnClick } from "$store/components/Analytics.tsx";
-import Avatar from "$store/components/ui/Avatar.tsx";
-import WishlistButton from "$store/islands/WishlistButton.tsx";
-import { formatPrice } from "$store/sdk/format.ts";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
-import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { Product as ProductType } from "apps/commerce/types.ts";
+import { SendEventOnClick } from "deco-sites/superepi/components/Analytics.tsx";
 import Image from "apps/website/components/Image.tsx";
+import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
+import { clx } from "deco-sites/superepi/sdk/clx.ts";
+import { formatPrice } from "deco-sites/superepi/sdk/format.ts";
+import { useId } from "deco-sites/superepi/sdk/useId.ts";
+import { useOffer } from "deco-sites/superepi/sdk/useOffer.ts";
 
-export interface Layout {
-  basics?: {
-    contentAlignment?: "Left" | "Center";
-    oldPriceSize?: "Small" | "Normal";
-    ctaText?: string;
-  };
-  elementsPositions?: {
-    skuSelector?: "Top" | "Bottom";
-    favoriteIcon?: "Top right" | "Top left";
-  };
-  hide?: {
-    productName?: boolean;
-    productDescription?: boolean;
-    allPrices?: boolean;
-    installments?: boolean;
-    skuSelector?: boolean;
-    cta?: boolean;
-  };
-  onMouseOver?: {
-    image?: "Change image" | "Zoom image";
-    card?: "None" | "Move up";
-    showFavoriteIcon?: boolean;
-    showSkuSelector?: boolean;
-    showCardShadow?: boolean;
-    showCta?: boolean;
-  };
-}
-
-interface Props {
-  product: Product;
-  /** Preload card image */
-  preload?: boolean;
-
-  /** @description used for analytics event */
-  itemListName?: string;
-
-  /** @description index of the product card in the list */
+export type ProductProps = {
+  backgroundColor?: string;
   index?: number;
-
-  layout?: Layout;
-  platform?: Platform;
-}
-
-const relative = (url: string) => {
-  const link = new URL(url);
-  return `${link.pathname}${link.search}`;
+  list?: string;
+  product: ProductType;
 };
 
-const installmentsSerialize = (offer: number) => {
-  if (offer < 18.50) return `ou 1x de ${offer.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
-  else if (offer < 28) return `ou 2x de ${(offer / 2).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}` 
-  else if (offer > 28) return `ou 3x de ${(offer / 3).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
-}
+export const Product = ({
+  backgroundColor,
+  index,
+  list,
+  product
+}: ProductProps) => {
+  const id = useId();
 
-function ProductCard(
-  { product, preload, itemListName, layout, platform, index }: Props,
-) {
   const {
-    url,
-    productID,
-    name,
-    image: images,
+    brand,
+    image,
     offers,
-    isVariantOf,
+    url
   } = product;
-  const id = `product-card-${productID}`;
-  const hasVariant = isVariantOf?.hasVariant ?? [];
-  const productGroupID = isVariantOf?.productGroupID;
-  const description = product.description || isVariantOf?.description;
-  const [front, back] = images ?? [];
-  const { 
-    listPrice,
-    price,
+
+  const {
     installments,
-    discountTicket 
+    listPrice = 0,
+    price = 0
   } = useOffer(offers);
-  const possibilities = useVariantPossibilities(hasVariant, product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
-  const l = layout;
-  const align =
-    !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
-      ? "left"
-      : "center";
-  const skuSelector = variants.map(([value, link]) => (
-    <li>
-      <a href={link}>
-        <Avatar
-          variant={link === url ? "active" : link ? "default" : "disabled"}
-          content={value}
-        />
-      </a>
-    </li>
-  ));
-  const cta = (
-    <a
-      href={url && relative(url)}
-      aria-label="view product"
-      class="btn btn-block"
-    >
-      {l?.basics?.ctaText || "Ver produto"}
-    </a>
-  );
-
-  // console.log({price, discount: price - (price / 20)}, "PRICE")
+  const discount = listPrice !== price;
 
   return (
-    <div
-      id={id}
-      class={`card card-compact group w-full ${
-        align === "center" ? "text-center" : "text-start"
-      } ${l?.onMouseOver?.showCardShadow ? "lg:hover:card-bordered" : ""}
-        ${
-        l?.onMouseOver?.card === "Move up" &&
-        "duration-500 transition-translate ease-in-out lg:hover:-translate-y-2"
-      }
-      `}
-      data-deco="view-product"
+    <article
+      className="group sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:gap-4 sm:h-full sm:p-4 sm:relative sm:transition-shadow sm:w-full"
+      style={{ backgroundColor: backgroundColor }}
     >
+      <Image
+        alt=""
+        className="sm:aspect-square sm:object-cover sm:w-full"
+        height={284}
+        src={image?.[0].url ?? ""}
+        width={284}
+      />
+
+      <div className="sm:flex sm:flex-col sm:gap-6 sm:h-full sm:w-full">
+        <div className="sm:flex sm:flex-col sm:w-full">
+          {brand !== undefined && (
+            <span className="sm:font-medium sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-xs">
+              {brand.name}
+            </span>
+          )}
+
+          <h3 className="sm:font-medium sm:font-roboto sm:leading-normal sm:text-sm sm:text-black">
+            {product.name}
+          </h3>
+        </div>
+
+        <div className="sm:flex sm:flex-col sm:items-start sm:justify-center sm:mt-auto sm:w-full">
+          <strong className="sm:font-roboto sm:leading-normal sm:font-medium sm:text-[#151515] sm:text-2xl">
+            {formatPrice(listPrice)} <span className="sm:font-black sm:leading-normal sm:text-base">no Pix/Boleto</span>
+          </strong>
+
+          <span>
+            ou 3x de {formatPrice(listPrice / 3)}
+          </span>
+        </div>
+      </div>
+
+      <a
+        className={clx(
+          "sm:absolute sm:bg-[#ffffffcc] sm:duration-300 sm:cursor-pointer sm:ease-in-out sm:flex sm:flex-col sm:gap-2 sm:font-normal sm:font-roboto sm:leading-normal sm:h-[calc(100%-0.625rem)] sm:items-center sm:justify-center sm:left-1/2 sm:opacity-0 sm:pointer-events-none sm:text-sm sm:text-[#151515] sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:transition-opacity sm:w-[calc(100%-0.625rem)] sm:z-10",
+          "sm:hover:opacity-100 sm:group-hover:pointer-events-auto sm:hover:shadow-[0_0_0.625rem_0_#00000033]"
+        )}
+        href={url}
+      >
+        <div className="sm:bg-[#f8a531] sm:h-16 sm:flex sm:items-center sm:justify-center sm:text-white sm:w-16">
+          <Icon
+            className="sm:h-8 sm:w-8"
+            id="Search"
+          />
+        </div>
+
+        <span>
+          Comprar
+        </span>
+      </a>
+
       <SendEventOnClick
         id={id}
         event={{
           name: "select_item" as const,
           params: {
-            item_list_name: itemListName,
+            item_list_name: list,
             items: [
               mapProductToAnalyticsItem({
                 product,
@@ -145,144 +111,8 @@ function ProductCard(
           },
         }}
       />
-      <figure
-        class="relative overflow-hidden"
-        style={{ aspectRatio: `130 /150` }}
-      >
-        {/* Product Images */}
-        <a
-          href={url && relative(url)}
-          aria-label="view product"
-          class="grid grid-cols-1 grid-rows-1 w-full"
-        >
-          <Image
-            src={front.url!}
-            alt={front.alternateName}
-            width={130}
-            height={150}
-            class={`bg-base-100 col-span-full row-span-full rounded w-full ${
-              l?.onMouseOver?.image == "Zoom image"
-                ? "duration-100 transition-scale scale-100 lg:group-hover:scale-125"
-                : ""
-            }`}
-            sizes="(max-width: 640px) 50vw, 20vw"
-            preload={preload}
-            loading={preload ? "eager" : "lazy"}
-            decoding="async"
-          />
-          {(!l?.onMouseOver?.image ||
-            l?.onMouseOver?.image == "Change image") && (
-            <Image
-              src={back?.url ?? front.url!}
-              alt={back?.alternateName ?? front.alternateName}
-              width={130}
-              height={150}
-              class="bg-base-100 col-span-full row-span-full transition-opacity rounded w-full opacity-0 lg:group-hover:opacity-100"
-              sizes="(max-width: 640px) 50vw, 20vw"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-        </a>
-        <figcaption
-          class={`
-          absolute bottom-1 left-0 w-full flex flex-col gap-3 p-2 ${
-            l?.onMouseOver?.showSkuSelector || l?.onMouseOver?.showCta
-              ? "transition-opacity opacity-0 lg:group-hover:opacity-100"
-              : "lg:hidden"
-          }`}
-        >
-          {/* SKU Selector */}
-          {l?.onMouseOver?.showSkuSelector && (
-            <ul class="flex justify-center items-center gap-2 w-full">
-              {skuSelector}
-            </ul>
-          )}
-          {l?.onMouseOver?.showCta && cta}
-        </figcaption>
-      </figure>
-      {/* Prices & Name */}
-      <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4">
-        {/* SKU Selector */}
-        {(!l?.elementsPositions?.skuSelector ||
-          l?.elementsPositions?.skuSelector === "Top") && (
-          <>
-            {l?.hide?.skuSelector ? "" : (
-              <ul
-                class={`flex items-center gap-2 w-full overflow-auto p-3 ${
-                  align === "center" ? "justify-center" : "justify-start"
-                } ${l?.onMouseOver?.showSkuSelector ? "lg:hidden" : ""}`}
-              >
-                {skuSelector}
-              </ul>
-            )}
-          </>
-        )}
-
-        {l?.hide?.productName
-          ? ""
-          : (
-            <div class="flex flex-col gap-1">
-               {!product?.brand?.name ? "" : (
-                <div
-                  class="truncate text-sm lg:text-sm text-neutral"
-                  dangerouslySetInnerHTML={{ __html: product?.brand?.name }}
-                />
-              )}
-                <h2
-                  class="truncate text-base lg:text-lg text-base-content"
-                  dangerouslySetInnerHTML={{ __html: name ?? "" }}
-                />
-            </div>
-          )}
-        {l?.hide?.allPrices ? "" : (
-          <div class={`flex relative ${align === 'center' ? 'justify-center' : 'justify-between' }`}>
-            <div class="flex flex-col">
-              <div
-                class={`flex flex-col gap-0 ${align === "center" ? "justify-center" : "justify-start"}`}
-              >
-                { listPrice === price ? (
-                  <div class="text-black text-base lg:text-xl font-semibold flex flex-col">
-                    <span class="text-sm">A partir de</span>
-                    {formatPrice(price - (price / 20), offers?.priceCurrency)}
-                  </div>
-                ) : (
-                  <>
-                    <div
-                      class={`line-through text-base-300 text-xs ${
-                        l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
-                      }`}
-                    >
-                      {formatPrice(listPrice, offers?.priceCurrency)}
-                    </div>
-                    <div class="text-black font-semibold text-base lg:text-xl flex gap-2 items-end">
-                      {formatPrice(price - (price / 20), offers?.priceCurrency)}
-                      <strong class="text-sm">no Pix/Boleto</strong>
-                    </div>
-                  </>
-                ) }
-              </div>
-              {l?.hide?.installments
-                ? ""
-                : installments ? (
-                  <div class="text-black text-sm lg:text-base truncate">
-                    {installments}
-                  </div>
-                ) : (
-                  <div class="text-black text-sm lg:text-base truncate">
-                    {listPrice ? installmentsSerialize(listPrice) : price && installmentsSerialize(price)}
-                  </div>
-                )}
-            </div>
-            <div class="bg-[#ffff00] px-4 py-2 flex flex-col items-center justify-center text-black absolute right-2">
-              <strong>5%</strong>
-              OFF
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+    </article >
   );
-}
+};
 
-export default ProductCard;
+export default Product;
