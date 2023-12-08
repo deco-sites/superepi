@@ -25,7 +25,7 @@ export const Searchbar = () => {
         type="submit"
       >
         <Icon
-          className="sm:h-4 sm:w-4"
+          className="sm:h-5 sm:text-[#999999] sm:w-5"
           id="Search"
         />
       </button>
