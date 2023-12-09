@@ -13,7 +13,7 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
 }, ref) => {
   const {
     id,
-    value
+    value,
   } = useContext(Context);
 
   return (

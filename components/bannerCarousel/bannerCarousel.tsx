@@ -14,15 +14,15 @@ export interface Banner {
   href: string;
   /** @description URL da imagem do banner [***Use uma resolução de 1440x400 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 export interface Props {
   /** @description Lista com os banners */
   banners: Banner[];
-};
+}
 
 export const BannerCarousel = ({
-  banners = []
+  banners = [],
 }: Props) => {
   const id = useId();
 
@@ -32,7 +32,7 @@ export const BannerCarousel = ({
     <div
       className={clx(
         "sm:flex sm:pb-5 sm:w-full",
-        "lg:pb-7"
+        "lg:pb-7",
       )}
       id={id}
     >
@@ -44,7 +44,7 @@ export const BannerCarousel = ({
           {banners.map(({
             alt,
             href,
-            src
+            src,
           }, index) => (
             <Slider.Item
               className="carousel-item sm:w-full"
@@ -69,24 +69,28 @@ export const BannerCarousel = ({
         </Slider>
 
         <div className="sm:absolute sm:flex sm:gap-8 sm:items-center sm:justify-between sm:max-w-[83.25rem] sm:mx-auto sm:pointer-events-none sm:px-4 sm:w-full sm:z-10">
-          <Slider.PrevButton className={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
-            "lg:h-12 lg:w-12"
-          )}>
+          <Slider.PrevButton
+            className={clx(
+              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
+              "sm:hover:bg-black sm:hover:text-white",
+              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
+              "lg:h-12 lg:w-12",
+            )}
+          >
             <Icon
               className="sm:h-4 sm:w-4"
               id="ChevronLeft"
             />
           </Slider.PrevButton>
 
-          <Slider.NextButton className={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
-            "lg:h-12 lg:w-12"
-          )}>
+          <Slider.NextButton
+            className={clx(
+              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
+              "sm:hover:bg-black sm:hover:text-white",
+              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
+              "lg:h-12 lg:w-12",
+            )}
+          >
             <Icon
               className="sm:h-4 sm:w-4"
               id="ChevronRight"
@@ -95,12 +99,12 @@ export const BannerCarousel = ({
         </div>
 
         <ul className="sm:absolute sm:bottom-6 sm:flex sm:gap-3 sm:items-center sm:justify-center sm:max-w-full sm:px-3 sm:w-fit sm:z-10">
-          {banners.map(({ }, index) => (
+          {banners.map(({}, index) => (
             <li
               className={clx(
                 "sm:flex",
                 "sm:[&_button]:bg-[#f1f1f1] sm:[&_button]:border-none sm:[&_button]:w-4 sm:[&_button]:h-4",
-                "sm:disabled:[&_button]:bg-[#F8A531]"
+                "sm:disabled:[&_button]:bg-[#F8A531]",
               )}
               key={index}
             >

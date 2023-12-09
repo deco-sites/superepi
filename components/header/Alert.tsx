@@ -5,18 +5,18 @@ import { useSignal } from "@preact/signals";
 import useBackToTop from "$store/hooks/useBackToTop.tsx";
 
 export interface AlertsProps {
-  alerts: AlertInfos
+  alerts: AlertInfos;
 }
 
 function Alert({ alerts: { column1, column2 } }: AlertsProps) {
   const id = useId();
-  const openPopUp = useSignal(false)
+  const openPopUp = useSignal(false);
   const percentageToAppear = 0.3;
   const isVisible = useBackToTop(percentageToAppear);
 
   return (
     <>
-      {!isVisible && (    
+      {!isVisible && (
         <div id={id} class="bg-[#f0f0f0] hidden md:block">
           <div class="max-w-[1300px] mx-auto flex justify-center md:justify-between px-4">
             <div class="flex gap-9 items-center">

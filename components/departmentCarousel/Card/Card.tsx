@@ -7,7 +7,7 @@ export interface Background {
   alt: string;
   /** @description Endereço da imagem [***Use uma resolução de 250x250 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 /** @titleBy name */
 export interface Categories {
@@ -15,14 +15,14 @@ export interface Categories {
   href: string;
   /** @description Nome do link */
   name: string;
-};
+}
 
 export interface Links {
   /** @description Link geral da página de departamento */
   general: string;
   /** @description Links de categorias */
   categories: Categories[];
-};
+}
 
 /** @titleBy title */
 export interface CardProps {
@@ -32,12 +32,12 @@ export interface CardProps {
   title: string;
   /** @description Links do card */
   links: Links;
-};
+}
 
 export const Card = ({
   background,
   links,
-  title
+  title,
 }: CardProps) => {
   return (
     <div className="group aspect-square sm:flex sm:overflow-hidden sm:relative sm:w-full">
@@ -49,15 +49,17 @@ export const Card = ({
         width={250}
       />
 
-      <div className={clx(
-        "sm:absolute sm:bg-[#000000b8] sm:bottom-[4.6875rem] sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:h-full sm:overflow-y-hidden sm:pb-8 sm:transition-transform sm:transform-gpu sm:translate-y-full sm:w-full",
-        "sm:group-hover:overflow-y-auto sm:group-hover:translate-y-[4.6875rem]"
-      )}>
+      <div
+        className={clx(
+          "sm:absolute sm:bg-[#000000b8] sm:bottom-[4.6875rem] sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:h-full sm:overflow-y-hidden sm:pb-8 sm:transition-transform sm:transform-gpu sm:translate-y-full sm:w-full",
+          "sm:group-hover:overflow-y-auto sm:group-hover:translate-y-[4.6875rem]",
+        )}
+      >
         <h3 className="sm:flex sm:flex-shrink-0 sm:h-[4.6875rem] sm:items-center sm:justify-center sm:w-full">
           <a
             className={clx(
               "sm:block sm:duration-300 sm:ease-in-out sm:font-bold sm:font-roboto sm:leading-normal sm:overflow-hidden sm:px-1 sm:text-ellipsis sm:text-white sm:text-base sm:text-center sm:transform-gpu sm:transition-colors sm:uppercase sm:w-full sm:whitespace-nowrap",
-              "sm:hover:text-[#ffab00]"
+              "sm:hover:text-[#ffab00]",
             )}
             href={links.general}
           >
@@ -65,13 +67,15 @@ export const Card = ({
           </a>
         </h3>
 
-        <ul className={clx(
-          "sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:flex-shrink-0 sm:gap-2 sm:mt-auto sm:opacity-0 sm:px-8 sm:transition-opacity sm:transform-gpu sm:w-full",
-          "sm:group-hover:opacity-100"
-        )}>
+        <ul
+          className={clx(
+            "sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:flex-shrink-0 sm:gap-2 sm:mt-auto sm:opacity-0 sm:px-8 sm:transition-opacity sm:transform-gpu sm:w-full",
+            "sm:group-hover:opacity-100",
+          )}
+        >
           {links.categories.map(({
             href,
-            name
+            name,
           }, index) => (
             <li
               className="sm:flex sm:w-full"
@@ -80,7 +84,7 @@ export const Card = ({
               <a
                 className={clx(
                   "sm:block sm:duration-300 sm:ease-in-out sm:font-normal sm:font-roboto sm:leading-normal sm:max-w-full sm:overflow-hidden sm:text-xs sm:text-white sm:text-ellipsis sm:transition-colors sm:transform-gpu sm:w-fit sm:whitespace-nowrap",
-                  "sm:hover:text-[#ffab00] sm:hover:underline"
+                  "sm:hover:text-[#ffab00] sm:hover:underline",
                 )}
                 href={href}
               >
@@ -93,7 +97,7 @@ export const Card = ({
             <a
               className={clx(
                 "sm:block sm:duration-300 sm:ease-in-out sm:font-normal sm:font-roboto sm:leading-normal sm:max-w-full sm:overflow-hidden sm:text-xs sm:text-[#ffab00] sm:text-ellipsis sm:transition-colors sm:transform-gpu sm:w-fit sm:whitespace-nowrap",
-                "sm:hover:underline"
+                "sm:hover:underline",
               )}
               href={links.general}
             >

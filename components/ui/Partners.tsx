@@ -14,15 +14,15 @@ export interface Partner {
   href: string;
   /** @description Logo [***Use uam resolução de Wx64 e formato webp para melhor performace] */
   logo: ImageWidget;
-};
+}
 
 export interface Props {
   /** @description Lista com as parcerias */
   partners: Partner[];
-};
+}
 
 export const Partners = ({
-  partners = []
+  partners = [],
 }: Props) => {
   const id = useId();
 
@@ -32,16 +32,18 @@ export const Partners = ({
     <div
       className={clx(
         "sm:flex sm:px-6 sm:py-5 sm:w-full",
-        "lg:py-7"
+        "lg:py-7",
       )}
       id={id}
     >
       <div className="sm:flex sm:items-center sm:gap-3 sm:max-w-[81.25rem] sm:mx-auto sm:w-full">
-        <Slider.PrevButton className={clx(
-          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-          "sm:hover:bg-black sm:hover:text-white",
-          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-        )}>
+        <Slider.PrevButton
+          className={clx(
+            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+            "sm:hover:bg-black sm:hover:text-white",
+            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+          )}
+        >
           <Icon
             className="sm:h-4 sm:w-4"
             id="ChevronLeft"
@@ -52,7 +54,7 @@ export const Partners = ({
           {partners.map(({
             alt,
             href,
-            logo
+            logo,
           }, index) => (
             <Slider.Item
               className="sm:carousel-item sm:flex sm:w-fit"
@@ -68,7 +70,7 @@ export const Partners = ({
                   alt=""
                   className={clx(
                     "sm:duration-300 sm:ease-in-out sm:h-16 sm:object-contain sm:grayscale sm:transition-[filter] sm:w-auto",
-                    "sm:hover:grayscale-0"
+                    "sm:hover:grayscale-0",
                   )}
                   height={64}
                   src={logo}
@@ -79,11 +81,13 @@ export const Partners = ({
           ))}
         </Slider>
 
-        <Slider.NextButton className={clx(
-          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-          "sm:hover:bg-black sm:hover:text-white",
-          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-        )}>
+        <Slider.NextButton
+          className={clx(
+            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+            "sm:hover:bg-black sm:hover:text-white",
+            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+          )}
+        >
           <Icon
             className="sm:h-4 sm:w-4"
             id="ChevronRight"

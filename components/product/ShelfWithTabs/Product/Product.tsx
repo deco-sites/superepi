@@ -10,25 +10,25 @@ export type ProductProps = {
 };
 
 export const Product = ({
-  product
+  product,
 }: ProductProps) => {
   const {
     brand,
     image,
     offers,
-    url
+    url,
   } = product;
 
   const {
     installments,
     listPrice = 0,
-    price = 0
+    price = 0,
   } = useOffer(offers);
 
   const discount = listPrice !== price;
 
   return (
-    <article className="group sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:gap-4 sm:h-full sm:p-4 sm:relative sm:transition-shadow sm:w-full" >
+    <article className="group sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:gap-4 sm:h-full sm:p-4 sm:relative sm:transition-shadow sm:w-full">
       <Image
         alt=""
         className="sm:aspect-square sm:object-cover sm:w-full"
@@ -52,7 +52,10 @@ export const Product = ({
 
         <div className="sm:flex sm:flex-col sm:items-start sm:justify-center sm:mt-auto sm:w-full">
           <strong className="sm:font-roboto sm:leading-normal sm:font-medium sm:text-[#151515] sm:text-2xl">
-            {formatPrice(listPrice)} <span className="sm:font-black sm:leading-normal sm:text-base">no Pix/Boleto</span>
+            {formatPrice(listPrice)}{" "}
+            <span className="sm:font-black sm:leading-normal sm:text-base">
+              no Pix/Boleto
+            </span>
           </strong>
 
           <span>
@@ -64,7 +67,7 @@ export const Product = ({
       <a
         className={clx(
           "sm:absolute sm:bg-[#ffffffcc] sm:duration-300 sm:cursor-pointer sm:ease-in-out sm:flex sm:flex-col sm:gap-2 sm:font-normal sm:font-roboto sm:leading-normal sm:h-[calc(100%-0.625rem)] sm:items-center sm:justify-center sm:left-1/2 sm:opacity-0 sm:pointer-events-none sm:text-sm sm:text-[#151515] sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:transition-opacity sm:w-[calc(100%-0.625rem)] sm:z-10",
-          "sm:hover:opacity-100 sm:group-hover:pointer-events-auto sm:hover:shadow-[0_0_0.625rem_0_#00000033]"
+          "sm:hover:opacity-100 sm:group-hover:pointer-events-auto sm:hover:shadow-[0_0_0.625rem_0_#00000033]",
         )}
         href={url}
       >
@@ -79,7 +82,7 @@ export const Product = ({
           Comprar
         </span>
       </a>
-    </article >
+    </article>
   );
 };
 

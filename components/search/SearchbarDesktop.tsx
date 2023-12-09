@@ -107,7 +107,10 @@ function Searchbar({
             <ul id="search-suggestion" class="flex flex-col gap-6">
               {searches.map(({ term }) => (
                 <li>
-                  <a href={`/pesquisa?t=${term}`} class="flex gap-4 items-center">
+                  <a
+                    href={`/pesquisa?t=${term}`}
+                    class="flex gap-4 items-center"
+                  >
                     <span>
                       <Icon
                         id="MagnifyingGlass"

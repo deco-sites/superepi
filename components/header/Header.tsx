@@ -1,8 +1,5 @@
 import { useSignal } from "@preact/signals";
-import {
-  useEffect,
-  useRef
-} from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Lower } from "deco-sites/superepi/components/header/Lower/Lower.tsx";
 import { Middle } from "deco-sites/superepi/components/header/Middle/Middle.tsx";
@@ -17,7 +14,7 @@ export interface Assistance {
   title: string;
   /** @description Conteúdo textual do card */
   content: string;
-};
+}
 
 export interface MiddleType {
   /** @description Imagem da logo */
@@ -28,7 +25,7 @@ export interface MiddleType {
   visitant: Visitant;
   /** @description Ícone do carrinho de compras [***Use uma resolução de 64x64 e formato webp para melhor performace] */
   cart: ImageWidget;
-};
+}
 
 /** @titleBy name */
 export interface LinkWithBackground {
@@ -40,7 +37,7 @@ export interface LinkWithBackground {
   href: string;
   /** @description Nome do link */
   name: string;
-};
+}
 
 /** @titleBy name */
 export interface LinkWithIcons {
@@ -52,21 +49,21 @@ export interface LinkWithIcons {
   href: string;
   /** @description Nome do link */
   name: string;
-};
+}
 
 export interface Logo {
   /** @description Texto alternativo da logo */
   alt: string;
   /** @description URL da image [***Use uma resolução de 170x50 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 export interface Lowers {
   /** @description Lista com os menus */
   menus: Menu[];
   /** @description This does nothing */
   nothing: null;
-};
+}
 
 /** @titleBy name */
 export interface Menu {
@@ -78,7 +75,7 @@ export interface Menu {
   tabs: boolean;
   /** @description Lista com os items do menu [***Multiplos items caso tenha tabs] */
   items: MenuItem[];
-};
+}
 
 /** @titleBy name */
 export interface MenuItem {
@@ -90,14 +87,14 @@ export interface MenuItem {
   href: string;
   /** @description Lista com os links */
   links: MenuItemLink[];
-};
+}
 
 export interface MenuItemBanner {
   /** @description Texto alternativo do banner */
   alt: string;
   /** @description URL da imagem [***Use uma resolução de 550x350 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 /** @titleBy name */
 export interface MenuItemLink {
@@ -105,13 +102,13 @@ export interface MenuItemLink {
   href: string;
   /** @description Nome do link */
   name: string;
-};
+}
 
 export interface UpperType {
   /** @description Lista com os links preenchidos */
   linksWithBackground: LinkWithBackground[];
   linksWithIcons: LinkWithIcons[];
-};
+}
 
 export interface Visitant {
   /** @description Icone lateral [***Use uma resolução de 64x64 e formato webp para melhor performace] */
@@ -120,7 +117,7 @@ export interface Visitant {
   title: string;
   /** @description Conteúdo textual do card */
   content: string;
-};
+}
 
 export interface Props {
   /** @description Barra de cima do header */
@@ -129,12 +126,12 @@ export interface Props {
   middle: MiddleType;
   /** @description Barra de baixo do header */
   lower: Lowers;
-};
+}
 
 function Header({
   upper,
   middle,
-  lower
+  lower,
 }: Props) {
   const fixed = useSignal(false);
   const padding = useSignal<undefined | number>(undefined);
@@ -173,7 +170,7 @@ function Header({
     }, {
       root: null,
       rootMargin: `0px 0px 0px 0px`,
-      threshold: 0
+      threshold: 0,
     });
 
     intersection.observe(header);
@@ -186,29 +183,27 @@ function Header({
       className="sm:flex sm:w-full"
       ref={refHeader}
       style={{
-        paddingTop: padding.value === undefined ?
-          undefined :
-          `${padding.value}px`
+        paddingTop: padding.value === undefined
+          ? undefined
+          : `${padding.value}px`,
       }}
     >
       <div
         className={clx(
           "sm:bg-[#fff] sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50",
           fixed.value === true && "sm:grid-rows-[0fr_0fr_0fr]",
-          fixed.value === false && "sm:grid-rows-[auto_auto_auto]"
+          fixed.value === false && "sm:grid-rows-[auto_auto_auto]",
         )}
         ref={refContainer}
         style={{
-          position: padding.value === undefined ?
-            undefined :
-            "fixed"
+          position: padding.value === undefined ? undefined : "fixed",
         }}
       >
         <div
           className="sm:bg-[#f0f0f0] sm:flex sm:px-6 sm:w-full"
           ref={refUpper}
           style={{
-            overflow: fixed.value === true ? "hidden" : undefined
+            overflow: fixed.value === true ? "hidden" : undefined,
           }}
         >
           <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
@@ -225,7 +220,7 @@ function Header({
         <div
           className="sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full"
           style={{
-            overflow: fixed.value === true ? "hidden" : undefined
+            overflow: fixed.value === true ? "hidden" : undefined,
           }}
         >
           <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
@@ -235,6 +230,6 @@ function Header({
       </div>
     </header>
   );
-};
+}
 
 export default Header;

@@ -61,7 +61,7 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
   const seller = offer?.seller;
   const price = offer?.price;
   const discountTicket = offer?.priceSpecification.find((spec) => {
-    return spec.name === "PaymentSlip"
+    return spec.name === "PaymentSlip";
   });
   const availability = offer?.availability;
 
@@ -69,7 +69,7 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
     price,
     listPrice: listPrice?.price,
     availability,
-    discountTicket : discountTicket?.price,
+    discountTicket: discountTicket?.price,
     seller,
     installments: installment && price
       ? installmentToString(installment, price)

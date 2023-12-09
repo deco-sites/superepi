@@ -12,18 +12,20 @@ export interface Banner {
   href: string;
   /** @description URL da imagem [***Use uma resolução de 1440x400 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 export const Banner = ({
   alt,
   href,
-  src
+  src,
 }: Banner) => {
   return (
-    <div className={clx(
-      "sm:flex sm:px-4 sm:py-5 sm:w-full",
-      "py-7"
-    )}>
+    <div
+      className={clx(
+        "sm:flex sm:px-4 sm:py-5 sm:w-full",
+        "py-7",
+      )}
+    >
       <a
         className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full"
         href={href}

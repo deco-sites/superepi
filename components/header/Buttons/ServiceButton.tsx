@@ -14,7 +14,9 @@ export default function ServiceButton() {
       >
         <Icon id="Service" size={30} strokeWidth={0.4} />
         <div class="flex flex-col">
-          <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">Quer ajuda?</p>
+          <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">
+            Quer ajuda?
+          </p>
           <p class="text-xs lg:text-[13px] xl:text-sm">(11) 2628-0078</p>
         </div>
       </a>
@@ -44,10 +46,13 @@ export default function ServiceButton() {
             Cotações
           </a>
           <button class="flex flex-col justify-center items-center w-full border border-[#808080] py-2 px-4">
-            <span class="font-bold">Horário de atendimento</span> <br /> Segunda à Quinta <br /> das 9:00H às 18:00H <br /> Sexta <br />
+            <span class="font-bold">Horário de atendimento</span> <br />{" "}
+            Segunda à Quinta <br /> das 9:00H às 18:00H <br /> Sexta <br />
             das 8:00H às 17:00H
           </button>
-          <span class="font-bold px-3">Horário de atendimento Loja</span> <br /> Segunda à Quinta <br /> das 9:00H às 17:30H <br /> Sexta <br />
+          <span class="font-bold px-3">Horário de atendimento Loja</span> <br />
+          {" "}
+          Segunda à Quinta <br /> das 9:00H às 17:30H <br /> Sexta <br />
           das 8:00H às 16:30H
         </div>
       )}

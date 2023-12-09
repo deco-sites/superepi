@@ -7,9 +7,11 @@ import { TabPanel } from "deco-sites/superepi/components/ui/Tabs/TabPanel/TabPan
 import { TabsList } from "deco-sites/superepi/components/ui/Tabs/TabsList/TabsList.tsx";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
 
-export type TabsProps = Omit<JSX.HTMLAttributes<HTMLDivElement>, "defaultValue"> & {
-  defaultValue?: number;
-};
+export type TabsProps =
+  & Omit<JSX.HTMLAttributes<HTMLDivElement>, "defaultValue">
+  & {
+    defaultValue?: number;
+  };
 
 export const Base = forwardRef<HTMLDivElement, TabsProps>(({
   defaultValue = 0,
@@ -36,7 +38,7 @@ export const Base = forwardRef<HTMLDivElement, TabsProps>(({
 export const Tabs = Object.assign(Base, {
   Tab: Tab,
   TabPanel: TabPanel,
-  TabsList: TabsList
+  TabsList: TabsList,
 });
 
 export default Tabs;

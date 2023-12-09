@@ -1,6 +1,6 @@
 import {
   Card,
-  CardProps
+  CardProps,
 } from "deco-sites/superepi/components/departmentCarousel/Card/Card.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
 
@@ -9,7 +9,7 @@ export type CarouselProps = {
 };
 
 export const Carousel = ({
-  cards
+  cards,
 }: CarouselProps) => {
   return (
     <Slider

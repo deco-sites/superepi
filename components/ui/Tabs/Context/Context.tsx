@@ -1,11 +1,5 @@
-import {
-  Signal,
-  useSignal
-} from "@preact/signals";
-import {
-  ComponentChildren,
-  createContext
-} from "preact";
+import { Signal, useSignal } from "@preact/signals";
+import { ComponentChildren, createContext } from "preact";
 
 export type ContextProps = {
   id: string;
@@ -14,7 +8,7 @@ export type ContextProps = {
 };
 
 export type ProviderProps = ContextProps & {
-  children: ComponentChildren
+  children: ComponentChildren;
 };
 
 export const Context = createContext<ContextProps>({} as ContextProps);

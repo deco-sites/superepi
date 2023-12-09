@@ -8,11 +8,11 @@ export default {
     container: { center: true },
     extend: {
       fontFamily: {
-        "roboto": ['Roboto', 'sans-serif']
+        "roboto": ["Roboto", "sans-serif"],
       },
       maxWidth: {
         "page-container": "81.25rem",
-      }
+      },
     },
     screens: {
       "sm": "0px",
@@ -20,6 +20,6 @@ export default {
       "md": "641.25px",
       "mdA": "774.375px",
       "lg": "907.5px",
-    }
-  }
+    },
+  },
 };

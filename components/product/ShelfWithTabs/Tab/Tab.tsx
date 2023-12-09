@@ -10,11 +10,11 @@ export interface TabProps {
   name: string;
   /** @description Integração dos produtos */
   products: Product[] | null;
-};
+}
 
 export const Tab = ({
   name,
-  products = []
+  products = [],
 }: TabProps) => {
   if (
     products === null ||
@@ -22,16 +22,20 @@ export const Tab = ({
   ) return null;
 
   return (
-    <div className={clx(
-      "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
-      "lg:grid-cols-1"
-    )}>
-      <Slider.PrevButton className={clx(
-        "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-        "sm:hover:bg-black sm:hover:text-white",
-        "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-        "lg:hidden"
-      )}>
+    <div
+      className={clx(
+        "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
+        "lg:grid-cols-1",
+      )}
+    >
+      <Slider.PrevButton
+        className={clx(
+          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+          "sm:hover:bg-black sm:hover:text-white",
+          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+          "lg:hidden",
+        )}
+      >
         <Icon
           className="sm:h-4 sm:w-4"
           id="ChevronLeft"
@@ -52,12 +56,14 @@ export const Tab = ({
         ))}
       </Slider>
 
-      <Slider.NextButton className={clx(
-        "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-        "sm:hover:bg-black sm:hover:text-white",
-        "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-        "lg:hidden"
-      )}>
+      <Slider.NextButton
+        className={clx(
+          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+          "sm:hover:bg-black sm:hover:text-white",
+          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+          "lg:hidden",
+        )}
+      >
         <Icon
           className="sm:h-4 sm:w-4"
           id="ChevronRight"

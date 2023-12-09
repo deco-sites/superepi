@@ -2,19 +2,21 @@ import { Props } from "deco-sites/superepi/components/header/Header.tsx";
 import { MenuDropdown } from "deco-sites/superepi/components/header/Lower/MenuDropdown/MenuDropdown.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
-export type LowerProps = Props['lower'];
+export type LowerProps = Props["lower"];
 
 export const Lower = ({
   menus = [],
-  nothing
+  nothing,
 }: LowerProps) => {
   if (menus.length === 0) return null;
 
   return (
-    <div className={clx(
-      "sm:flex sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
-      "lg:gap-[0rem_2rem]"
-    )}>
+    <div
+      className={clx(
+        "sm:flex sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
+        "lg:gap-[0rem_2rem]",
+      )}
+    >
       {menus.map(({
         name,
         ...other
@@ -22,7 +24,7 @@ export const Lower = ({
         <div
           className={clx(
             "dropdown dropdown-hover",
-            "sm:[&_div]:pointer-events-auto"
+            "sm:[&_div]:pointer-events-auto",
           )}
           key={index}
           style={{ position: "initial" }}
@@ -30,7 +32,7 @@ export const Lower = ({
           <div
             className={clx(
               "sm:flex sm:pb-2",
-              "sm:[&_span]:focus:border-b-[#f8a531] sm:[&_span]:hover:border-b-[#f8a531]"
+              "sm:[&_span]:focus:border-b-[#f8a531] sm:[&_span]:hover:border-b-[#f8a531]",
             )}
             role="button"
             tabIndex={0}

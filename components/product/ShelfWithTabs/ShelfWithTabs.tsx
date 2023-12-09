@@ -2,7 +2,7 @@ import { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import {
   Tab,
-  TabProps
+  TabProps,
 } from "deco-sites/superepi/components/product/ShelfWithTabs/Tab/Tab.tsx";
 import { Tabs } from "deco-sites/superepi/components/ui/Tabs/Tabs.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
@@ -18,12 +18,12 @@ export interface Props {
   heading: string;
   /** @description Listagem das tabs */
   tabs?: TabProps[];
-};
+}
 
 export const ShelfWithTabs = ({
   icon,
   heading,
-  tabs = []
+  tabs = [],
 }: Props) => {
   const id = useId();
 
@@ -33,7 +33,7 @@ export const ShelfWithTabs = ({
     <div
       className={clx(
         "sm:flex sm:px-6 sm:py-5 sm:w-full",
-        "lg:py-7"
+        "lg:py-7",
       )}
       id={id}
     >
@@ -50,34 +50,42 @@ export const ShelfWithTabs = ({
               />
             )}
 
-            <h2 className={clx(
-              "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
-              "lg:leading-normal lg:text-xl"
-            )}>
+            <h2
+              className={clx(
+                "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+                "lg:leading-normal lg:text-xl",
+              )}
+            >
               {heading}
             </h2>
           </div>
 
-          <div className={clx(
-            "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
-            "lg:flex"
-          )}>
-            <Slider.PrevButton className={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-            )}>
+          <div
+            className={clx(
+              "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
+              "lg:flex",
+            )}
+          >
+            <Slider.PrevButton
+              className={clx(
+                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+                "sm:hover:bg-black sm:hover:text-white",
+                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              )}
+            >
               <Icon
                 className="sm:h-4 sm:w-4"
                 id="ChevronLeft"
               />
             </Slider.PrevButton>
 
-            <Slider.NextButton className={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-            )}>
+            <Slider.NextButton
+              className={clx(
+                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+                "sm:hover:bg-black sm:hover:text-white",
+                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              )}
+            >
               <Icon
                 className="sm:h-4 sm:w-4"
                 id="ChevronRight"
@@ -96,7 +104,7 @@ export const ShelfWithTabs = ({
                 className={clx(
                   "sm:border-b-[0.125rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:font-bold sm:font-roboto sm:leading-normal sm:outline-none sm:text-center sm:text-sm sm:text-[#999999] sm:-tracking-[0.0625rem] sm:transition-colors sm:uppercase",
                   "sm:focus:text-[#FFAB0080]",
-                  "sm:aria-selected:text-[#FFAB00] sm:aria-selected:border-b-[#FFAB00]"
+                  "sm:aria-selected:text-[#FFAB00] sm:aria-selected:border-b-[#FFAB00]",
                 )}
                 key={index}
                 value={index}

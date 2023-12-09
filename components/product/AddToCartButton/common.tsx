@@ -60,7 +60,7 @@ const useAddToCart = ({
   return { onClick, loading };
 };
 
-export default function AddToCartButton({...props}: Props) {
+export default function AddToCartButton({ ...props }: Props) {
   const quantity = useSignal(1);
   const btnProps = useAddToCart(props);
 
@@ -102,7 +102,12 @@ export default function AddToCartButton({...props}: Props) {
           />
         </div>
       </div>
-      <Button {...btnProps} onClick={(e) => btnProps?.onClick(e, quantity.value)} data-deco="add-to-cart" class="btn-primary bg-[#37CC6D] hover:bg-[rgba(0, 0, 0, 0.8)] w-full">
+      <Button
+        {...btnProps}
+        onClick={(e) => btnProps?.onClick(e, quantity.value)}
+        data-deco="add-to-cart"
+        class="btn-primary bg-[#37CC6D] hover:bg-[rgba(0, 0, 0, 0.8)] w-full"
+      >
         Adicionar à Sacola
       </Button>
     </div>

@@ -10,31 +10,35 @@ export interface Banner {
   href: string;
   /** @description URL da imagem do banner [***Use uma resolução de 420x545 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 export interface Props {
   banners: Banner[];
-};
+}
 
 export const GridBanners = ({
-  banners = []
+  banners = [],
 }: Props) => {
   if (banners.length === 0) return null;
 
   return (
-    <div className={clx(
-      "sm:flex sm:px-6 sm:py-5 sm:w-full",
-      "lg:py-7"
-    )}>
-      <ul className={clx(
-        "sm:gap-6 sm:grid sm:grid-cols-1 sm:max-w-page-container sm:mx-auto sm:w-full",
-        "md:grid-cols-2",
-        "lg:grid-cols-3"
-      )}>
+    <div
+      className={clx(
+        "sm:flex sm:px-6 sm:py-5 sm:w-full",
+        "lg:py-7",
+      )}
+    >
+      <ul
+        className={clx(
+          "sm:gap-6 sm:grid sm:grid-cols-1 sm:max-w-page-container sm:mx-auto sm:w-full",
+          "md:grid-cols-2",
+          "lg:grid-cols-3",
+        )}
+      >
         {banners.map(({
           alt,
           href,
-          src
+          src,
         }, index) => (
           <li
             className="sm:aspect-[420/545] sm:flex sm:h-full sm:w-full"

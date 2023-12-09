@@ -1,7 +1,7 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Product } from "apps/commerce/types.ts";
-import Image from "apps/website/components/Image.tsx"
-import { Product as ProductComponent } from "deco-sites/superepi/components/product/ProductCard.tsx";;
+import Image from "apps/website/components/Image.tsx";
+import { Product as ProductComponent } from "deco-sites/superepi/components/product/ProductCard.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
 import SliderJS from "deco-sites/superepi/components/ui/SliderJS.tsx";
@@ -16,14 +16,14 @@ export interface Props {
   /** @description Listagem das tabs */
   products: Product[] | null;
   /** @description Justifica o título da sessão */
-  variant?: "center" | "left"
-};
+  variant?: "center" | "left";
+}
 
 export const Shelf = ({
   icon,
   heading,
   products = [],
-  variant = "left"
+  variant = "left",
 }: Props) => {
   const id = useId();
 
@@ -33,17 +33,20 @@ export const Shelf = ({
     <div
       className={clx(
         "sm:flex sm:px-6 sm:py-5 sm:w-full",
-        "lg:py-7"
+        "lg:py-7",
       )}
       id={id}
     >
       <div className="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
         <div className="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:relative sm:w-full">
-          <div className={clx(
-            "sm:flex sm:gap-4 sm:items-center ",
-            variant === "left" && "sm:w-full",
-            variant === "center" && "sm:border-b-[0.1875rem] sm:border-b-[#ffa500] sm:mx-auto sm:pb-2 sm:w-fit"
-          )}>
+          <div
+            className={clx(
+              "sm:flex sm:gap-4 sm:items-center ",
+              variant === "left" && "sm:w-full",
+              variant === "center" &&
+                "sm:border-b-[0.1875rem] sm:border-b-[#ffa500] sm:mx-auto sm:pb-2 sm:w-fit",
+            )}
+          >
             {icon !== undefined && (
               <Image
                 alt=""
@@ -54,35 +57,43 @@ export const Shelf = ({
               />
             )}
 
-            <h2 className={clx(
-              "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
-              "lg:leading-normal lg:text-xl"
-            )}>
+            <h2
+              className={clx(
+                "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+                "lg:leading-normal lg:text-xl",
+              )}
+            >
               {heading}
             </h2>
           </div>
 
-          <div className={clx(
-            "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
-            "lg:flex",
-            variant === "center" && "lg:absolute lg:right-0"
-          )}>
-            <Slider.PrevButton className={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-            )}>
+          <div
+            className={clx(
+              "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
+              "lg:flex",
+              variant === "center" && "lg:absolute lg:right-0",
+            )}
+          >
+            <Slider.PrevButton
+              className={clx(
+                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+                "sm:hover:bg-black sm:hover:text-white",
+                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              )}
+            >
               <Icon
                 className="sm:h-4 sm:w-4"
                 id="ChevronLeft"
               />
             </Slider.PrevButton>
 
-            <Slider.NextButton className={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black"
-            )}>
+            <Slider.NextButton
+              className={clx(
+                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+                "sm:hover:bg-black sm:hover:text-white",
+                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              )}
+            >
               <Icon
                 className="sm:h-4 sm:w-4"
                 id="ChevronRight"
@@ -91,16 +102,20 @@ export const Shelf = ({
           </div>
         </div>
 
-        <div className={clx(
-          "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
-          "lg:grid-cols-1"
-        )}>
-          <Slider.PrevButton className={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-            "lg:hidden"
-          )}>
+        <div
+          className={clx(
+            "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
+            "lg:grid-cols-1",
+          )}
+        >
+          <Slider.PrevButton
+            className={clx(
+              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+              "sm:hover:bg-black sm:hover:text-white",
+              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              "lg:hidden",
+            )}
+          >
             <Icon
               className="sm:h-4 sm:w-4"
               id="ChevronLeft"
@@ -121,12 +136,14 @@ export const Shelf = ({
             ))}
           </Slider>
 
-          <Slider.NextButton className={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-            "lg:hidden"
-          )}>
+          <Slider.NextButton
+            className={clx(
+              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
+              "sm:hover:bg-black sm:hover:text-white",
+              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              "lg:hidden",
+            )}
+          >
             <Icon
               className="sm:h-4 sm:w-4"
               id="ChevronRight"

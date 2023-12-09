@@ -11,7 +11,7 @@ export interface Category {
   href?: string;
   image?: ImageWidget;
   buttonText?: string;
-  children?: { label: string, href: string }[]
+  children?: { label: string; href: string }[];
 }
 
 export type BorderRadius =
@@ -53,35 +53,37 @@ function CardText(
       }`}
     >
       {label && (
-        <h3 class="text-base lg:text-lg font-bold text-white text-center transition-all duration-75">{label}</h3>
+        <h3 class="text-base lg:text-lg font-bold text-white text-center transition-all duration-75">
+          {label}
+        </h3>
       )}
 
       {children && children.length > 0 &&
         (
           <div
             class="hidden hover:flex group-hover:flex bg-[#f2f2f2] z-[-1] items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ 
+            style={{
               top: "48px",
-              left: "0px", 
+              left: "0px",
             }}
           >
-             <ul class="max-h-[550px] py-6 px-4 pt-10">
+            <ul class="max-h-[550px] py-6 px-4 pt-10">
               {children.map((node) => (
                 <li class="p-3">
-                  <a class="hover:underline transition-all duration-500" href={node.href}>
+                  <a
+                    class="hover:underline transition-all duration-500"
+                    href={node.href}
+                  >
                     <span class="text-xs font-semibold">{node.label}</span>
                   </a>
                 </li>
               ))}
-             </ul>
+            </ul>
           </div>
-        )
-      }
-      
+        )}
     </div>
   );
 }
-
 
 function Buttons() {
   return (
@@ -138,8 +140,8 @@ function DeparmentList(props: Props) {
 
   return (
     <div
-    id={id}
-    class="max-w-[1300px] mx-auto py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
+      id={id}
+      class="max-w-[1300px] mx-auto py-4 px-4 md:px-0 flex flex-col gap-4 text-base-content lg:gap-6 lg:py-6"
     >
       <div class="flex justify-between">
         <HeaderSections
@@ -214,7 +216,6 @@ function DeparmentList(props: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
 
       <SliderJS rootId={id} />
     </div>

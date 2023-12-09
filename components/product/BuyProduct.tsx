@@ -14,7 +14,7 @@ import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import ProductSelector from "./ProductVariantSelector.tsx";
-import BtnPayment from "$store/islands/BtnPayment.tsx"
+import BtnPayment from "$store/islands/BtnPayment.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Image from "apps/website/components/Image.tsx";
 
@@ -76,19 +76,28 @@ function BuyProduct({ page, layout }: Props) {
               {formatPrice(listPrice, offers?.priceCurrency)}
             </span>
           )}
-          { discountTicket ? (
-            <span class="font-semibold text-xl md:text-3xl text-[#37CC6D] flex flex-col gap-2 items-start">
-            <span class="text-sm text-base-300 text-medium">à vista com <strong class="text-base-300">5% OFF no Boleto ou PIX</strong></span>
-            {formatPrice(discountTicket, offers?.priceCurrency)}
-          </span>
-          ) : (
-            <span class="font-semibold text-xl text-secondary">
-              {formatPrice(price, offers?.priceCurrency)}
-            </span>
-          ) }
+          {discountTicket
+            ? (
+              <span class="font-semibold text-xl md:text-3xl text-[#37CC6D] flex flex-col gap-2 items-start">
+                <span class="text-sm text-base-300 text-medium">
+                  à vista com{" "}
+                  <strong class="text-base-300">5% OFF no Boleto ou PIX</strong>
+                </span>
+                {formatPrice(discountTicket, offers?.priceCurrency)}
+              </span>
+            )
+            : (
+              <span class="font-semibold text-xl text-secondary">
+                {formatPrice(price, offers?.priceCurrency)}
+              </span>
+            )}
         </div>
         <span class="text-sm text-base-300">
-          { discountTicket ? `ou ${formatPrice(price, offers?.priceCurrency)} em até ${installments} ` : installments}
+          {discountTicket
+            ? `ou ${
+              formatPrice(price, offers?.priceCurrency)
+            } em até ${installments} `
+            : installments}
         </span>
       </div>
       {/* Add to Cart and Favorites button */}
@@ -180,7 +189,13 @@ function BuyProduct({ page, layout }: Props) {
 
       {/* Site blindado */}
       <div class="flex justify-center mt-4">
-        <Image class="w-28" src="https://seal.siteblindado.com/www.superepi.com.br/seal.png" alt="Logo siteblindado" width={53} height={16} />
+        <Image
+          class="w-28"
+          src="https://seal.siteblindado.com/www.superepi.com.br/seal.png"
+          alt="Logo siteblindado"
+          width={53}
+          height={16}
+        />
       </div>
       {/* Analytics Event */}
       <SendEventOnLoad

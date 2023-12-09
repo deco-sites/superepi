@@ -5,17 +5,17 @@ import {
   useContext,
   useEffect,
   useImperativeHandle,
-  useRef
+  useRef,
 } from "preact/hooks";
 import {
   Context,
-  ContextProps
+  ContextProps,
 } from "deco-sites/superepi/components/ui/Tabs/Context/Context.tsx";
 
 type HandleKeyboard = (arg0: {
   element: HTMLButtonElement;
   event: KeyboardEvent;
-  focus: ContextProps['value'];
+  focus: ContextProps["value"];
 }) => void;
 
 export type TabProps = Omit<JSX.HTMLAttributes<HTMLButtonElement>, "value"> & {
@@ -29,7 +29,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(({
   const {
     id,
     focus,
-    value
+    value,
   } = useContext(Context);
 
   const render = useSignal(0);
@@ -40,11 +40,13 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(({
     const element = button.current;
     if (element === null) return;
 
-    const listener: (this: HTMLButtonElement, ev: KeyboardEvent) => any = (event) => {
+    const listener: (this: HTMLButtonElement, ev: KeyboardEvent) => any = (
+      event,
+    ) => {
       handleKeyboard({
         element: element,
         event: event,
-        focus: focus
+        focus: focus,
       });
     };
 
@@ -63,7 +65,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(({
       render.value = 1;
 
       return;
-    };
+    }
 
     if (valueProp === focus.value) element?.focus();
   }, [focus.value]);
@@ -85,9 +87,9 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(({
       }}
       ref={button}
       tabIndex={valueProp ===
-        value.value ? 0 :
-        -1
-      }
+          value.value
+        ? 0
+        : -1}
       role="tab"
     />
   );
@@ -96,7 +98,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(({
 const handleKeyboard: HandleKeyboard = ({
   element,
   event,
-  focus
+  focus,
 }) => {
   const code = event.code;
   const index = focus.value;
@@ -105,7 +107,9 @@ const handleKeyboard: HandleKeyboard = ({
   if (tablist === null) return;
 
   const buttons = Array.from(tablist.querySelectorAll("button"));
-  const lastIndex = parseFloat(buttons.at(-1)?.getAttribute("data-value") ?? "0")
+  const lastIndex = parseFloat(
+    buttons.at(-1)?.getAttribute("data-value") ?? "0",
+  );
 
   switch (code) {
     case "ArrowLeft":
@@ -126,7 +130,7 @@ const handleKeyboard: HandleKeyboard = ({
       event.preventDefault();
       focus.value = 0;
 
-      break
+      break;
   }
 };
 

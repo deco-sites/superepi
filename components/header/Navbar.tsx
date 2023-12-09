@@ -15,13 +15,13 @@ import ContainerNavItem from "$store/islands/ContainerNavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { NavItemProps } from "deco-sites/superepi/components/header/Header.tsx";
 import Alert from "$store/islands/Alert.tsx";
-import type { AlertsProps } from './Alert.tsx'
+import type { AlertsProps } from "./Alert.tsx";
 
 function Navbar({ items, searchbar, logo, alerts }: {
   items: NavItemProps[];
   searchbar?: SearchbarProps;
   logo?: { src: string; alt: string };
-  alerts: AlertsProps
+  alerts: AlertsProps;
 }) {
   const platform = usePlatform();
 
@@ -69,8 +69,7 @@ function Navbar({ items, searchbar, logo, alerts }: {
       <div class="flex flex-col">
         <Alert alerts={alerts} />
         <div class="hidden md:flex flex-col shadow-md">
-          <div
-            class="flex flex-row justify-between items-start w-full pl-2 pr-4 max-w-[1300px] mx-auto py-6">
+          <div class="flex flex-row justify-between items-start w-full pl-2 pr-4 max-w-[1300px] mx-auto py-6">
             <div class="flex-none w-44">
               {logo && (
                 <a
@@ -90,8 +89,10 @@ function Navbar({ items, searchbar, logo, alerts }: {
             </div>
             <div className="w-full mx-2 flex-shrink-[6] flex self-end">
               <SearchInput searchbar={searchbar} />
-              {/* <SearchButton />
-              <Searchbar searchbar={searchbar} /> */}
+              {
+                /* <SearchButton />
+              <Searchbar searchbar={searchbar} /> */
+              }
             </div>
             <div class="flex-none flex items-center justify-evenly gap-4 flex-shrink-[9] w-full">
               <ServiceButton />
@@ -102,8 +103,12 @@ function Navbar({ items, searchbar, logo, alerts }: {
               >
                 <Icon id="Login" size={30} strokeWidth={0.4} />
                 <div class="flex flex-col">
-                  <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">Olá, Visitante</p>
-                  <p class="text-xs lg:text-[13px] xl:text-sm">Faça seu login</p>
+                  <p class="text-xs lg:text-[13px] xl:text-sm font-semibold">
+                    Olá, Visitante
+                  </p>
+                  <p class="text-xs lg:text-[13px] xl:text-sm">
+                    Faça seu login
+                  </p>
                 </div>
               </a>
               {platform === "vtex" && <CartButtonVTEX />}

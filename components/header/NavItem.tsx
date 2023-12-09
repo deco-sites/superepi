@@ -17,23 +17,32 @@ function NavItem({ item }: { item: NavItemProps }) {
         (
           <div
             class="absolute hidden hover:flex group-hover:flex bg-[#f2f2f2] z-[-1] items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ 
+            style={{
               top: "48px",
-              left: "0px", 
-              // marginTop: headerHeight 
+              left: "0px",
+              // marginTop: headerHeight
             }}
+          >
+            <ul
+              style={{ columnCount: 3 }}
+              class="max-h-[550px] py-6 px-4 pt-10"
             >
-            <ul style={{ columnCount: 3 }} class="max-h-[550px] py-6 px-4 pt-10">
               {children.map((node) => (
                 <li class="p-3">
-                  <a class="hover:underline transition-all duration-500" href={node.href}>
+                  <a
+                    class="hover:underline transition-all duration-500"
+                    href={node.href}
+                  >
                     <span class="text-xs font-semibold">{node.label}</span>
                   </a>
 
                   <ul class="">
                     {node.children?.map((leaf) => (
                       <li>
-                        <a class="hover:underline transition-all duration-500" href={leaf.href}>
+                        <a
+                          class="hover:underline transition-all duration-500"
+                          href={leaf.href}
+                        >
                           <span class="text-xs">{leaf.label}</span>
                         </a>
                       </li>

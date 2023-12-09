@@ -22,8 +22,8 @@ function HeaderSections(props: Props) {
                   class={`text-xl leading-2 font-semibold tracking-widest
                   ${
                     props.color
-                    ? `text-[${props.color ?? ""}]`
-                    : "text-base-content"
+                      ? `text-[${props.color ?? ""}]`
+                      : "text-base-content"
                   }
                 `}
                 >
@@ -35,11 +35,7 @@ function HeaderSections(props: Props) {
                 <h2
                   class={`
                   leading-6 lg:leading-8
-                  ${
-                    props.color
-                      ? `text-[${props.color}]`
-                      : "text-neutral"
-                  }
+                  ${props.color ? `text-[${props.color}]` : "text-neutral"}
                   ${props.fontSize === "Normal" ? "lg:text-xl" : "lg:text-2xl"}
                 `}
                 >

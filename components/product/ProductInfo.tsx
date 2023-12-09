@@ -60,9 +60,12 @@ function ProductInfo({ page, layout }: Props) {
   const productGroupID = isVariantOf?.productGroupID ?? "";
   const discount = price && listPrice ? listPrice - price : 0;
 
-  const sku = product.sku?.includes('SKU') ? product.sku?.split('SKU-')[1] : product.sku?.split('/')[0];
-  const content = additionalProperty.length > 1 ? additionalProperty.find(({ name }) => name === "Variações") : ""
-  
+  const sku = product.sku?.includes("SKU")
+    ? product.sku?.split("SKU-")[1]
+    : product.sku?.split("/")[0];
+  const content = additionalProperty.length > 1
+    ? additionalProperty.find(({ name }) => name === "Variações")
+    : "";
 
   return (
     <div class="flex flex-col max-w-[450px]">
@@ -86,11 +89,37 @@ function ProductInfo({ page, layout }: Props) {
       </div>
       {/* Infos */}
       <div className="grid grid-cols-2 gap-4">
-        { brand?.logo && <div className="flex gap-2"><img src={brand?.logo} alt={`Logo ${brand?.name}`} className="w-10 object-contain" /></div>}
-        <div className="flex gap-1 flex-col"><span class="font-semibold">Marca:</span><span>{brand?.name}</span></div>
-        <div className="flex gap-1 flex-col"><span class="font-semibold">Referência:</span><span>{sku}</span></div>
-        { content && <div className="flex gap-1 flex-col"><span class="font-semibold">Conteúdo:</span><span>{content?.value}</span></div>}
-        <div className="flex gap-1 flex-col"><span class="font-semibold">Disponilidade:</span><span>{availability === "https://schema.org/InStock" ? "Em estoque" : "Indisponível"}</span></div>
+        {brand?.logo && (
+          <div className="flex gap-2">
+            <img
+              src={brand?.logo}
+              alt={`Logo ${brand?.name}`}
+              className="w-10 object-contain"
+            />
+          </div>
+        )}
+        <div className="flex gap-1 flex-col">
+          <span class="font-semibold">Marca:</span>
+          <span>{brand?.name}</span>
+        </div>
+        <div className="flex gap-1 flex-col">
+          <span class="font-semibold">Referência:</span>
+          <span>{sku}</span>
+        </div>
+        {content && (
+          <div className="flex gap-1 flex-col">
+            <span class="font-semibold">Conteúdo:</span>
+            <span>{content?.value}</span>
+          </div>
+        )}
+        <div className="flex gap-1 flex-col">
+          <span class="font-semibold">Disponilidade:</span>
+          <span>
+            {availability === "https://schema.org/InStock"
+              ? "Em estoque"
+              : "Indisponível"}
+          </span>
+        </div>
       </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6">

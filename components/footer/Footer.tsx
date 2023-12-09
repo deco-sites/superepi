@@ -1,7 +1,4 @@
-import {
-  ImageWidget,
-  HTMLWidget
-} from "apps/admin/widgets.ts";
+import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
@@ -10,7 +7,7 @@ export interface Group {
   name: string;
   /** @description Lista ocm os items */
   items: GroupItem[];
-};
+}
 
 /** @titleBy content */
 export interface GroupItem {
@@ -20,14 +17,14 @@ export interface GroupItem {
   content: HTMLWidget;
   /** @description Link do item */
   href: string;
-};
+}
 
 export interface Payments {
   /** @description Título do bloco */
   name: string;
   /** @description Lista com os items do bloco */
   items: PaymentsItem[];
-};
+}
 
 /** @titleBy alt */
 export interface PaymentsItem {
@@ -37,7 +34,7 @@ export interface PaymentsItem {
   size: "big" | "small";
   /** @description URL da imagem do item */
   src: ImageWidget;
-};
+}
 
 export interface Social {
   /** @description Título do blogo */
@@ -46,7 +43,7 @@ export interface Social {
   description: string;
   /** @description Lista com os ícones do bloco */
   icons: SocialIcons[];
-};
+}
 
 /** @titleBy name */
 export interface SocialIcons {
@@ -56,7 +53,7 @@ export interface SocialIcons {
   name: string;
   /** @description Imagem do ícone [***Use uma resolução de 64x64 e formato webp para melhor performace] */
   src: ImageWidget;
-};
+}
 
 export interface Props {
   /** @description Lista de blocos */
@@ -67,28 +64,32 @@ export interface Props {
   payments: Payments;
   /** @description Texto seo do footer */
   seo: HTMLWidget;
-};
+}
 
 export const Footer = ({
   groups,
   payments,
   seo,
-  social
+  social,
 }: Props) => {
   return (
     <div className="sm:bg-[#f0f0f0] sm:flex sm:px-6 sm:w-full">
-      <footer className={clx(
-        "sm:flex sm:flex-col sm:gap-6 sm:max-w-page-container sm:mx-auto sm:py-6 sm:w-full",
-        "md:gap-20 md:py-20"
-      )}>
-        <div className={clx(
-          "sm:gap-6 sm:grid sm:grid-cols-1 sm:w-full",
-          "md:grid-cols-3",
-          "lg:grid-cols-6"
-        )}>
+      <footer
+        className={clx(
+          "sm:flex sm:flex-col sm:gap-6 sm:max-w-page-container sm:mx-auto sm:py-6 sm:w-full",
+          "md:gap-20 md:py-20",
+        )}
+      >
+        <div
+          className={clx(
+            "sm:gap-6 sm:grid sm:grid-cols-1 sm:w-full",
+            "md:grid-cols-3",
+            "lg:grid-cols-6",
+          )}
+        >
           {groups.map(({
             items,
-            name
+            name,
           }, index) => (
             <div
               className="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:max-w-full"
@@ -102,7 +103,7 @@ export const Footer = ({
                 {items.map(({
                   content,
                   href,
-                  icon
+                  icon,
                 }, jindex) => (
                   <li
                     className="sm:flex"
@@ -126,7 +127,7 @@ export const Footer = ({
                         className={clx(
                           "sm:duration-300 sm:ease-in-out sm:font-roboto sm:font-normal sm:leading-normal sm:text-black sm:text-sm sm:transition-colors",
                           "[&_strong]",
-                          "sm:hover:text-[#f8a531]"
+                          "sm:hover:text-[#f8a531]",
                         )}
                         dangerouslySetInnerHTML={{ __html: content }}
                       />
@@ -150,7 +151,7 @@ export const Footer = ({
               {social.icons.map(({
                 href,
                 name,
-                src
+                src,
               }, index) => (
                 <li
                   className="sm:flex"
@@ -185,7 +186,8 @@ export const Footer = ({
               src="/meios-pagamento.webp"
               width={0}
             />
-            {/* <ul className="sm:auto-rows-[1.75rem] sm:gap-3 sm:grid sm:grid-cols-5 sm:w-full">
+            {
+              /* <ul className="sm:auto-rows-[1.75rem] sm:gap-3 sm:grid sm:grid-cols-5 sm:w-full">
               {payments.items.map(({
                 alt,
                 size,
@@ -207,7 +209,8 @@ export const Footer = ({
                   />
                 </div>
               ))}
-            </ul> */}
+            </ul> */
+            }
           </div>
         </div>
 

@@ -2,30 +2,34 @@ import Image from "apps/website/components/Image.tsx";
 import { Props } from "deco-sites/superepi/components/header/Header.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
-export type UpperProps = Props['upper'];
+export type UpperProps = Props["upper"];
 
 export const Upper = (props: UpperProps) => {
   if (props === undefined) return null;
 
   const {
     linksWithBackground,
-    linksWithIcons
+    linksWithIcons,
   } = props;
 
   return (
-    <div className={clx(
-      "sm:gap-4 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
-      "lg:flex lg:items-start"
-    )}>
-      <ul className={clx(
-        "sm:flex sm:flex-wrap sm:gap-8 sm:items-center sm:pt-6 sm:w-full",
-        "lg:flex-grow lg:py-2 lg:w-auto"
-      )}>
+    <div
+      className={clx(
+        "sm:gap-4 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
+        "lg:flex lg:items-start",
+      )}
+    >
+      <ul
+        className={clx(
+          "sm:flex sm:flex-wrap sm:gap-8 sm:items-center sm:pt-6 sm:w-full",
+          "lg:flex-grow lg:py-2 lg:w-auto",
+        )}
+      >
         {linksWithIcons.map(({
           color,
           href,
           icon,
-          name
+          name,
         }, index) => (
           <li
             className="sm:flex"
@@ -50,15 +54,17 @@ export const Upper = (props: UpperProps) => {
         ))}
       </ul>
 
-      <ul className={clx(
-        "sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:w-full",
-        "lg:flex-grow lg:w-auto"
-      )}>
+      <ul
+        className={clx(
+          "sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:w-full",
+          "lg:flex-grow lg:w-auto",
+        )}
+      >
         {linksWithBackground.map(({
           backgroundColor,
           color,
           href,
-          name
+          name,
         }, index) => (
           <li
             className="sm:flex"
@@ -69,7 +75,7 @@ export const Upper = (props: UpperProps) => {
               href={href}
               style={{
                 backgroundColor: backgroundColor,
-                color: color
+                color: color,
               }}
             >
               {name}
