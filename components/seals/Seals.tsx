@@ -49,10 +49,10 @@ export const Seals = ({
               >
                 <Image
                   alt=""
-                  className="sm:h-6 sm:w-6"
+                  className="sm:h-6 sm:object-contain sm:w-6"
                   height={32}
                   src={icon}
-                  width={32}
+                  width={0}
                 />
 
                 <div

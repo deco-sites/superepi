@@ -82,11 +82,9 @@ export const Footer = ({
         "md:gap-20 md:py-20"
       )}>
         <div className={clx(
-          "sm:gap-8 sm:grid sm:grid-cols-1 sm:w-full",
-          "smA:grid-cols-2",
+          "sm:gap-6 sm:grid sm:grid-cols-1 sm:w-full",
           "md:grid-cols-3",
-          "mdA:grid-cols-4",
-          "lg:grid-cols-5"
+          "lg:grid-cols-6"
         )}>
           {groups.map(({
             items,
@@ -120,7 +118,7 @@ export const Footer = ({
                           className="sm:flex-shrink-0 sm:h-5 sm:w-5"
                           height={20}
                           src={icon}
-                          width={20}
+                          width={0}
                         />
                       )}
 
@@ -167,7 +165,7 @@ export const Footer = ({
                       className="sm:h-10 sm:object-cover sm:w-10"
                       height={40}
                       src={src}
-                      width={40}
+                      width={0}
                     />
                   </a>
                 </li>
@@ -180,7 +178,14 @@ export const Footer = ({
               {payments.name}
             </h4>
 
-            <ul className="sm:auto-rows-[1.75rem] sm:gap-3 sm:grid sm:grid-cols-5 sm:w-full">
+            <Image
+              alt=""
+              className="sm:aspect-[250/130] sm:max-w-[15.625rem] sm:object-contain sm:w-full"
+              height={130}
+              src="/meios-pagamento.webp"
+              width={0}
+            />
+            {/* <ul className="sm:auto-rows-[1.75rem] sm:gap-3 sm:grid sm:grid-cols-5 sm:w-full">
               {payments.items.map(({
                 alt,
                 size,
@@ -198,11 +203,11 @@ export const Footer = ({
                     className="sm:h-full sm:object-contain sm:w-full"
                     height={108}
                     src={src}
-                    width={192}
+                    width={0}
                   />
                 </div>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
 

@@ -15,12 +15,15 @@ export interface Props {
   heading: string;
   /** @description Listagem das tabs */
   products: Product[] | null;
+  /** @description Justifica o título da sessão */
+  variant?: "center" | "left"
 };
 
 export const Shelf = ({
   icon,
   heading,
-  products = []
+  products = [],
+  variant = "left"
 }: Props) => {
   const id = useId();
 
@@ -35,8 +38,12 @@ export const Shelf = ({
       id={id}
     >
       <div className="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
-        <div className="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:w-full">
-          <div className="sm:flex sm:gap-4 sm:w-full">
+        <div className="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:relative sm:w-full">
+          <div className={clx(
+            "sm:flex sm:gap-4 sm:items-center ",
+            variant === "left" && "sm:w-full",
+            variant === "center" && "sm:border-b-[0.1875rem] sm:border-b-[#ffa500] sm:mx-auto sm:pb-2 sm:w-fit"
+          )}>
             {icon !== undefined && (
               <Image
                 alt=""
@@ -57,7 +64,8 @@ export const Shelf = ({
 
           <div className={clx(
             "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
-            "lg:flex"
+            "lg:flex",
+            variant === "center" && "lg:absolute lg:right-0"
           )}>
             <Slider.PrevButton className={clx(
               "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
