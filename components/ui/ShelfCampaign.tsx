@@ -1,7 +1,7 @@
 import type { Product } from "apps/commerce/types.ts";
 import { Product as ProductCard } from "$store/components/product/ProductCard.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/islands/SliderJS.tsx";
+import SliderJS from "deco-sites/superepi/islands/ui/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
@@ -187,71 +187,4 @@ export default function ShelfCampaign({
       />
     </div>
   );
-}
-
-{
-  /* <div class="bg-[#F5F5F5]">
-      <div class="max-w-[1300px] mx-auto grid grid-cols-2 grid-row-3 py-4">
-        <div class="flex flex-col justify-center items-center row-span-full">
-          <div class="flex gap-2 items-center">
-            <Icon id="TimerCampaign" size={40} />
-            {title && <h2 class="text-[35px] font-semibold text-[#000]">{title}</h2>}
-          </div>
-          {description && <p class="text-[#000] font-medium pb-2">{description}</p>}
-          <div class="pb-8">
-
-          </div>
-          {ctaComponent}
-        </div>
-        <div
-          id={id}
-          class="row-span-full grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 grid-rows-[48px_1fr_1fr_1fr_48px]"
-        >
-          <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
-            {products?.map((product, index) => (
-              <Slider.Item
-                index={index}
-                class="carousel-item w-[270px] sm:w-[292px] first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
-              >
-                <ProductCard
-                  product={product}
-                  itemListName={title}
-                  layout={cardLayout}
-                  platform={platform}
-                  index={index}
-                />
-              </Slider.Item>
-            ))}
-          </Slider>
-
-          <>
-            <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-              <Slider.PrevButton class="btn btn-circle btn-outline absolute rounded-none right-1/2 bg-base-100">
-                <Icon size={24} id="ChevronLeft" strokeWidth={3} />
-              </Slider.PrevButton>
-            </div>
-            <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-              <Slider.NextButton class="btn btn-circle btn-outline absolute rounded-none left-1/2 bg-base-100">
-                <Icon size={24} id="ChevronRight" strokeWidth={3} />
-              </Slider.NextButton>
-            </div>
-          </>
-          <SliderJS rootId={id} />
-          <SendEventOnLoad
-            event={{
-              name: "view_item_list",
-              params: {
-                item_list_name: title,
-                items: products.map((product) =>
-                  mapProductToAnalyticsItem({
-                    product,
-                    ...(useOffer(product.offers)),
-                  })
-                ),
-              },
-            }}
-          />
-        </div>
-      </div>
-    </div> */
-}
+};

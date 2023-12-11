@@ -4,7 +4,7 @@ import Image from "apps/website/components/Image.tsx";
 import { Product as ProductComponent } from "deco-sites/superepi/components/product/ProductCard.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
-import SliderJS from "deco-sites/superepi/components/ui/SliderJS.tsx";
+import SliderJS from "deco-sites/superepi/islands/ui/SliderJS.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
 

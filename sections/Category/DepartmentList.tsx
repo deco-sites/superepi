@@ -1,7 +1,7 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import { useId } from "preact/hooks";
 import Icon from "$store/components/ui/Icon.tsx";
-import SliderJS from "$store/islands/SliderJS.tsx";
+import SliderJS from "$store/components/ui/SliderJS.tsx";
 import HeaderSections from "$store/components/ui/SectionHeader2.tsx";
 import Image from "apps/website/components/Image.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";

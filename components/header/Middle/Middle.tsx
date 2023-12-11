@@ -19,15 +19,20 @@ export const Middle = ({
         "lg:gap-8 lg:grid-cols-[auto_1fr_auto]",
       )}
     >
-      <Image
-        alt={logo.alt}
-        className="sm:h-[3.125rem] sm:max-w-full sm:object-contain sm:order-1 sm:w-auto"
-        height={50}
-        loading="eager"
-        fit="contain"
-        src={logo.src}
-        width={170}
-      />
+      <a
+        className="/"
+        href="/"
+      >
+        <Image
+          alt={logo.alt}
+          className="sm:h-[3.125rem] sm:max-w-full sm:object-contain sm:order-1 sm:w-auto"
+          height={50}
+          loading="eager"
+          fit="contain"
+          src={logo.src}
+          width={170}
+        />
+      </a>
 
       <div
         className={clx(

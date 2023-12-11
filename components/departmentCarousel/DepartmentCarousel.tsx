@@ -2,7 +2,7 @@ import { CardProps } from "deco-sites/superepi/components/departmentCarousel/Car
 import { Carousel } from "deco-sites/superepi/components/departmentCarousel/Carousel/Carousel.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
-import SliderJS from "deco-sites/superepi/components/ui/SliderJS.tsx";
+import SliderJS from "deco-sites/superepi/islands/ui/SliderJS.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export interface Props {
