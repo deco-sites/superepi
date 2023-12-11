@@ -28,19 +28,18 @@ import * as $$21 from "./islands/Header/ServiceButton.tsx";
 import * as $$22 from "./islands/Newsletter.tsx";
 import * as $$23 from "./islands/OutOfStock.tsx";
 import * as $$24 from "./islands/Product/Shelf/Shelf.tsx";
-import * as $$25 from "./islands/Product/ShelfWithTabs/ShelfWithTabs.tsx";
-import * as $$26 from "./islands/ProductImageZoom.tsx";
-import * as $$27 from "./islands/SearchControls.tsx";
-import * as $$28 from "./islands/ShippingSimulation.tsx";
-import * as $$29 from "./islands/SliderJS.tsx";
-import * as $$30 from "./islands/Tabs/Context/Context.tsx";
-import * as $$31 from "./islands/Tabs/Tab/Tab.tsx";
-import * as $$32 from "./islands/Tabs/TabPanel/TabPanel.tsx";
-import * as $$33 from "./islands/Tabs/Tabs.tsx";
-import * as $$34 from "./islands/Tabs/TabsList/TabsList.tsx";
-import * as $$35 from "./islands/TimerCampaign.tsx";
-import * as $$36 from "./islands/WishlistButton.tsx";
-import * as $$37 from "./islands/ui/Partners/Partners.tsx";
+import * as $$25 from "./islands/ProductImageZoom.tsx";
+import * as $$26 from "./islands/SearchControls.tsx";
+import * as $$27 from "./islands/ShippingSimulation.tsx";
+import * as $$28 from "./islands/SliderJS.tsx";
+import * as $$29 from "./islands/Tabs/Context/Context.tsx";
+import * as $$30 from "./islands/Tabs/Tab/Tab.tsx";
+import * as $$31 from "./islands/Tabs/TabPanel/TabPanel.tsx";
+import * as $$32 from "./islands/Tabs/Tabs.tsx";
+import * as $$33 from "./islands/Tabs/TabsList/TabsList.tsx";
+import * as $$34 from "./islands/TimerCampaign.tsx";
+import * as $$35 from "./islands/WishlistButton.tsx";
+import * as $$36 from "./islands/ui/Partners/Partners.tsx";
 
 const manifest = {
   routes: {
@@ -72,19 +71,18 @@ const manifest = {
     "./islands/Newsletter.tsx": $$22,
     "./islands/OutOfStock.tsx": $$23,
     "./islands/Product/Shelf/Shelf.tsx": $$24,
-    "./islands/Product/ShelfWithTabs/ShelfWithTabs.tsx": $$25,
-    "./islands/ProductImageZoom.tsx": $$26,
-    "./islands/SearchControls.tsx": $$27,
-    "./islands/ShippingSimulation.tsx": $$28,
-    "./islands/SliderJS.tsx": $$29,
-    "./islands/Tabs/Context/Context.tsx": $$30,
-    "./islands/Tabs/Tab/Tab.tsx": $$31,
-    "./islands/Tabs/TabPanel/TabPanel.tsx": $$32,
-    "./islands/Tabs/Tabs.tsx": $$33,
-    "./islands/Tabs/TabsList/TabsList.tsx": $$34,
-    "./islands/TimerCampaign.tsx": $$35,
-    "./islands/WishlistButton.tsx": $$36,
-    "./islands/ui/Partners/Partners.tsx": $$37,
+    "./islands/ProductImageZoom.tsx": $$25,
+    "./islands/SearchControls.tsx": $$26,
+    "./islands/ShippingSimulation.tsx": $$27,
+    "./islands/SliderJS.tsx": $$28,
+    "./islands/Tabs/Context/Context.tsx": $$29,
+    "./islands/Tabs/Tab/Tab.tsx": $$30,
+    "./islands/Tabs/TabPanel/TabPanel.tsx": $$31,
+    "./islands/Tabs/Tabs.tsx": $$32,
+    "./islands/Tabs/TabsList/TabsList.tsx": $$33,
+    "./islands/TimerCampaign.tsx": $$34,
+    "./islands/WishlistButton.tsx": $$35,
+    "./islands/ui/Partners/Partners.tsx": $$36,
   },
   baseUrl: import.meta.url,
 };
