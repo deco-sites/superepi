@@ -4,9 +4,9 @@ import {
   Tab,
   TabProps,
 } from "deco-sites/superepi/components/product/ShelfWithTabs/Tab/Tab.tsx";
-import { Tabs } from "deco-sites/superepi/components/ui/Tabs/Tabs.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import Slider from "deco-sites/superepi/components/ui/Slider.tsx";
+import Tabs from "deco-sites/superepi/components/ui/Tabs/Tabs.tsx";
 import SliderJS from "deco-sites/superepi/islands/ui/SliderJS.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";

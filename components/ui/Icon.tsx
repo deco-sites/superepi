@@ -21,6 +21,7 @@ export type AvailableIcons =
   | "Helmet"
   | "Instagram"
   | "Linkedin"
+  | "Menu"
   | "Minus"
   | "MapPin"
   | "MagnifyingGlass"
