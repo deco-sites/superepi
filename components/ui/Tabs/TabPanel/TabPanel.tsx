@@ -16,6 +16,8 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
     value,
   } = useContext(Context);
 
+  if (valueProp !== value.value) return null;
+
   return (
     <div
       {...props}
