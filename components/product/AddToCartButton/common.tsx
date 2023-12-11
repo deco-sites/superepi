@@ -1,6 +1,7 @@
 import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
+import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { useState } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 
@@ -67,48 +68,55 @@ export default function AddToCartButton({ ...props }: Props) {
   const QUANTITY_MAX_VALUE = 100;
 
   return (
-    <div class="flex gap-2 items-end">
-      <div class="flex flex-col gap-2">
-        <p class="font-semibold text-sm">Quantidade</p>
-        <div class="flex items-center">
-          <div class="flex flex-col justify-center items-center">
+    <div className="sm:flex sm:gap-2 sm:items-end sm:w-full">
+      <div className="sm:flex sm:flex-col sm:gap-1 sm:justify-end">
+        <p className="sm:font-normal sm:font-roboto sm:leading-normal sm:text-xs sm:text-[#999999]">
+          Quantidade:
+        </p>
+
+        <div className="sm:flex sm:items-center">
+          <div className="sm:flex sm:flex-col sm:justify-center sm:items-center">
             <Button
-              class={`btn-xs border border-base-300 join-item ${
-                quantity.value === 1 ? "bg-[#f2f2f2]" : "bg-white"
-              } hover:bg-[#F8A531]`}
-              onClick={() => quantity.value > 1 ? quantity.value -= 1 : 0}
-            >
-              -
-            </Button>
-            <Button
-              class={`btn-xs border border-base-300 join-item ${
-                quantity.value > 99 ? "bg-[#f2f2f2]" : "bg-white"
-              } hover:bg-[#F8A531]`}
+              className={clx(
+                "sm:border-[#999999] sm:border-[0.0625rem] sm:border-b-0 sm:duration-300 sm:ease-in-out sm:font-bold sm:flex sm:flex-shrink-0 sm:items-center sm:h-6 sm:justify-center sm:text-[#999999] sm:text-sm sm:transition-colors sm:w-6",
+                "sm:hover:bg-[#ffab00] sm:hover:text-white"
+              )}
               onClick={() =>
                 QUANTITY_MAX_VALUE > quantity.value ? quantity.value += 1 : 0}
             >
               +
             </Button>
+
+            <Button
+              className={clx(
+                "sm:border-[#999999] sm:border-[0.0625rem] sm:duration-300 sm:ease-in-out sm:font-bold sm:flex sm:flex-shrink-0 sm:items-center sm:h-6 sm:justify-center sm:text-[#999999] sm:text-sm sm:transition-colors sm:w-6",
+                "sm:hover:bg-[#ffab00] sm:hover:text-white"
+              )}
+              onClick={() => quantity.value > 1 ? quantity.value -= 1 : 0}
+            >
+              -
+            </Button>
           </div>
+
           <input
-            class="input text-center join-item px-0 w-9 border border-base-300"
+            className="sm:border-[#999999] sm:border-[0.0625rem] sm:border-l-0 sm:flex-shrink-0 sm:h-12 sm:text-[#999999] sm:text-sm sm:text-center sm:w-12"
             type="number"
             inputMode="numeric"
             pattern="[0-9]*"
             value={quantity.value}
             max={QUANTITY_MAX_VALUE}
             min={1}
-            // onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
           />
         </div>
       </div>
+
       <Button
         {...btnProps}
         onClick={(e) => btnProps?.onClick(e, quantity.value)}
         data-deco="add-to-cart"
-        class="btn-primary bg-[#37CC6D] hover:bg-[rgba(0, 0, 0, 0.8)] w-full"
+        className="sm:bg-[#37cc6d] sm:flex sm:font-normal sm:font-roboto sm:h-12 sm:items-center sm:justify-center sm:leading-normal sm:max-w-[18.75rem] sm:text-white sm:text-sm sm:w-full"
       >
-        Adicionar à Sacola
+        Comprar
       </Button>
     </div>
   );

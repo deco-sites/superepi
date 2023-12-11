@@ -12,11 +12,12 @@ export default function BtnPayment({ cardPayment, ticketPayment }: Props) {
   return (
     <>
       <button
-        class="bg-transparent border-none underline"
+        className="sm:flex sm:font-roboto sm:font-normal sm:leading-normal sm:text-[#999999] sm:text-xs underline"
         onClick={() => open.value = true}
       >
         Formas de pagamento
       </button>
+      
       <Modal
         open={open.value}
         onClose={() => open.value = false}

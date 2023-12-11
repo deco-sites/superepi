@@ -174,7 +174,7 @@ export const Footer = ({
             </ul>
           </div>
 
-          <div className="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:w-full">
+          <div className="sm:flex sm:flex-col sm:gap-4 sm:h-fit sm:items-start sm:w-full">
             <h4 className="sm:font-roboto sm:font-bold sm:leading-normal sm:text-base sm:text-black">
               {payments.name}
             </h4>
@@ -186,31 +186,6 @@ export const Footer = ({
               src="/meios-pagamento.webp"
               width={0}
             />
-            {
-              /* <ul className="sm:auto-rows-[1.75rem] sm:gap-3 sm:grid sm:grid-cols-5 sm:w-full">
-              {payments.items.map(({
-                alt,
-                size,
-                src
-              }, index) => (
-                <div
-                  className={clx(
-                    size === "small" && "sm:col-span-1 sm:row-span-1",
-                    size === "big" && "sm:col-span-5 sm:row-span-2"
-                  )}
-                  key={index}
-                >
-                  <Image
-                    alt={alt}
-                    className="sm:h-full sm:object-contain sm:w-full"
-                    height={108}
-                    src={src}
-                    width={0}
-                  />
-                </div>
-              ))}
-            </ul> */
-            }
           </div>
         </div>
 

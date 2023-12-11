@@ -1,5 +1,7 @@
 import { Props } from "deco-sites/superepi/components/header/Header.tsx";
 import { MenuDropdown } from "deco-sites/superepi/components/header/Lower/MenuDropdown/MenuDropdown.tsx";
+import { SuperStores } from "deco-sites/superepi/components/header/Lower/SuperStores/SuperStores.tsx";
+import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export type LowerProps = Props["lower"];
@@ -13,17 +15,18 @@ export const Lower = ({
   return (
     <div
       className={clx(
-        "sm:hidden sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
+        "carousel sm:hidden sm:gap-4 sm:items-stretch sm:max-w-full sm:overflow-y-hidden sm:w-fit",
         "lg:flex lg:gap-[0rem_2rem]",
       )}
     >
       {menus.map(({
         name,
+        icon,
         ...other
       }, index) => (
         <div
           className={clx(
-            "dropdown dropdown-hover",
+            "carousel-item dropdown dropdown-hover",
             "sm:[&_div]:pointer-events-auto",
           )}
           key={index}
@@ -37,7 +40,14 @@ export const Lower = ({
             role="button"
             tabIndex={0}
           >
-            <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:font-medium sm:font-roboto sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
+            <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
+              {icon !== undefined && (
+                <Icon
+                  className="sm:h-4 sm:w-4"
+                  id={icon}
+                />
+              )}
+
               {name}
             </span>
           </div>
@@ -57,6 +67,8 @@ export const Lower = ({
           </div>
         </div>
       ))}
+
+      <SuperStores />
     </div>
   );
 };
