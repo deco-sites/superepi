@@ -200,7 +200,7 @@ function Header({
         }}
       >
         <div
-          className="sm:bg-[#f0f0f0] sm:flex sm:px-6 sm:w-full"
+          className="sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full"
           ref={refUpper}
           style={{
             overflow: fixed.value === true ? "hidden" : undefined,
@@ -213,7 +213,10 @@ function Header({
 
         <div className="sm:bg-[#fff] sm:flex sm:px-6 sm:w-full">
           <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-            <Middle {...middle} />
+            <Middle
+              lower={lower}
+              middle={middle}
+            />
           </div>
         </div>
 

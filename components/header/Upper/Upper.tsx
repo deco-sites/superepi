@@ -13,18 +13,8 @@ export const Upper = (props: UpperProps) => {
   } = props;
 
   return (
-    <div
-      className={clx(
-        "sm:gap-4 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
-        "lg:flex lg:items-start",
-      )}
-    >
-      <ul
-        className={clx(
-          "sm:flex sm:flex-wrap sm:gap-8 sm:items-center sm:pt-6 sm:w-full",
-          "lg:flex-grow lg:py-2 lg:w-auto",
-        )}
-      >
+    <div className="sm:flex sm:flex-shrink-0 sm:gap-4 sm:items-center sm:justify-between sm:min-h-[2.5rem] sm:min-w-full sm:w-fit">
+      <ul className="sm:flex sm:flex-shrink-0 sm:gap-8 sm:items-center sm:w-fit">
         {linksWithIcons.map(({
           color,
           href,
@@ -32,7 +22,7 @@ export const Upper = (props: UpperProps) => {
           name,
         }, index) => (
           <li
-            className="sm:flex"
+            className="sm:flex sm:flex-shrink-0"
             key={index}
           >
             <a
@@ -54,12 +44,7 @@ export const Upper = (props: UpperProps) => {
         ))}
       </ul>
 
-      <ul
-        className={clx(
-          "sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:w-full",
-          "lg:flex-grow lg:w-auto",
-        )}
-      >
+      <ul className="sm:flex sm:flex-shrink-0 sm:items-center sm:justify-end sm:w-fit">
         {linksWithBackground.map(({
           backgroundColor,
           color,
@@ -67,7 +52,7 @@ export const Upper = (props: UpperProps) => {
           name,
         }, index) => (
           <li
-            className="sm:flex"
+            className="sm:flex sm:flex-shrink-0"
             key={index}
           >
             <a

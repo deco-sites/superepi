@@ -1,17 +1,26 @@
 import Image from "apps/website/components/Image.tsx";
 import { Props } from "deco-sites/superepi/components/header/Header.tsx";
+import { Menu } from "deco-sites/superepi/components/header/Middle/Menu/Menu.tsx";
 import { Searchbar } from "deco-sites/superepi/components/header/Middle/Searchbar/Searchbar.tsx";
 import { Widget } from "deco-sites/superepi/components/header/Middle/Widget/Widget.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
-export type MiddleProps = Props["middle"] & {};
+export type MiddleProps = {
+  lower: Props['lower'];
+  middle: Props["middle"];
+};
 
 export const Middle = ({
-  assistance,
-  cart,
-  logo,
-  visitant,
+  lower,
+  middle
 }: MiddleProps) => {
+  const {
+    assistance,
+    cart,
+    logo,
+    visitant
+  } = middle;
+
   return (
     <div
       className={clx(
@@ -45,8 +54,8 @@ export const Middle = ({
 
       <div
         className={clx(
-          "sm:flex sm:flex-wrap sm:gap-[1rem_1rem] justify-end sm:order-2 sm:w-full",
-          "lg:gap-[1rem_2rem] lg:order-3",
+          "sm:hidden sm:flex-wrap sm:gap-[1rem_1rem] justify-end sm:order-2 sm:w-full",
+          "lg:flex lg:gap-[1rem_2rem] lg:order-3",
         )}
       >
         <Widget
@@ -66,6 +75,8 @@ export const Middle = ({
           title="0 items"
         />
       </div>
+
+      <Menu lower={lower} />
     </div>
   );
 };

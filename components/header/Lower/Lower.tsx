@@ -13,8 +13,8 @@ export const Lower = ({
   return (
     <div
       className={clx(
-        "sm:flex sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
-        "lg:gap-[0rem_2rem]",
+        "sm:hidden sm:flex-wrap sm:gap-4 sm:items-center sm:w-full",
+        "lg:flex lg:gap-[0rem_2rem]",
       )}
     >
       {menus.map(({
