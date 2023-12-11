@@ -41,7 +41,7 @@ export const Lower = ({
             tabIndex={0}
           >
             <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
-              {icon !== undefined && (
+              {(icon !== undefined && icon !== "ArrowsPointingOut") && (
                 <Icon
                   className="sm:h-4 sm:w-4"
                   id={icon}
