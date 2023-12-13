@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useEffect, useRef } from "preact/hooks";
-import { ImageWidget } from "apps/admin/widgets.ts";
+import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import { Lower } from "deco-sites/superepi/components/header/Lower/Lower.tsx";
 import { Middle } from "deco-sites/superepi/components/header/Middle/Middle.tsx";
 import { Upper } from "deco-sites/superepi/components/header/Upper/Upper.tsx";
@@ -14,7 +14,26 @@ export interface Assistance {
   title: string;
   /** @description Conteúdo textual do card */
   content: string;
+  /** @description Lista do popover */
+  list: AssistanceList;
 }
+
+export interface AssistanceList {
+  /** @description Título do popover */
+  title: string;
+  /** @description Lista dos itens de assitência */
+  items: AssistanceListItem[];
+};
+
+/** @titleBy content */
+export interface AssistanceListItem {
+  /** @description Conteúdo textual do item */
+  content: HTMLWidget;
+  /** @description Define se o item vai ter borda */
+  border: boolean;
+  /** @description Endereço do link */
+  href?: string;
+};
 
 export interface MiddleType {
   /** @description Imagem da logo */
@@ -190,7 +209,7 @@ function Header({
     >
       <div
         className={clx(
-          "sm:bg-[#fff] sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50",
+          "sm:bg-[#fff] sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50",
           fixed.value === true && "sm:grid-rows-[0fr_0fr_0fr]",
           fixed.value === false && "sm:grid-rows-[auto_auto_auto]",
         )}

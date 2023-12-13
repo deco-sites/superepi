@@ -1,5 +1,7 @@
 import Image from "apps/website/components/Image.tsx";
 import { Props } from "deco-sites/superepi/components/header/Header.tsx";
+import { Assistance } from "deco-sites/superepi/components/header/Middle/Assistance/Assistance.tsx";
+import { Cart } from "deco-sites/superepi/components/header/Middle/Cart/Cart.tsx";
 import { Menu } from "deco-sites/superepi/components/header/Middle/Menu/Menu.tsx";
 import { Searchbar } from "deco-sites/superepi/components/header/Middle/Searchbar/Searchbar.tsx";
 import { Widget } from "deco-sites/superepi/components/header/Middle/Widget/Widget.tsx";
@@ -58,10 +60,7 @@ export const Middle = ({
           "lg:flex lg:gap-[1rem_2rem] lg:order-3",
         )}
       >
-        <Widget
-          {...assistance}
-          aria-label="Abrir modal de atendimento"
-        />
+        <Assistance assistance={assistance} />
 
         <Widget
           {...visitant}
@@ -69,7 +68,7 @@ export const Middle = ({
           href="/login"
         />
 
-        <Widget
+        <Cart
           content="R$ 0,00"
           icon={cart}
           title="0 items"

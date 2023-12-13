@@ -4,7 +4,7 @@ import Button, { Props as BtnProps } from "./common.tsx";
 export type Props = Omit<BtnProps, "onAddItem" | "platform">;
 
 function AddToCartButton(props: Props) {
-  const { addItem } = useCart();
+  const { addItem, cart } = useCart();
 
   return (
     <Button
