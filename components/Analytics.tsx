@@ -1,5 +1,5 @@
-import { sendEvent } from "$store/sdk/analytics.tsx";
 import type { AnalyticsEvent } from "apps/commerce/types.ts";
+import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 
 /**
  * This function is usefull for sending events on click. Works with both Server and Islands components
@@ -9,27 +9,55 @@ export const SendEventOnClick = <E extends AnalyticsEvent>({ event, id }: {
   id: string;
 }) => (
   <script
-    type="module"
-    dangerouslySetInnerHTML={{
-      __html:
-        `document.getElementById("${id}").addEventListener("click", () => (${sendEvent})(${
-          JSON.stringify(event)
-        }));`,
-    }}
+    defer
+    src={scriptAsDataURI(
+      (id: string, event: AnalyticsEvent) => {
+        const elem = document.getElementById(id);
+
+        if (!elem) {
+          return console.warn(
+            `Could not find element ${id}. Click event will not be send. This will cause loss in analytics`,
+          );
+        }
+
+        elem.addEventListener("click", () => {
+          window.DECO.events.dispatch(event);
+        });
+      },
+      id,
+      event,
+    )}
   />
 );
 
-/**
- * This componente should be used when want to send event for rendered componentes.
- * This behavior is usefull for view_* events.
- */
 export const SendEventOnLoad = <E extends AnalyticsEvent>(
-  { event }: { event: E },
+  { event, id }: { event: E; id: string },
 ) => (
   <script
-    type="module"
-    dangerouslySetInnerHTML={{
-      __html: `(${sendEvent})(${JSON.stringify(event)});`,
-    }}
+    defer
+    src={scriptAsDataURI(
+      (id: string, event: E) => {
+        const elem = document.getElementById(id);
+
+        if (!elem) {
+          return console.warn(
+            `Could not find element ${id}. Click event will not be send. This will cause loss in analytics`,
+          );
+        }
+
+        const observer = new IntersectionObserver((items) => {
+          for (const item of items) {
+            if (!item.isIntersecting) continue;
+
+            window.DECO.events.dispatch(event);
+            observer.unobserve(elem);
+          }
+        });
+
+        observer.observe(elem);
+      },
+      id,
+      event,
+    )}
   />
 );

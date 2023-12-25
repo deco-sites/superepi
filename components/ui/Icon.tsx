@@ -104,6 +104,7 @@ export type AvailableIcons =
   | "Phone"
   | "ContactUsPhone"
   | "FooterPhone"
+  | "Options"
   | "Timer"
   | "TimerCampaign"
   | "ShelfTitle"

@@ -13,23 +13,20 @@ export const Lower = ({
   if (menus.length === 0) return null;
 
   return (
-    <div
-      className={clx(
-        "carousel sm:hidden sm:gap-4 sm:items-stretch sm:max-w-full sm:overflow-y-hidden sm:w-fit",
-        "lg:flex lg:gap-[0rem_2rem]",
-      )}
-    >
+    <div className={clx(
+      "carousel sm:hidden sm:gap-4 sm:items-stretch sm:max-w-full sm:overflow-y-hidden sm:w-fit",
+      "lg:flex lg:gap-[0rem_2rem]",
+    )}>
       {menus.map(({
         name,
         icon,
         ...other
-      }, index) => (
+      }) => (
         <div
           className={clx(
             "carousel-item dropdown dropdown-hover",
             "sm:[&_div]:pointer-events-auto",
           )}
-          key={index}
           style={{ position: "initial" }}
         >
           <div

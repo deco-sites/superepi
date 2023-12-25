@@ -1,30 +1,12 @@
-import { SendEventOnLoad } from "$store/components/Analytics.tsx";
-import { Layout as CardLayout } from "$store/components/product/ProductCard.tsx";
-import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import SearchControls from "$store/islands/SearchControls.tsx";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import type { ProductListingPage } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
-
-export interface Layout {
-  /**
-   * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
-   */
-  variant?: "aside" | "drawer";
-  /**
-   * @description Number of products per line on grid
-   */
-  columns?: Columns;
-}
+import { ProductListingPage } from "apps/commerce/types.ts";
+import { Result } from "deco-sites/superepi/components/search/Result/Result.tsx";
+import Breadcrumb from "deco-sites/superepi/components/ui/Breadcrumb.tsx";
+import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export interface Props {
   /** @title Integration */
   page: ProductListingPage | null;
-  layout?: Layout;
-  cardLayout?: CardLayout;
-}
+};
 
 function NotFound() {
   return (
@@ -32,120 +14,47 @@ function NotFound() {
       <span>Not Found!</span>
     </div>
   );
-}
-
-function renderPageIndex(pages: number) {
-  let array: number[] | [] = [];
-  for (let index = 1; index <= pages; index++) {
-    array = [...array, index];
-  }
-  return array;
-}
-
-function Result({
-  page,
-  layout,
-  cardLayout,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
-
-  const perPage = pageInfo.recordPerPage || products.length;
-  const offset = pageInfo.currentPage * perPage;
-  const pages = Math.ceil(
-    pageInfo.records as number / (pageInfo?.recordPerPage ?? 1) as number,
-  );
-
-  return (
-    <>
-      <div class="container px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={layout?.variant === "drawer"}
-        />
-
-        <div class="flex flex-row">
-          {layout?.variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
-              <Filters filters={filters} />
-            </aside>
-          )}
-          <div class="flex-grow">
-            <ProductGallery
-              products={products}
-              offset={offset}
-              layout={{ card: cardLayout, columns: layout?.columns }}
-            />
-          </div>
-        </div>
-
-        <div class="flex justify-center my-4">
-          <div class="join">
-            {pageInfo?.currentPage + 1 === 1 ? "" : (
-              <a
-                aria-label="previous page link"
-                rel="prev"
-                href={pageInfo.previousPage ?? "#"}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="ChevronLeft" size={24} strokeWidth={2} />
-              </a>
-            )}
-            <span class="btn btn-ghost join-item">
-              {renderPageIndex(pages).map((page) => (
-                <span
-                  class={`${
-                    page === pageInfo?.currentPage + 1
-                      ? "font-bold text-[17px] border bg-[#F8A531] p-2 text-white"
-                      : "font-medium text-base"
-                  }`}
-                >
-                  {page}
-                </span>
-              ))}
-            </span>
-            {pageInfo?.currentPage + 1 === pages ? "" : (
-              <a
-                aria-label="next page link"
-                rel="next"
-                href={pageInfo.nextPage ?? "#"}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="ChevronRight" size={24} strokeWidth={2} />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-      <SendEventOnLoad
-        event={{
-          name: "view_item_list",
-          params: {
-            // TODO: get category name from search or cms setting
-            item_list_name: "",
-            item_list_id: "",
-            items: page.products?.map((product, index) =>
-              mapProductToAnalyticsItem({
-                ...(useOffer(product.offers)),
-                index: offset + index,
-                product,
-                breadcrumbList: page.breadcrumb,
-              })
-            ),
-          },
-        }}
-      />
-    </>
-  );
-}
+};
 
 function SearchResult({ page, ...props }: Props) {
-  if (!page) {
+  if (page === null) {
     return <NotFound />;
-  }
+  };
 
-  return <Result {...props} page={page} />;
-}
+  const { breadcrumb } = page;
+
+  return (
+    <div className={clx(
+      "sm:flex sm:flex-col sm:pb-5 sm:w-full",
+      "lg:pb-7"
+    )}>
+      <div className="sm:flex sm:p-6 sm:w-full">
+        <div className={clx(
+          "sm:flex sm:justify-center sm:max-w-page-container sm:mx-auto sm:w-full",
+          "[&_ul]:!max-w-full [&_ul]:!w-fit"
+        )}>
+          <Breadcrumb itemListElement={breadcrumb.itemListElement} />
+        </div>
+      </div>
+
+      <div className={clx(
+        "sm:bg-[#f0f0f0] sm:border-b-[0.3125rem] sm:border-b-[#F8A531] sm:flex sm:mb-6 sm:px-6 sm:py-10",
+        "lg:mb-12"
+      )}>
+        <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+          <h1 className="sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl">
+            {breadcrumb.itemListElement.slice(-1)[0].name}
+          </h1>
+        </div>
+      </div>
+
+      <div className="sm:flex sm:px-6 sm:w-full">
+        <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+          <Result page={page} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default SearchResult;

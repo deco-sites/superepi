@@ -1,6 +1,6 @@
-import { useSignal } from "@preact/signals";
-import { useEffect, useRef } from "preact/hooks";
+import { FnContext } from "deco/types.ts";
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
+import HeaderJS from "deco-sites/superepi/components/header/HeaderJs.tsx";
 import { Lower } from "deco-sites/superepi/components/header/Lower/Lower.tsx";
 import { Middle } from "deco-sites/superepi/components/header/Middle/Middle.tsx";
 import { Upper } from "deco-sites/superepi/components/header/Upper/Upper.tsx";
@@ -139,6 +139,8 @@ export interface Visitant {
 }
 
 export interface Props {
+  /** @ignore */
+  isMobile: boolean;
   /** @description Barra de cima do header */
   upper: UpperType;
   /** @description Barra do meio do header */
@@ -148,83 +150,18 @@ export interface Props {
 }
 
 function Header({
+  isMobile,
   upper,
   middle,
   lower,
 }: Props) {
-  const fixed = useSignal(false);
-  const padding = useSignal<undefined | number>(undefined);
-
-  const refContainer = useRef<HTMLDivElement>(null);
-  const refHeader = useRef<HTMLElement>(null);
-  const refUpper = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = refContainer.current;
-    const upper = refUpper.current;
-
-    if (
-      container === null ||
-      upper === null
-    ) return;
-
-    const resize = new ResizeObserver((event) => {
-      padding.value = event[0].contentRect.height;
-    });
-
-    resize.observe(container);
-
-    return () => resize.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const header = refHeader.current;
-    if (header === null) return;
-
-    const intersection = new IntersectionObserver((event) => {
-      const element = event[0];
-
-      if (element.isIntersecting === true) fixed.value = false;
-      else fixed.value = true;
-    }, {
-      root: null,
-      rootMargin: `0px 0px 0px 0px`,
-      threshold: 0,
-    });
-
-    intersection.observe(header);
-
-    return () => intersection.disconnect();
-  }, []);
-
-  return (
+  return (<>
     <header
-      className="sm:flex sm:w-full"
-      ref={refHeader}
-      style={{
-        paddingTop: padding.value === undefined
-          ? undefined
-          : `${padding.value}px`,
-      }}
+      className="group sm:flex sm:pt-[171.4px] sm:w-full"
+      id="main-header"
     >
-      <div
-        className={clx(
-          "sm:bg-[#fff] sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50",
-          fixed.value === true && "sm:grid-rows-[0fr_0fr_0fr]",
-          fixed.value === false && "sm:grid-rows-[auto_auto_auto]",
-        )}
-        ref={refContainer}
-        style={{
-          position: padding.value === undefined ? undefined : "fixed",
-        }}
-      >
-        <div
-          className="sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full"
-          ref={refUpper}
-          style={{
-            overflow: fixed.value === true ? "hidden" : undefined,
-          }}
-        >
+      <div className="sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
+        <div className="group-data-[micro-header=true]:hidden sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full">
           <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
             <Upper {...upper} />
           </div>
@@ -240,18 +177,34 @@ function Header({
         </div>
 
         <div
-          className="sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full"
-          style={{
-            overflow: fixed.value === true ? "hidden" : undefined,
-          }}
+          className="group-data-[micro-header=true]:hidden sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full"
         >
           <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-            <Lower {...lower} />
+            {isMobile === false && (
+              <Lower {...lower} />
+            )}
           </div>
         </div>
       </div>
     </header>
-  );
-}
+
+    <HeaderJS />
+  </>);
+};
+
+export const loader = (
+  props: Props,
+  _req: Request,
+  ctx: FnContext
+) => {
+  const device = ctx.device;
+  const isMobile = device === "mobile" || device === "tablet";
+
+  return {
+    ...props,
+    device: device || "desktop",
+    isMobile
+  };
+};
 
 export default Header;
