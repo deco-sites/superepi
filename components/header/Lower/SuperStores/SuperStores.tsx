@@ -50,9 +50,7 @@ export const SuperStores = () => {
             />
           </a>
 
-          <div
-            className="sm:absolute sm:bg-[#000000bf] sm:h-[100vh] sm:left-1/2 sm:top-0 sm:-translate-x-1/2 sm:w-[100vw] sm:-z-10"
-          />
+          <div className="sm:absolute sm:bg-[#000000bf] sm:h-[100vh] sm:left-1/2 sm:top-0 sm:-translate-x-1/2 sm:w-[100vw] sm:-z-10" />
         </div>
       </div>
     </div>

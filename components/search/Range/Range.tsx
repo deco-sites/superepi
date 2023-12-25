@@ -17,7 +17,7 @@ type RangeValue = {
 
 export const Range = ({
   max,
-  min
+  min,
 }: RangeProps) => {
   const params = new URLSearchParams(window.location.search);
   const paramsValue = params.get("filter.price");
@@ -29,7 +29,7 @@ export const Range = ({
     min: paramsMin !== undefined ? parseFloat(paramsMin) : min,
     pl: "0%",
     pr: "0%",
-    width: "100%"
+    width: "100%",
   });
 
   const nearest = (max - min) / 10;
@@ -44,7 +44,7 @@ export const Range = ({
             style={{
               left: `${100 * (price.value.min - min) / interval}%`,
               right: `${100 * (price.value.max - min) / interval}%`,
-              width: `${100 * (price.value.max - price.value.min) / interval}%`
+              width: `${100 * (price.value.max - price.value.min) / interval}%`,
             }}
           />
         </div>
@@ -58,7 +58,7 @@ export const Range = ({
             aria-label="Ranger de preço"
             className={clx(
               "custom-range",
-              "sm:w-full"
+              "sm:w-full",
             )}
             max={max}
             min={min}
@@ -73,11 +73,11 @@ export const Range = ({
                 };
 
                 return;
-              };
+              }
 
               price.value = {
                 ...price.value,
-                min: float
+                min: float,
               };
             }}
             step={(max - min) / 100}
@@ -95,7 +95,7 @@ export const Range = ({
             aria-label="Ranger de preço"
             className={clx(
               "custom-range",
-              "sm:w-full"
+              "sm:w-full",
             )}
             max={max}
             min={min}
@@ -106,15 +106,15 @@ export const Range = ({
               if (float <= price.value.min + nearest) {
                 price.value = {
                   ...price.value,
-                  max: price.value.min + nearest
+                  max: price.value.min + nearest,
                 };
 
                 return;
-              };
+              }
 
               price.value = {
                 ...price.value,
-                max: float
+                max: float,
               };
             }}
             step={(max - min) / 100}
@@ -128,7 +128,7 @@ export const Range = ({
         <button
           className={clx(
             "sm:bg-[#2e294e] sm:duration-300 sm:ease-in-out sm:flex sm:font-normal sm:items-center sm:justify-center sm:h-9 sm:leading-normal sm:rounded sm:text-[#FFFFFF] sm:text-base sm:transition-colors sm:w-16",
-            "sm:hover:text-[#cf6196]"
+            "sm:hover:text-[#cf6196]",
           )}
           onClick={() => POST(price.value)}
         >
@@ -145,7 +145,7 @@ export const Range = ({
 
 const POST = ({
   max,
-  min
+  min,
 }: RangeValue) => {
   const params = new URLSearchParams(window.location.search);
   params.set("filter.price", `${min}:${max}`);

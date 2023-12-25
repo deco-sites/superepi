@@ -9,7 +9,7 @@ import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 
 interface Props {
   page: ProductDetailsPage | null;
-};
+}
 
 export const ProductInfo = ({ page }: Props) => {
   const platform = usePlatform();
@@ -75,13 +75,15 @@ export const ProductInfo = ({ page }: Props) => {
         </li>
 
         <li className="sm:font-roboto sm:font-normal sm:leading-normal sm:text-xs sm:text-[#151515]">
-          <strong className="sm:font-bold">Disponibilidade:</strong> {availability === "https://schema.org/InStock"
+          <strong className="sm:font-bold">Disponibilidade:</strong>{" "}
+          {availability === "https://schema.org/InStock"
             ? "Em estoque"
             : "Indisponível"}
         </li>
       </ul>
 
-      {(product.isVariantOf?.description !== undefined && product.isVariantOf.description !== "") && (
+      {(product.isVariantOf?.description !== undefined &&
+        product.isVariantOf.description !== "") && (
         <div
           className="sm:font-normal sm:font-roboto sm:leading-normal sm:text-sm sm:text-[#212529]"
           dangerouslySetInnerHTML={{ __html: product.isVariantOf?.description }}
@@ -124,10 +126,10 @@ export const ProductInfo = ({ page }: Props) => {
                 product,
                 breadcrumbList,
                 price,
-                listPrice
-              })
-            ]
-          }
+                listPrice,
+              }),
+            ],
+          },
         }}
       />
     </div>

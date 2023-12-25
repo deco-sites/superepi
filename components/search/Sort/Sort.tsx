@@ -4,11 +4,11 @@ import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
 
 export type SortProps = {
-  sortOptions: ProductListingPage['sortOptions'];
+  sortOptions: ProductListingPage["sortOptions"];
 };
 
 export const Sort = ({
-  sortOptions = []
+  sortOptions = [],
 }: SortProps) => {
   const id = useId();
   const ref = useRef<HTMLFormElement>(null);
@@ -45,7 +45,7 @@ export const Sort = ({
       >
         {sortOptions.map(({
           label,
-          value
+          value,
         }, index) => (
           <option
             key={index}

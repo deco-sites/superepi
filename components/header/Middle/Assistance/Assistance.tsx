@@ -1,22 +1,22 @@
 import { Props } from "deco-sites/superepi/components/header/Header.tsx";
 import {
   Widget,
-  WidgetProps
+  WidgetProps,
 } from "deco-sites/superepi/components/header/Middle/Widget/Widget.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export type AssistanceProps = {
-  assistance: Props['middle']['assistance'];
+  assistance: Props["middle"]["assistance"];
 };
 
 export const Assistance = ({
-  assistance
+  assistance,
 }: AssistanceProps) => {
   const {
     content,
     icon,
     list,
-    title
+    title,
   } = assistance;
 
   return (
@@ -45,7 +45,7 @@ export const Assistance = ({
           {list.items.map(({
             border,
             content,
-            href
+            href,
           }, index) => (
             <li
               className="sm:flex sm:w-full"
@@ -55,9 +55,10 @@ export const Assistance = ({
                 className={clx(
                   "sm:font-roboto sm:font-normal sm:leading-tight sm:p-3 sm:text-[#333] sm:text-sm sm:w-full",
                   "sm:[&_strong]:font-bold",
-                  border === true && "sm:border-[#808080] sm:border-[0.0625rem]",
+                  border === true &&
+                    "sm:border-[#808080] sm:border-[0.0625rem]",
                   href === undefined && "sm:cursor-text",
-                  href !== undefined && "sm:cursor-pointer"
+                  href !== undefined && "sm:cursor-pointer",
                 )}
                 dangerouslySetInnerHTML={{ __html: content }}
                 href={href}

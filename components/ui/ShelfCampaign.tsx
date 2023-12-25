@@ -187,4 +187,4 @@ export default function ShelfCampaign({
       />
     </div>
   );
-};
+}

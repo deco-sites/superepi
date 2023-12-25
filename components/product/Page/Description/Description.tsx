@@ -6,15 +6,17 @@ export type DescriptionProps = {
 };
 
 export const Description = ({
-  product
+  product,
 }: DescriptionProps) => {
   if (product === null) return null;
 
   return (
-    <article className={clx(
-      "sm:gap-10 sm:grid sm:grid-cols-1 sm:w-full",
-      "lg:grid-cols-2"
-    )}>
+    <article
+      className={clx(
+        "sm:gap-10 sm:grid sm:grid-cols-1 sm:w-full",
+        "lg:grid-cols-2",
+      )}
+    >
       <h2 className="sm:font-roboto sm:font-bold sm:leading-none sm:text-[#151515] sm:text-4xl">
         Descrição completa
       </h2>

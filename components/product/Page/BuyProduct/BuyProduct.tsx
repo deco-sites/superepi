@@ -13,7 +13,7 @@ export type BuyProductProps = {
 };
 
 export const BuyProduct = ({
-  page
+  page,
 }: BuyProductProps) => {
   if (page === null) return null;
 
@@ -24,7 +24,7 @@ export const BuyProduct = ({
     isVariantOf,
     offers,
     productID,
-    url
+    url,
   } = product;
 
   const {
@@ -32,7 +32,7 @@ export const BuyProduct = ({
     discountTicket,
     installments,
     listPrice = 0,
-    price = 0
+    price = 0,
   } = useOffer(offers);
 
   const discount = price && listPrice ? listPrice - price : 0;
@@ -50,39 +50,47 @@ export const BuyProduct = ({
             </span>
           )}
 
-          {discountTicket !== undefined ? (
-            <span className="sm:flex sm:flex-col sm:gap-1 sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-sm sm:w-full">
-              <span>
-                à vista com <strong className="sm:font-bold">5% OFF no Boleto ou PIX</strong>
-              </span>
+          {discountTicket !== undefined
+            ? (
+              <span className="sm:flex sm:flex-col sm:gap-1 sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-sm sm:w-full">
+                <span>
+                  à vista com{" "}
+                  <strong className="sm:font-bold">
+                    5% OFF no Boleto ou PIX
+                  </strong>
+                </span>
 
+                <strong className="sm:font-black sm:text-[#37cc6d] sm:text-3xl">
+                  {formatPrice(discountTicket, offers?.priceCurrency)}
+                </strong>
+
+                <span className="sm:font-bold">
+                  ou {formatPrice(price, offers?.priceCurrency)} em até{" "}
+                  {installments}
+                </span>
+              </span>
+            )
+            : (
               <strong className="sm:font-black sm:text-[#37cc6d] sm:text-3xl">
                 {formatPrice(discountTicket, offers?.priceCurrency)}
               </strong>
-
-              <span className="sm:font-bold">
-                ou {formatPrice(price, offers?.priceCurrency)} em até {installments}
-              </span>
-            </span>
-          ) : (
-            <strong className="sm:font-black sm:text-[#37cc6d] sm:text-3xl">
-              {formatPrice(discountTicket, offers?.priceCurrency)}
-            </strong>
-          )}
+            )}
         </div>
       </div>
 
       <div class="sm:flex sm:w-full">
-        {availability === "https://schema.org/InStock" ? (
-          <AddToCartButtonLinx
-            url={url || ""}
-            name={name ?? ""}
-            productID={productID}
-            productGroupID={productGroupID}
-            price={price}
-            discount={discount}
-          />
-        ) : <OutOfStock productID={productID} />}
+        {availability === "https://schema.org/InStock"
+          ? (
+            <AddToCartButtonLinx
+              url={url || ""}
+              name={name ?? ""}
+              productID={productID}
+              productGroupID={productGroupID}
+              price={price}
+              discount={discount}
+            />
+          )
+          : <OutOfStock productID={productID} />}
       </div>
 
       {availability === "https://schema.org/InStock" && (

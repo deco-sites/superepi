@@ -8,19 +8,19 @@ import { Widget } from "deco-sites/superepi/components/header/Middle/Widget/Widg
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export type MiddleProps = {
-  lower: Props['lower'];
+  lower: Props["lower"];
   middle: Props["middle"];
 };
 
 export const Middle = ({
   lower,
-  middle
+  middle,
 }: MiddleProps) => {
   const {
     assistance,
     cart,
     logo,
-    visitant
+    visitant,
   } = middle;
 
   return (

@@ -23,7 +23,7 @@ export interface AssistanceList {
   title: string;
   /** @description Lista dos itens de assitência */
   items: AssistanceListItem[];
-};
+}
 
 /** @titleBy content */
 export interface AssistanceListItem {
@@ -33,7 +33,7 @@ export interface AssistanceListItem {
   border: boolean;
   /** @description Endereço do link */
   href?: string;
-};
+}
 
 export interface MiddleType {
   /** @description Imagem da logo */
@@ -155,47 +155,45 @@ function Header({
   middle,
   lower,
 }: Props) {
-  return (<>
-    <header
-      className="group sm:flex sm:pt-[171.4px] sm:w-full"
-      id="main-header"
-    >
-      <div className="sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
-        <div className="group-data-[micro-header=true]:hidden sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full">
-          <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-            <Upper {...upper} />
+  return (
+    <>
+      <header
+        className="group sm:flex sm:pt-[171.4px] sm:w-full"
+        id="main-header"
+      >
+        <div className="sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
+          <div className="group-data-[micro-header=true]:hidden sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full">
+            <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+              <Upper {...upper} />
+            </div>
+          </div>
+
+          <div className="sm:bg-[#fff] sm:flex sm:px-6 sm:w-full">
+            <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+              <Middle
+                lower={lower}
+                middle={middle}
+              />
+            </div>
+          </div>
+
+          <div className="group-data-[micro-header=true]:hidden sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full">
+            <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+              {isMobile === false && <Lower {...lower} />}
+            </div>
           </div>
         </div>
+      </header>
 
-        <div className="sm:bg-[#fff] sm:flex sm:px-6 sm:w-full">
-          <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-            <Middle
-              lower={lower}
-              middle={middle}
-            />
-          </div>
-        </div>
-
-        <div
-          className="group-data-[micro-header=true]:hidden sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full"
-        >
-          <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-            {isMobile === false && (
-              <Lower {...lower} />
-            )}
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <HeaderJS />
-  </>);
-};
+      <HeaderJS />
+    </>
+  );
+}
 
 export const loader = (
   props: Props,
   _req: Request,
-  ctx: FnContext
+  ctx: FnContext,
 ) => {
   const device = ctx.device;
   const isMobile = device === "mobile" || device === "tablet";
@@ -203,7 +201,7 @@ export const loader = (
   return {
     ...props,
     device: device || "desktop",
-    isMobile
+    isMobile,
   };
 };
 

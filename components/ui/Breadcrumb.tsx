@@ -27,7 +27,8 @@ function Breadcrumb({ itemListElement = [] }: Props) {
 
             <a
               className={clx(
-                index === array.length - 1 && "sm:text-[#151515] sm:cursor-text sm:pointer-events-none"
+                index === array.length - 1 &&
+                  "sm:text-[#151515] sm:cursor-text sm:pointer-events-none",
               )}
               href={item}
             >
@@ -43,6 +44,6 @@ function Breadcrumb({ itemListElement = [] }: Props) {
         ))}
     </ul>
   );
-};
+}
 
 export default Breadcrumb;

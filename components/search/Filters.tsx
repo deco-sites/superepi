@@ -29,7 +29,7 @@ function Filters({ filters }: Props) {
           <ul className="sm:flex sm:flex-col sm:gap-3 sm:w-full">
             {tag.map(({
               label,
-              url
+              url,
             }, index) => (
               <li
                 className="sm:flex sm:items-center sm:justify-between sm:w-full"
@@ -61,7 +61,7 @@ function Filters({ filters }: Props) {
       <ul className="sm:flex sm:flex-col sm:gap-3 sm:w-full">
         {filters.filter(isToggle).map(({
           label,
-          values: valuesProp
+          values: valuesProp,
         }, index) => {
           const values = valuesProp as FilterToggleValue[];
 
@@ -82,32 +82,40 @@ function Filters({ filters }: Props) {
               </h3>
 
               <div className="collapse-content sm:p-0 sm:!pb-0">
-                {label === "Preço" ? (
-                  <Range
-                    max={Math.floor(parseFloat(values.at(-1)?.value.split(":").at(-1) ?? "0"))}
-                    min={Math.floor(parseFloat(values.at(0)?.value.split(":").at(0) ?? "0"))}
-                  />
-                ) : (
-                  <ul className="sm:bg-[#FFFFFF] sm:flex sm:flex-col sm:gap-3 sm:p-4 sm:w-full">
-                    {values.map(({
-                      label,
-                      quantity,
-                      url
-                    }, index) => (
-                      <li
-                        className="sm:flex"
-                        key={index}
-                      >
-                        <a
-                          className="sm:font-roboto sm:font-normal sm:text-[#333] sm:text-sm"
-                          href={url}
+                {label === "Preço"
+                  ? (
+                    <Range
+                      max={Math.floor(
+                        parseFloat(
+                          values.at(-1)?.value.split(":").at(-1) ?? "0",
+                        ),
+                      )}
+                      min={Math.floor(
+                        parseFloat(values.at(0)?.value.split(":").at(0) ?? "0"),
+                      )}
+                    />
+                  )
+                  : (
+                    <ul className="sm:bg-[#FFFFFF] sm:flex sm:flex-col sm:gap-3 sm:p-4 sm:w-full">
+                      {values.map(({
+                        label,
+                        quantity,
+                        url,
+                      }, index) => (
+                        <li
+                          className="sm:flex"
+                          key={index}
                         >
-                          {label} ({quantity})
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                          <a
+                            className="sm:font-roboto sm:font-normal sm:text-[#333] sm:text-sm"
+                            href={url}
+                          >
+                            {label} ({quantity})
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
               </div>
             </li>
           );
@@ -115,6 +123,6 @@ function Filters({ filters }: Props) {
       </ul>
     </div>
   );
-};
+}
 
 export default Filters;

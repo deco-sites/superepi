@@ -1,7 +1,7 @@
 import { useCart } from "apps/linx/hooks/useCart.ts";
 import {
   Widget,
-  WidgetProps
+  WidgetProps,
 } from "deco-sites/superepi/components/header/Middle/Widget/Widget.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
@@ -32,7 +32,12 @@ export const Cart = (props: WidgetProps) => {
       </div>
 
       <div className="drawer-side sm:z-50">
-        <label htmlFor={id} aria-label="close sidebar" className="drawer-overlay"></label>
+        <label
+          htmlFor={id}
+          aria-label="close sidebar"
+          className="drawer-overlay"
+        >
+        </label>
 
         <div className="menu sm:bg-white sm:flex sm:flex-col sm:gap-5 sm:items-center sm:max-w-[31.25rem] sm:min-h-full sm:p-10 sm:relative sm:w-full">
           <div className="sm:border-b-[0.0625rem] sm:border-b-[#f0f0f0] sm:flex sm:flex-col sm:items-center sm:justify-center sm:pb-4 sm:relative sm:text-center sm:w-full">
@@ -55,32 +60,37 @@ export const Cart = (props: WidgetProps) => {
             </p>
           </div>
 
-          {items.length === 0 ? (<>
-            <div className="sm:flex sm:flex-col sm:items-center sm:gap-2 sm:text-center sm:w-full">
-              <span className="sm:font-medium sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-xl sm:-tracking-[0.078125rem]">
-                Seu carrinho está <strong className="sm:text-[#151515] sm:font-black">vazio!</strong>
-              </span>
+          {items.length === 0
+            ? (
+              <>
+                <div className="sm:flex sm:flex-col sm:items-center sm:gap-2 sm:text-center sm:w-full">
+                  <span className="sm:font-medium sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-xl sm:-tracking-[0.078125rem]">
+                    Seu carrinho está{" "}
+                    <strong className="sm:text-[#151515] sm:font-black">
+                      vazio!
+                    </strong>
+                  </span>
 
-              <span className="sm:font-roboto sm:font-medium sm:leading-normal sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
-                Que tal adicionar algum dos nossos produtos?
-              </span>
-            </div>
+                  <span className="sm:font-roboto sm:font-medium sm:leading-normal sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                    Que tal adicionar algum dos nossos produtos?
+                  </span>
+                </div>
 
-            <a
-              className={clx(
-                "sm:border-[#f0f0f0] sm:border-[0.0625rem] sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:items-center sm:justify-center sm:leading-normal sm:max-w-full sm:min-h-12 sm:min-w-[15.625rem] sm:mt-auto sm:uppercase sm:text-sm sm:text-[#151515] sm:transition-colors sm:w-fit",
-                "sm:hover:bg-[#ffab00]"
-              )}
-              href="/"
-            >
-              Voltar para home
-            </a>
-          </>) : (
-            <></>
-          )}
+                <a
+                  className={clx(
+                    "sm:border-[#f0f0f0] sm:border-[0.0625rem] sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:items-center sm:justify-center sm:leading-normal sm:max-w-full sm:min-h-12 sm:min-w-[15.625rem] sm:mt-auto sm:uppercase sm:text-sm sm:text-[#151515] sm:transition-colors sm:w-fit",
+                    "sm:hover:bg-[#ffab00]",
+                  )}
+                  href="/"
+                >
+                  Voltar para home
+                </a>
+              </>
+            )
+            : <></>}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

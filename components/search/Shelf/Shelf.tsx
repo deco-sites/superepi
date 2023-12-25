@@ -9,7 +9,7 @@ export type ShelfProps = {
 
 export const Shelf = ({
   id,
-  page
+  page,
 }: ShelfProps) => {
   if (page === null) return null;
 
@@ -21,13 +21,11 @@ export const Shelf = ({
         className={clx(
           "sm:gap-4 sm:grid sm:grid-cols-1 sm:w-full",
           "smA:grid-cols-2",
-          "mdA:grid-cols-3"
+          "mdA:grid-cols-3",
         )}
         id={id}
       >
-        {products.map((product) => (
-          <Product product={product} />
-        ))}
+        {products.map((product) => <Product product={product} />)}
       </ul>
     </div>
   );

@@ -8,9 +8,10 @@ export default function HeaderJs() {
     const intersection = new IntersectionObserver((event) => {
       const element = event[0];
 
-      element.target.setAttribute("data-micro-header", element.isIntersecting ?
-        "false" :
-        "true");
+      element.target.setAttribute(
+        "data-micro-header",
+        element.isIntersecting ? "false" : "true",
+      );
     }, {
       threshold: 0,
     });
@@ -21,4 +22,4 @@ export default function HeaderJs() {
   }, []);
 
   return null;
-};
+}

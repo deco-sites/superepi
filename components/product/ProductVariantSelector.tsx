@@ -28,7 +28,7 @@ function VariantSelector({ product }: Props) {
                     className={clx(
                       "sm:border-[#999999] sm:border-[0.0625rem] sm:flex sm:font-normal sm:font-roboto sm:items-center sm:justify-center sm:leading-normal sm:p-1 sm:text-xs sm:w-full",
                       link !== url && "sm:text-[#151515]",
-                      link === url && "sm:bg-black sm:text-white"
+                      link === url && "sm:bg-black sm:text-white",
                     )}
                     href={link}
                   >

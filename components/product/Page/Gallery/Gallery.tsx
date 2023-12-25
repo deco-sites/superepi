@@ -7,14 +7,14 @@ export type GalleryProps = {
 };
 
 export const Gallery = ({
-  page
+  page,
 }: GalleryProps) => {
   const id = useId();
 
   if (page === null) return null;
 
   const {
-    product
+    product,
   } = page;
 
   const { image } = product;
@@ -25,7 +25,7 @@ export const Gallery = ({
     <div className="sm:flex sm:flex-col sm:gap-2 sm:w-full">
       <ul className="carousel sm:border-[#e9e8e8] sm:border-[0.125rem] sm:gap-2 sm:w-full">
         {image.map(({
-          url
+          url,
         }, index) => (
           <li
             className="carousel-item sm:aspect-square sm:flex sm:w-full"

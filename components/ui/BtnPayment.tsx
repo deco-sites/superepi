@@ -17,7 +17,7 @@ export default function BtnPayment({ cardPayment, ticketPayment }: Props) {
       >
         Formas de pagamento
       </button>
-      
+
       <Modal
         open={open.value}
         onClose={() => open.value = false}

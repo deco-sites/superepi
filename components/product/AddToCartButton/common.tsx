@@ -79,7 +79,7 @@ export default function AddToCartButton({ ...props }: Props) {
             <Button
               className={clx(
                 "sm:border-[#999999] sm:border-[0.0625rem] sm:border-b-0 sm:duration-300 sm:ease-in-out sm:font-bold sm:flex sm:flex-shrink-0 sm:items-center sm:h-6 sm:justify-center sm:text-[#999999] sm:text-sm sm:transition-colors sm:w-6",
-                "sm:hover:bg-[#ffab00] sm:hover:text-white"
+                "sm:hover:bg-[#ffab00] sm:hover:text-white",
               )}
               onClick={() =>
                 QUANTITY_MAX_VALUE > quantity.value ? quantity.value += 1 : 0}
@@ -90,7 +90,7 @@ export default function AddToCartButton({ ...props }: Props) {
             <Button
               className={clx(
                 "sm:border-[#999999] sm:border-[0.0625rem] sm:duration-300 sm:ease-in-out sm:font-bold sm:flex sm:flex-shrink-0 sm:items-center sm:h-6 sm:justify-center sm:text-[#999999] sm:text-sm sm:transition-colors sm:w-6",
-                "sm:hover:bg-[#ffab00] sm:hover:text-white"
+                "sm:hover:bg-[#ffab00] sm:hover:text-white",
               )}
               onClick={() => quantity.value > 1 ? quantity.value -= 1 : 0}
             >

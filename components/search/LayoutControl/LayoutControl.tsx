@@ -7,7 +7,7 @@ export type LayoutControlProps = {
 };
 
 export const LayoutControl = ({
-  id
+  id,
 }: LayoutControlProps) => {
   const grid4 = useSignal(false);
 
@@ -30,10 +30,7 @@ export const LayoutControl = ({
         break;
     }
 
-    shelf.classList.add(grid4.value === true ?
-      classGrid4 :
-      classGrid3
-    );
+    shelf.classList.add(grid4.value === true ? classGrid4 : classGrid3);
   }, [grid4.value]);
 
   return (
@@ -42,11 +39,11 @@ export const LayoutControl = ({
         className="sm:gap-[0.125rem] sm:grid sm:grid-cols-[repeat(3,0.75rem)]"
         onClick={() => grid4.value = false}
       >
-        {new Array(6).fill(0).map(({ }, index) => (
+        {new Array(6).fill(0).map(({}, index) => (
           <span
             className={clx(
               "sm:flex sm:h-3 sm:w-full",
-              grid4.value === true ? "sm:bg-white" : "sm:bg-[#151514]"
+              grid4.value === true ? "sm:bg-white" : "sm:bg-[#151514]",
             )}
             key={index}
           />
@@ -57,11 +54,11 @@ export const LayoutControl = ({
         className="sm:gap-[0.125rem] sm:grid sm:grid-cols-[repeat(4,0.75rem)]"
         onClick={() => grid4.value = true}
       >
-        {new Array(8).fill(0).map(({ }, index) => (
+        {new Array(8).fill(0).map(({}, index) => (
           <span
             className={clx(
               "sm:flex sm:h-3 sm:w-full",
-              grid4.value === true ? "sm:bg-[#151514]" : "sm:bg-white"
+              grid4.value === true ? "sm:bg-[#151514]" : "sm:bg-white",
             )}
             key={index}
           />

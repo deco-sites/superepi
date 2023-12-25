@@ -8,37 +8,43 @@ import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export interface Props {
   page: ProductDetailsPage | null;
-};
+}
 
 export const Page = ({
-  page
+  page,
 }: Props) => {
   if (page === null) return null;
 
   const {
     breadcrumbList,
-    product
+    product,
   } = page;
 
   return (
-    <div className={clx(
-      "sm:flex sm:flex-col sm:py-5 sm:w-full",
-      "lg:py-7"
-    )}>
+    <div
+      className={clx(
+        "sm:flex sm:flex-col sm:py-5 sm:w-full",
+        "lg:py-7",
+      )}
+    >
       <div className="sm:flex sm:px-6 sm:w-full">
         <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
           <Breadcrumb itemListElement={breadcrumbList.itemListElement} />
         </div>
       </div>
 
-      <div className={clx(
-        "sm:flex sm:px-6 sm:py-5 sm:w-full",
-        "lg:py-7"
-      )}>
-        <div className={clx(
-          "sm:gap-6 sm:grid sm:grid-cols-1 sm:max-w-page-container sm:mx-auto sm:w-full",
-          "lg:grid-cols-3"
-        )}>
+      <div
+        className={clx(
+          "sm:flex sm:px-6 sm:py-5 sm:w-full",
+          "lg:py-7",
+        )}
+      >
+        <div
+          className={clx(
+            "sm:gap-6 sm:grid sm:grid-cols-1 sm:max-w-page-container sm:mx-auto sm:w-full",
+            "lg:grid-cols-3",
+          )}
+        >
           <ProductInfo page={page} />
 
           <Gallery page={page} />
@@ -47,10 +53,12 @@ export const Page = ({
         </div>
       </div>
 
-      <div className={clx(
-        "sm:bg-[#f0f0f0] sm:flex sm:flex-col sm:px-6 sm:py-6 sm:w-full",
-        "lg:py-24"
-      )}>
+      <div
+        className={clx(
+          "sm:bg-[#f0f0f0] sm:flex sm:flex-col sm:px-6 sm:py-6 sm:w-full",
+          "lg:py-24",
+        )}
+      >
         <div className="sm:flex sm:mx-auto sm:max-w-page-container sm:w-full">
           <Description product={product} />
         </div>
