@@ -19,6 +19,14 @@ export interface GroupItem {
   href: string;
 }
 
+/** @titleBy alt */
+export interface Logo {
+  /** @description Texto alternativo do item */
+  alt: string;
+  /** @description URL da imagem do item */
+  src: ImageWidget;
+};
+
 export interface Payments {
   /** @description Título do bloco */
   name: string;
@@ -58,6 +66,8 @@ export interface SocialIcons {
 export interface Props {
   /** @description Lista de blocos */
   groups: Group[];
+  /** @description Lista com as logos de copyrights */
+  logos: Logo[];
   /** @description Bloco dos links socials */
   social: Social;
   /** @description Bloco dos pagamentos */
@@ -68,6 +78,7 @@ export interface Props {
 
 export const Footer = ({
   groups,
+  logos = [],
   payments,
   seo,
   social,
@@ -189,10 +200,33 @@ export const Footer = ({
           </div>
         </div>
 
-        <div
-          className="sm:font-normal sm:font-roboto sm:leading-tight sm:max-w-[46.875rem] sm:text-[#999999] sm:text-sm sm:w-full"
-          dangerouslySetInnerHTML={{ __html: seo }}
-        />
+        <div className={clx(
+          "sm:gap-6 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
+          "lg:gap-8 lg:grid-cols-[57.6920%_1fr]"
+        )}>
+          <div
+            className="sm:font-normal sm:font-roboto sm:leading-tight sm:text-[#999999] sm:text-sm sm:w-full"
+            dangerouslySetInnerHTML={{ __html: seo }}
+          />
+
+          {logos.length !== 0 && (
+            <div className="sm:flex sm:flex-wrap sm:gap-6 sm:items-center sm:justify-start sm:w-full">
+              {logos.map(({
+                alt,
+                src
+              }, index) => (
+                <Image
+                  alt={alt}
+                  className="sm:flex-shrink-0 sm:h-5 sm:max-w-full sm:object-contain sm:w-auto"
+                  height={0}
+                  key={index}
+                  src={src}
+                  width={500}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </footer>
     </div>
   );
