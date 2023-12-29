@@ -15,12 +15,13 @@ export const Lower = ({
   return (
     <div
       className={clx(
-        "carousel sm:hidden sm:gap-4 sm:items-stretch sm:max-w-full sm:overflow-y-hidden sm:w-fit",
-        "lg:flex lg:gap-[0rem_2rem]",
+        "carousel sm:hidden sm:gap-4 sm:items-stretch sm:max-w-full sm:min-w-full sm:overflow-y-hidden sm:w-fit",
+        "lg:flex lg:gap-[1.875rem]",
       )}
     >
       {menus.map(({
         name,
+        href,
         icon,
         ...other
       }) => (
@@ -39,16 +40,32 @@ export const Lower = ({
             role="button"
             tabIndex={0}
           >
-            <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
-              {(icon !== undefined && icon !== "ArrowsPointingOut") && (
-                <Icon
-                  className="sm:h-4 sm:w-4"
-                  id={icon}
-                />
-              )}
+            {href === undefined ? (
+              <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
+                {(icon !== undefined && icon !== "ArrowsPointingOut") && (
+                  <Icon
+                    className="sm:h-4 sm:w-4"
+                    id={icon}
+                  />
+                )}
 
-              {name}
-            </span>
+                {name}
+              </span>
+            ) : (
+              <a
+                className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors"
+                href={href}
+              >
+                {(icon !== undefined && icon !== "ArrowsPointingOut") && (
+                  <Icon
+                    className="sm:h-4 sm:w-4"
+                    id={icon}
+                  />
+                )}
+
+                {name}
+              </a>
+            )}
           </div>
 
           <div

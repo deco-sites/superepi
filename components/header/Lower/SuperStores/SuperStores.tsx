@@ -5,7 +5,7 @@ export const SuperStores = () => {
   return (
     <div
       className={clx(
-        "carousel-item dropdown dropdown-hover",
+        "carousel-item dropdown dropdown-hover sm:ml-auto",
         "sm:[&_div]:pointer-events-auto",
       )}
       style={{ position: "initial" }}

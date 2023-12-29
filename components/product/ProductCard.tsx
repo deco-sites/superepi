@@ -3,6 +3,7 @@ import { Product as ProductType } from "apps/commerce/types.ts";
 import { SendEventOnClick } from "deco-sites/superepi/components/Analytics.tsx";
 import Image from "apps/website/components/Image.tsx";
 import Icon from "deco-sites/superepi/components/ui/Icon.tsx";
+import calcOFF from "deco-sites/superepi/sdk/calcOFF.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { formatPrice } from "deco-sites/superepi/sdk/format.ts";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
@@ -51,7 +52,7 @@ export const Product = ({
         width={284}
       />
 
-      <div className="sm:flex sm:flex-col sm:gap-6 sm:h-full sm:w-full">
+      <div className="sm:flex sm:flex-col sm:gap-6 sm:h-full sm:relative sm:w-full">
         <div className="sm:flex sm:flex-col sm:w-full">
           {brand !== undefined && (
             <span className="sm:font-medium sm:font-roboto sm:leading-normal sm:text-[#999999] sm:text-xs">
@@ -64,17 +65,29 @@ export const Product = ({
           </h3>
         </div>
 
-        <div className="sm:flex sm:flex-col sm:items-start sm:justify-center sm:mt-auto sm:w-full">
-          <strong className="sm:font-roboto sm:leading-normal sm:font-medium sm:text-[#151515] sm:text-2xl">
-            {formatPrice(listPrice)}{" "}
-            <span className="sm:font-black sm:leading-normal sm:text-base">
-              no Pix/Boleto
+        <div className="sm:gap-4 sm:grid sm:grid-cols-[1fr_auto] sm:mt-auto sm:w-full">
+          <div className="sm:flex sm:flex-col sm:items-start sm:justify-center sm:w-full">
+            <strong className="sm:font-roboto sm:leading-normal sm:font-medium sm:text-[#151515] sm:text-2xl">
+              {formatPrice(listPrice)}{" "}
+              <span className="sm:font-black sm:leading-normal sm:text-base">
+                no Pix/Boleto
+              </span>
+            </strong>
+
+            <span>
+              ou 3x de {formatPrice(listPrice / 3)}
+            </span>
+          </div>
+
+          <strong className="sm:bg-[#ffff00] sm:flex sm:flex-col sm:font-roboto sm:font-normal sm:items-center sm:px-2 sm:py-1 sm:text-sm sm:text-[#000000] sm:leading-none sm:self-end">
+            <span className="sm:font-black">
+              {calcOFF(price, listPrice)}%
+            </span>
+
+            <span>
+              OFF
             </span>
           </strong>
-
-          <span>
-            ou 3x de {formatPrice(listPrice / 3)}
-          </span>
         </div>
       </div>
 

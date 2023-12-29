@@ -90,6 +90,8 @@ export interface Menu {
   icon?: AvailableIcons;
   /** @description Nome do menu */
   name: string;
+  /** @description Link da categoria */
+  href?: string;
   /** @description Informa se o menu vai ter tabs [***Deixe em falso caso contrário] */
   tabs: boolean;
   /** @description Lista com os items do menu [***Multiplos items caso tenha tabs] */
@@ -197,6 +199,8 @@ export const loader = (
 ) => {
   const device = ctx.device;
   const isMobile = device === "mobile" || device === "tablet";
+
+  console.log("teste")
 
   return {
     ...props,
