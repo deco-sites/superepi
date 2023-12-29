@@ -200,8 +200,6 @@ export const loader = (
   const device = ctx.device;
   const isMobile = device === "mobile" || device === "tablet";
 
-  console.log("teste")
-
   return {
     ...props,
     device: device || "desktop",

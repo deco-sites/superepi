@@ -1,10 +1,9 @@
-import { useSignal } from "@preact/signals";
 import { JSX } from "preact";
 import { forwardRef } from "preact/compat";
-import { Provider } from "deco-sites/superepi/components/ui/Tabs/Context/Context.tsx";
 import { Tab } from "deco-sites/superepi/components/ui/Tabs/Tab/Tab.tsx";
 import { TabPanel } from "deco-sites/superepi/components/ui/Tabs/TabPanel/TabPanel.tsx";
 import { TabsList } from "deco-sites/superepi/components/ui/Tabs/TabsList/TabsList.tsx";
+import { TabsJS } from "deco-sites/superepi/components/ui/Tabs/TabsJS.tsx";
 import { useId } from "deco-sites/superepi/sdk/useId.ts";
 
 export type TabsProps =
@@ -18,21 +17,16 @@ export const Base = forwardRef<HTMLDivElement, TabsProps>(({
   ...props
 }, ref) => {
   const id = useId();
-  const focus = useSignal(defaultValue);
-  const value = useSignal(defaultValue);
 
-  return (
-    <Provider
+  return (<>
+    <div
+      {...props}
       id={id}
-      focus={focus}
-      value={value}
-    >
-      <div
-        {...props}
-        ref={ref}
-      />
-    </Provider>
-  );
+      ref={ref}
+    />
+
+    <TabsJS id={id} />
+  </>);
 });
 
 export const Tabs = Object.assign(Base, {
