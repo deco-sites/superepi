@@ -4,10 +4,14 @@ import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 interface Props {
   itemListElement: BreadcrumbList["itemListElement"];
+  home?: boolean
 }
 
-function Breadcrumb({ itemListElement = [] }: Props) {
-  const items = [{ name: "Home", item: "/" }, ...itemListElement];
+function Breadcrumb({
+  home,
+  itemListElement = []
+}: Props) {
+  const items = home === false ? [{ name: "Home", item: "/" }, ...itemListElement] : [...itemListElement];
 
   return (
     <ul className="breadcrumbs sm:flex sm:flex-wrap sm:font-roboto sm:font-normal sm:gap-2 sm:items-center sm:justify-start sm:leading-normal sm:text-sm sm:text-[#999999] sm:w-full">
@@ -28,7 +32,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
             <a
               className={clx(
                 index === array.length - 1 &&
-                  "sm:text-[#151515] sm:cursor-text sm:pointer-events-none",
+                "sm:text-[#151515] sm:cursor-text sm:pointer-events-none",
               )}
               href={item}
             >
