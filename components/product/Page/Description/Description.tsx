@@ -14,16 +14,16 @@ export const Description = ({
     <article
       className={clx(
         "sm:gap-10 sm:grid sm:grid-cols-1 sm:w-full",
-        "lg:grid-cols-2",
+        "lg:grid-cols-[21.875rem_1fr]",
       )}
     >
       <h2 className="sm:font-roboto sm:font-bold sm:leading-none sm:text-[#151515] sm:text-4xl">
         Descrição completa
       </h2>
 
-      {product.description !== undefined && (
+      {product.isVariantOf?.description !== undefined && (
         <div className="sm:font-roboto sm:font-normal sm:leading-5 sm:text-sm sm:text-[#999999]">
-          {product.description}
+          {product.isVariantOf?.description}
         </div>
       )}
     </article>

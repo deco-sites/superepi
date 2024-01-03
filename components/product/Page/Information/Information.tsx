@@ -56,7 +56,7 @@ export const ProductInfo = ({ page }: Props) => {
   return (
     <div class="sm:flex sm:flex-col sm:gap-5 sm:w-full">
       <h1 className="sm:font-roboto sm:font-bold sm:leading-tight sm:text-[#151515] sm:text-xl sm:-tracking-[0.0625rem]">
-        {product.name}
+        {product.isVariantOf?.name}
       </h1>
 
       <ul className="sm:gap-3 sm:grid sm:grid-cols-2 sm:w-full">
