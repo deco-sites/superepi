@@ -169,7 +169,7 @@ function Header({
         className="group sm:flex sm:pt-[171.4px] sm:w-full"
         id="main-header"
       >
-        <div className="sm:duration-300 sm:ease-in-out sm:h-fit sm:grid sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
+        <div className="sm:duration-300 sm:ease-in-out sm:h-fit sm:flex sm:flex-col sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
           <div className="group-data-[micro-header=true]:hidden sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full">
             <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
               <Upper {...upper} />
