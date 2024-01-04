@@ -4,8 +4,9 @@ import HeaderJS from "deco-sites/superepi/components/header/HeaderJs.tsx";
 import { Lower } from "deco-sites/superepi/components/header/Lower/Lower.tsx";
 import { Middle } from "deco-sites/superepi/components/header/Middle/Middle.tsx";
 import { Upper } from "deco-sites/superepi/components/header/Upper/Upper.tsx";
+import { Props as SearchbarProps } from "deco-sites/superepi/components/search/Searchbar.tsx";
 import { AvailableIcons } from "deco-sites/superepi/components/ui/Icon.tsx";
-import { clx } from "deco-sites/superepi/sdk/clx.ts";
+import { usePlatform } from "deco-sites/superepi/sdk/usePlatform.tsx";
 
 export interface Assistance {
   /** @description Icone lateral [***Use uma resolução de 64x64 e formato webp para melhor performace] */
@@ -149,6 +150,8 @@ export interface Props {
   middle: MiddleType;
   /** @description Barra de baixo do header */
   lower: Lowers;
+  /** @title Search Bar */
+  searchbar?: Omit<SearchbarProps, "platform">;
 }
 
 function Header({
@@ -156,7 +159,10 @@ function Header({
   upper,
   middle,
   lower,
+  searchbar
 }: Props) {
+  const platform = usePlatform();
+
   return (
     <>
       <header
@@ -175,6 +181,7 @@ function Header({
               <Middle
                 lower={lower}
                 middle={middle}
+                searchbar={searchbar && { ...searchbar, platform }}
               />
             </div>
           </div>

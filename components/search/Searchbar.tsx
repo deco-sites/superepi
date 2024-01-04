@@ -21,6 +21,8 @@ import { Suggestion } from "apps/commerce/types.ts";
 import { Resolved } from "deco/engine/core/resolver.ts";
 import { useEffect, useRef } from "preact/compat";
 import type { Platform } from "$store/apps/site.ts";
+import { SearchbarCard } from "deco-sites/superepi/components/product/SearchbarCard/SearchbarCard.tsx";
+import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 // Editable props
 export interface Props {
@@ -74,26 +76,29 @@ function Searchbar({
   }, [displaySearchPopup.value]);
 
   return (
-    <div
-      class="w-full grid gap-8 px-4 py-6 overflow-y-hidden"
-      style={{ gridTemplateRows: "min-content auto" }}
-    >
-      <form id={id} action={action} class="join">
+    <div className="sm:flex sm:flex-col sm:relative sm:w-full">
+      <form
+        className="sm:flex sm:items-center sm:relative sm:w-full"
+        id={id}
+        action={action}
+      >
         <Button
-          type="submit"
-          class="join-item btn-square"
-          aria-label="Search"
+          aria-label="Pesquisar"
+          className="sm:absolute sm:flex sm:right-4 sm:w-fit"
           for={id}
           tabIndex={-1}
+          type="submit"
         >
-          {loading.value
-            ? <span class="loading loading-spinner loading-xs" />
-            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
+          <Icon
+            className="sm:h-5 sm:text-[#999999] sm:w-5"
+            id="Search"
+          />
         </Button>
+
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input input-bordered join-item flex-grow"
+          className="sm:bg-[#f0f0f0] sm:border-none sm:flex sm:font-normal sm:font-roboto sm:h-12 sm:leading-normal sm:px-4 sm:pr-12 sm:text-[#999999] sm:text-sm sm:w-full"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -112,70 +117,61 @@ function Searchbar({
           aria-controls="search-suggestion"
           autocomplete="off"
         />
-        <Button
-          type="button"
-          class="join-item btn-ghost btn-square hidden sm:inline-flex"
-          onClick={() => displaySearchPopup.value = false}
-        >
-          <Icon id="XMark" size={24} strokeWidth={2} />
-        </Button>
       </form>
 
-      <div
-        class={`overflow-y-scroll ${!hasProducts && !hasTerms ? "hidden" : ""}`}
-      >
-        <div class="gap-4 grid grid-cols-1 sm:grid-rows-1 sm:grid-cols-[150px_1fr]">
-          <div class="flex flex-col gap-6">
-            <span
-              class="font-medium text-xl"
-              role="heading"
-              aria-level={3}
-            >
-              Sugestões
-            </span>
-            <ul id="search-suggestion" class="flex flex-col gap-6">
-              {searches.map(({ term }) => (
-                <li>
+      <div className={clx(
+        "dropdown sm:flex sm:h-0 sm:w-full",
+        (hasProducts || hasTerms) && "dropdown-open"
+      )}>
+        <div
+          aria-hidden
+          tabIndex={0} role="button"
+          className="sm:hidden"
+        />
+
+        <div
+          className="dropdown-content sm:bg-white sm:border-[0.0625rem] sm:border-[#ddd] sm:flex sm:flex-col sm:gap-6 sm:max-h-[calc(100vh-12.5rem)] sm:overflow-y-auto sm:p-6 sm:w-full sm:z-30"
+          tabIndex={0}
+        >
+          {searches.length !== 0 && (
+            <ul className="sm:flex sm:flex-col sm:gap-5 sm:w-full">
+              {searches.map(({
+                href,
+                term
+              }, index) => (
+                <li
+                  className="sm:flex sm:w-full"
+                  key={index}
+                >
                   <a
+                    className="sm:font-medium sm:font-roboto sm:text-[#333] sm:text-sm sm:underline"
                     href={`/pesquisa?t=${term}`}
-                    class="flex gap-4 items-center"
                   >
-                    <span>
-                      <Icon
-                        id="MagnifyingGlass"
-                        size={24}
-                        strokeWidth={0.01}
-                      />
-                    </span>
-                    <span dangerouslySetInnerHTML={{ __html: term }} />
+                    {term}
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
-          <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-            <span
-              class="font-medium text-xl"
-              role="heading"
-              aria-level={3}
-            >
-              Produtos sugeridos
-            </span>
-            <Slider class="carousel">
-              {products.map((product, index) => (
-                <Slider.Item
-                  index={index}
-                  class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-                >
-                  <ProductCard
-                    product={product}
-                    platform={platform}
-                    index={index}
-                  />
-                </Slider.Item>
-              ))}
-            </Slider>
-          </div>
+          )}
+
+          {products.length !== 0 && (
+            <div className="sm:flex sm:flex-col sm:gap-6 sm:w-full">
+              <span className="sm:font-bold sm:font-roboto sm:text-black sm:text-base">
+                Sugestões de produtos
+              </span>
+
+              <ul className="sm:flex sm:flex-col sm:w-full">
+                {products.map((product, index) => (
+                  <li
+                    className="sm:border-t-[0.0625rem] sm:border-t-[#f5f5f5] sm:flex sm:py-2 sm:w-full"
+                    key={index}
+                  >
+                    <SearchbarCard product={product} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

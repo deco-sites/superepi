@@ -31,9 +31,10 @@ import * as $$24 from "./islands/ShippingSimulation.tsx";
 import * as $$25 from "./islands/TimerCampaign.tsx";
 import * as $$26 from "./islands/WishlistButton.tsx";
 import * as $$27 from "./islands/search/LayoutControl/LayoutControl.tsx";
-import * as $$28 from "./islands/search/Sort/Sort.tsx";
-import * as $$29 from "./islands/ui/SliderJS.tsx";
-import * as $$30 from "./islands/ui/Tabs/TabsJS.tsx";
+import * as $$28 from "./islands/search/Searchbar.tsx";
+import * as $$29 from "./islands/search/Sort/Sort.tsx";
+import * as $$30 from "./islands/ui/SliderJS.tsx";
+import * as $$31 from "./islands/ui/Tabs/TabsJS.tsx";
 
 const manifest = {
   routes: {
@@ -68,9 +69,10 @@ const manifest = {
     "./islands/TimerCampaign.tsx": $$25,
     "./islands/WishlistButton.tsx": $$26,
     "./islands/search/LayoutControl/LayoutControl.tsx": $$27,
-    "./islands/search/Sort/Sort.tsx": $$28,
-    "./islands/ui/SliderJS.tsx": $$29,
-    "./islands/ui/Tabs/TabsJS.tsx": $$30,
+    "./islands/search/Searchbar.tsx": $$28,
+    "./islands/search/Sort/Sort.tsx": $$29,
+    "./islands/ui/SliderJS.tsx": $$30,
+    "./islands/ui/Tabs/TabsJS.tsx": $$31,
   },
   baseUrl: import.meta.url,
 };
