@@ -6,6 +6,7 @@ import { Middle } from "deco-sites/superepi/components/header/Middle/Middle.tsx"
 import { Upper } from "deco-sites/superepi/components/header/Upper/Upper.tsx";
 import { Props as SearchbarProps } from "deco-sites/superepi/components/search/Searchbar.tsx";
 import { AvailableIcons } from "deco-sites/superepi/components/ui/Icon.tsx";
+import { clx } from "deco-sites/superepi/sdk/clx.ts";
 import { usePlatform } from "deco-sites/superepi/sdk/usePlatform.tsx";
 
 export interface Assistance {
@@ -186,9 +187,12 @@ function Header({
             </div>
           </div>
 
-          <div className="group-data-[micro-header=true]:hidden sm:bg-[#fff] sm:flex sm:max-h-full sm:px-6 sm:relative sm:w-full">
+          <div className={clx(
+            "sm:bg-[#fff] sm:hidden sm:max-h-full sm:px-6 sm:relative sm:w-full",
+            "lg:flex"
+          )}>
             <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-              {isMobile === false && <Lower {...lower} />}
+              <Lower {...lower} />
             </div>
           </div>
         </div>
