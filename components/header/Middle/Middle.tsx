@@ -5,7 +5,9 @@ import { Cart } from "deco-sites/superepi/components/header/Middle/Cart/Cart.tsx
 import { Menu } from "deco-sites/superepi/components/header/Middle/Menu/Menu.tsx";
 /* import { Searchbar } from "deco-sites/superepi/components/header/Middle/Searchbar/Searchbar.tsx"; */
 import { Widget } from "deco-sites/superepi/components/header/Middle/Widget/Widget.tsx";
-import Searchbar, { Props as SearchbarProps } from "deco-sites/superepi/components/search/Searchbar.tsx";
+import Searchbar, {
+  Props as SearchbarProps,
+} from "deco-sites/superepi/components/search/Searchbar.tsx";
 import { clx } from "deco-sites/superepi/sdk/clx.ts";
 
 export type MiddleProps = {
@@ -17,7 +19,7 @@ export type MiddleProps = {
 export const Middle = ({
   lower,
   middle,
-  searchbar
+  searchbar,
 }: MiddleProps) => {
   const {
     assistance,
@@ -48,14 +50,16 @@ export const Middle = ({
         />
       </a>
 
-      {searchbar !== undefined && (<div
-        className={clx(
-          "sm:col-span-2 sm:flex sm:order-3 sm:w-full",
-          "lg:col-span-1 lg:order-2",
-        )}
-      >
-        <Searchbar {...searchbar} />
-      </div>)}
+      {searchbar !== undefined && (
+        <div
+          className={clx(
+            "sm:col-span-2 sm:flex sm:order-3 sm:w-full",
+            "lg:col-span-1 lg:order-2",
+          )}
+        >
+          <Searchbar {...searchbar} />
+        </div>
+      )}
 
       <div
         className={clx(

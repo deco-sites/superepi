@@ -11,6 +11,8 @@ export const MenuDropdown = ({
   tabs = false,
   icon,
 }: MenuDropdownProps) => {
+  console.log(items.length);
+
   return (
     <div
       className={clx(
@@ -38,7 +40,6 @@ export const MenuDropdown = ({
                   "sm:hover:text-[#f8a531] sm:hover:underline",
                   "lg:text-left",
                 )}
-                key={index}
                 value={index}
               >
                 {name}
@@ -65,7 +66,6 @@ export const MenuDropdown = ({
               tabs === true && "lg:col-span-4",
               tabs === false && "lg:col-span-5",
             )}
-            key={index}
             value={index}
           >
             <div

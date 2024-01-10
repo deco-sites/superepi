@@ -9,13 +9,13 @@ export type SearchbarCardProps = {
 };
 
 export const SearchbarCard = ({
-  product
+  product,
 }: SearchbarCardProps) => {
   const {
     image,
     isVariantOf,
     offers,
-    url
+    url,
   } = product;
 
   const { listPrice = 0 } = useOffer(offers);
@@ -24,7 +24,7 @@ export const SearchbarCard = ({
     <a
       className={clx(
         "sm:duration-300 sm:ease-in-out sm:gap-6 sm:grid sm:grid-cols-[3.125rem_1fr_auto] sm:items-center sm:transition-colors sm:w-full",
-        "sm:hover:bg-[#f5f5f5]"
+        "sm:hover:bg-[#f5f5f5]",
       )}
       href={url}
     >

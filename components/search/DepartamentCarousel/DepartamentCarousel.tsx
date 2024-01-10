@@ -11,7 +11,7 @@ export type DepartamentCarouselProps = {
 };
 
 export const DepartamentCarousel = ({
-  carouselDepartament
+  carouselDepartament,
 }: DepartamentCarouselProps) => {
   const id = useId();
 
@@ -23,7 +23,7 @@ export const DepartamentCarousel = ({
     <div
       className={clx(
         "sm:gap-6 sm:grid sm:grid-cols-1 sm:items-center sm:max-w-page-container sm:mx-auto sm:w-full",
-        "lg:grid-cols-[auto_1fr_auto]"
+        "lg:grid-cols-[auto_1fr_auto]",
       )}
       id={id}
     >
@@ -48,7 +48,7 @@ export const DepartamentCarousel = ({
         {carousel.map(({
           href,
           image,
-          name
+          name,
         }, index) => (
           <Slider.Item
             className="carousel-item sm:h-auto sm:w-32"

@@ -40,10 +40,7 @@ export const Seals = ({
             href,
             name,
           }, index) => (
-            <li
-              className="sm:flex"
-              key={index}
-            >
+            <li className="sm:flex">
               <a
                 className="sm:flex sm:items-center sm:gap-2"
                 href={href}

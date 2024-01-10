@@ -50,10 +50,7 @@ export const Menu = ({
             items,
             name,
           }, index) => (
-            <div
-              className="collapse sm:rounded-none"
-              key={index}
-            >
+            <div className="collapse sm:rounded-none">
               <input type="checkbox" />
 
               <strong className="collapse-title sm:font-roboto sm:font-black sm:leading-normal sm:min-h-0 sm:p-0 sm:text-black sm:text-base">

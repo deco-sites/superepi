@@ -288,7 +288,9 @@ export default function PaymentSolutions(
           </thead>
           <tbody>
             <tr>
-              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">R$ 29,04 à vista</td>
+              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                R$ 29,04 à vista
+              </td>
             </tr>
           </tbody>
         </table>
@@ -313,7 +315,9 @@ export default function PaymentSolutions(
           </thead>
           <tbody>
             <tr>
-              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">R$ 29,04 à vista</td>
+              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                R$ 29,04 à vista
+              </td>
             </tr>
           </tbody>
         </table>
@@ -335,7 +339,9 @@ export default function PaymentSolutions(
           </thead>
           <tbody>
             <tr>
-              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">R$ 29,04 à vista</td>
+              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                R$ 29,04 à vista
+              </td>
             </tr>
           </tbody>
         </table>
@@ -357,7 +363,9 @@ export default function PaymentSolutions(
           </thead>
           <tbody>
             <tr>
-              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">R$ 29,04 à vista</td>
+              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                R$ 29,04 à vista
+              </td>
             </tr>
           </tbody>
         </table>
@@ -379,7 +387,9 @@ export default function PaymentSolutions(
           </thead>
           <tbody>
             <tr>
-              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">R$ 29,04 à vista</td>
+              <td className="sm:font-normal sm:font-roboto sm:px-16 sm:text-[#999999] sm:text-sm sm:-tracking-[0.040625rem]">
+                R$ 29,04 à vista
+              </td>
             </tr>
           </tbody>
         </table>

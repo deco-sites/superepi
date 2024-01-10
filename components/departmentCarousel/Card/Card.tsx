@@ -77,10 +77,7 @@ export const Card = ({
             href,
             name,
           }, index) => (
-            <li
-              className="sm:flex sm:w-full"
-              key={index}
-            >
+            <li className="sm:flex sm:w-full">
               <a
                 className={clx(
                   "sm:block sm:duration-300 sm:ease-in-out sm:font-normal sm:font-roboto sm:leading-normal sm:max-w-full sm:overflow-hidden sm:text-xs sm:text-white sm:text-ellipsis sm:transition-colors sm:transform-gpu sm:w-fit sm:whitespace-nowrap",

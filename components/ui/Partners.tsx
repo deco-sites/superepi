@@ -59,7 +59,6 @@ export const Partners = ({
             <Slider.Item
               className="sm:carousel-item sm:flex sm:w-fit"
               index={index}
-              key={index}
             >
               <a
                 aria-label={`Navegar para ${alt}`}

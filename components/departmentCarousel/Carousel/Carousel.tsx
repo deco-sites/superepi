@@ -20,7 +20,6 @@ export const Carousel = ({
         <Slider.Item
           className="sm:carousel-item sm:max-w-full sm:w-[15.625rem]"
           index={index}
-          key={index}
         >
           <Card {...card} />
         </Slider.Item>

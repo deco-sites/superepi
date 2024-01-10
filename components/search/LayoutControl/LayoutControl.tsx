@@ -45,7 +45,6 @@ export const LayoutControl = ({
               "sm:flex sm:h-3 sm:w-full",
               grid4.value === true ? "sm:bg-white" : "sm:bg-[#151514]",
             )}
-            key={index}
           />
         ))}
       </button>
@@ -60,7 +59,6 @@ export const LayoutControl = ({
               "sm:flex sm:h-3 sm:w-full",
               grid4.value === true ? "sm:bg-[#151514]" : "sm:bg-white",
             )}
-            key={index}
           />
         ))}
       </button>

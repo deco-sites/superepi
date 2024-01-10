@@ -8,7 +8,7 @@ export type TabsJSProps = {
 
 export const TabsJS = ({
   defaultValue,
-  id
+  id,
 }: TabsJSProps) => {
   const value = useSignal(0);
 
@@ -18,7 +18,9 @@ export const TabsJS = ({
     const container = document.querySelector(`#${id}`) as HTMLDivElement;
     if (container === null) return;
 
-    const tablist = container.querySelector('[role="tablist"]') as HTMLDivElement;
+    const tablist = container.querySelector(
+      '[role="tablist"]',
+    ) as HTMLDivElement;
     if (tablist === null) return;
 
     const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
@@ -34,7 +36,9 @@ export const TabsJS = ({
     const container = document.querySelector(`#${id}`) as HTMLDivElement;
     if (container === null) return;
 
-    const tabpanels = Array.from(container.querySelectorAll('[role="tabpanel"]'));
+    const tabpanels = Array.from(
+      container.querySelectorAll('[role="tabpanel"]'),
+    );
 
     tabpanels.forEach((tabpanel, index) => {
       const element = tabpanel as HTMLDivElement;

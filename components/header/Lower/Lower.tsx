@@ -40,32 +40,34 @@ export const Lower = ({
             role="button"
             tabIndex={0}
           >
-            {href === undefined ? (
-              <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
-                {(icon !== undefined && icon !== "ArrowsPointingOut") && (
-                  <Icon
-                    className="sm:h-4 sm:w-4"
-                    id={icon}
-                  />
-                )}
+            {href === undefined
+              ? (
+                <span className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors">
+                  {(icon !== undefined && icon !== "ArrowsPointingOut") && (
+                    <Icon
+                      className="sm:h-4 sm:w-4"
+                      id={icon}
+                    />
+                  )}
 
-                {name}
-              </span>
-            ) : (
-              <a
-                className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors"
-                href={href}
-              >
-                {(icon !== undefined && icon !== "ArrowsPointingOut") && (
-                  <Icon
-                    className="sm:h-4 sm:w-4"
-                    id={icon}
-                  />
-                )}
+                  {name}
+                </span>
+              )
+              : (
+                <a
+                  className="sm:border-b-[0.1875rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:flex sm:font-medium sm:font-roboto sm:gap-1 sm:items-center sm:leading-normal sm:pb-1 sm:text-[#000] sm:text-sm sm:transition-colors"
+                  href={href}
+                >
+                  {(icon !== undefined && icon !== "ArrowsPointingOut") && (
+                    <Icon
+                      className="sm:h-4 sm:w-4"
+                      id={icon}
+                    />
+                  )}
 
-                {name}
-              </a>
-            )}
+                  {name}
+                </a>
+              )}
           </div>
 
           <div

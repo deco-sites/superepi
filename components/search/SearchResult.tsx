@@ -14,7 +14,7 @@ export interface CarouselsDepartamentItem {
   name: string;
   /** @description Imagem do item do carousel [***Use uma resolução de 150x150 para melhor performace] */
   image: ImageWidget;
-};
+}
 
 /** @titleBy matcher */
 export interface CarouselsDepartament {
@@ -22,22 +22,22 @@ export interface CarouselsDepartament {
   matcher: string;
   /** @description Lista com os carouseis */
   carousel: CarouselsDepartamentItem[];
-};
+}
 
 /** @titleBy matcher */
 export interface Seo {
   /** @description URL a ser comparada [***Use $ no final para uma busca exata] */
   matcher: string;
   /** @description Texto SEO da página página */
-  seo: HTMLWidget
-};
+  seo: HTMLWidget;
+}
 
 export interface Props {
   /** @title Integration */
   page: ProductListingPage | null;
   seos?: Seo[];
   carouselsDepartament?: CarouselsDepartament[];
-};
+}
 
 function NotFound() {
   return (
@@ -50,7 +50,7 @@ function NotFound() {
 function SearchResult({
   carouselDepartament,
   page,
-  seo
+  seo,
 }: SectionProps<ReturnType<typeof loader>>) {
   if (page === null) {
     return <NotFound />;
@@ -83,20 +83,22 @@ function SearchResult({
         )}
       >
         <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
-          {seo === undefined ? (
-            <h1 className="sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl">
-              {breadcrumb.itemListElement.slice(-1)[0].name}
-            </h1>
-          ) : (
-            <div
-              className={clx(
-                "sm:font-roboto sm:font-normal sm:text-[#151515] sm:text-sm",
-                "sm:[&_h1]:font-bold sm:[&_h1]:font-roboto sm:[&_h1]:text-[#151515] sm:[&_h1]:text-3xl",
-                "sm:[&_strong]:font-bold sm:[&_a]:text-[#f8a531]"
-              )}
-              dangerouslySetInnerHTML={{ __html: seo.seo }}
-            />
-          )}
+          {seo === undefined
+            ? (
+              <h1 className="sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl">
+                {breadcrumb.itemListElement.slice(-1)[0].name}
+              </h1>
+            )
+            : (
+              <div
+                className={clx(
+                  "sm:font-roboto sm:font-normal sm:text-[#151515] sm:text-sm",
+                  "sm:[&_h1]:font-bold sm:[&_h1]:font-roboto sm:[&_h1]:text-[#151515] sm:[&_h1]:text-3xl",
+                  "sm:[&_strong]:font-bold sm:[&_a]:text-[#f8a531]",
+                )}
+                dangerouslySetInnerHTML={{ __html: seo.seo }}
+              />
+            )}
         </div>
       </div>
 
@@ -118,17 +120,21 @@ function SearchResult({
 export const loader = (props: Props, req: Request) => {
   const {
     carouselsDepartament = [],
-    seos = []
+    seos = [],
   } = props;
   const pathname = new URL(req.url).pathname;
 
-  const carouselDepartament = carouselsDepartament.find(({ matcher }) => new RegExp(`^${matcher}`).test(pathname));
-  const seo = seos.find(({ matcher }) => new RegExp(`^${matcher}`).test(pathname));
+  const carouselDepartament = carouselsDepartament.find(({ matcher }) =>
+    new RegExp(`^${matcher}`).test(pathname)
+  );
+  const seo = seos.find(({ matcher }) =>
+    new RegExp(`^${matcher}`).test(pathname)
+  );
 
   return {
     ...props,
     carouselDepartament: carouselDepartament,
-    seo: seo
+    seo: seo,
   };
 };
 

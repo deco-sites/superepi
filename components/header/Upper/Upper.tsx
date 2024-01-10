@@ -21,10 +21,7 @@ export const Upper = (props: UpperProps) => {
           icon,
           name,
         }, index) => (
-          <li
-            className="sm:flex sm:flex-shrink-0"
-            key={index}
-          >
+          <li className="sm:flex sm:flex-shrink-0">
             <a
               className="sm:flex sm:gap-1 sm:items-center sm:font-bold sm:font-roboto sm:leading-normal sm:text-sm sm:tracking-[0.025rem]"
               href={href}
@@ -51,10 +48,7 @@ export const Upper = (props: UpperProps) => {
           href,
           name,
         }, index) => (
-          <li
-            className="sm:flex sm:flex-shrink-0"
-            key={index}
-          >
+          <li className="sm:flex sm:flex-shrink-0">
             <a
               className="sm:border-none sm:flex sm:font-bold sm:font-roboto sm:items-center sm:justify-center sm:leading-normal sm:px-8 sm:text-sm sm:min-h-[2.5rem]"
               href={href}

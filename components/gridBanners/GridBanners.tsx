@@ -40,10 +40,7 @@ export const GridBanners = ({
           href,
           src,
         }, index) => (
-          <li
-            className="sm:aspect-[420/545] sm:flex sm:h-full sm:w-full"
-            key={index}
-          >
+          <li className="sm:aspect-[420/545] sm:flex sm:h-full sm:w-full">
             <a
               aria-label={`Navegar para ${alt}`}
               className="sm:flex sm:h-full sm:w-full"

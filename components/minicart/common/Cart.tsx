@@ -78,7 +78,7 @@ function Cart({
               class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
             >
               {items.map((item, index) => (
-                <li key={index}>
+                <li>
                   <CartItem
                     item={item}
                     index={index}

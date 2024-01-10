@@ -47,10 +47,7 @@ export const Assistance = ({
             content,
             href,
           }, index) => (
-            <li
-              className="sm:flex sm:w-full"
-              key={index}
-            >
+            <li className="sm:flex sm:w-full">
               <a
                 className={clx(
                   "sm:font-roboto sm:font-normal sm:leading-tight sm:p-3 sm:text-[#333] sm:text-sm sm:w-full",

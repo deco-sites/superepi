@@ -106,7 +106,6 @@ export const BannerCarousel = ({
                 "sm:[&_button]:bg-[#f1f1f1] sm:[&_button]:border-none sm:[&_button]:w-4 sm:[&_button]:h-4",
                 "sm:disabled:[&_button]:bg-[#F8A531]",
               )}
-              key={index}
             >
               <Slider.Dot
                 children={undefined}

@@ -25,7 +25,7 @@ export interface Logo {
   alt: string;
   /** @description URL da imagem do item */
   src: ImageWidget;
-};
+}
 
 export interface Payments {
   /** @description Título do bloco */
@@ -102,10 +102,7 @@ export const Footer = ({
             items,
             name,
           }, index) => (
-            <div
-              className="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:max-w-full"
-              key={index}
-            >
+            <div className="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:max-w-full">
               <h4 className="sm:font-roboto sm:font-bold sm:leading-normal sm:text-base sm:text-black">
                 {name}
               </h4>
@@ -164,10 +161,7 @@ export const Footer = ({
                 name,
                 src,
               }, index) => (
-                <li
-                  className="sm:flex"
-                  key={index}
-                >
+                <li className="sm:flex">
                   <a
                     className="sm:flex"
                     href={href}
@@ -200,10 +194,12 @@ export const Footer = ({
           </div>
         </div>
 
-        <div className={clx(
-          "sm:gap-6 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
-          "lg:gap-8 lg:grid-cols-[57.6920%_1fr]"
-        )}>
+        <div
+          className={clx(
+            "sm:gap-6 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
+            "lg:gap-8 lg:grid-cols-[57.6920%_1fr]",
+          )}
+        >
           <div
             className="sm:font-normal sm:font-roboto sm:leading-tight sm:text-[#999999] sm:text-sm sm:w-full"
             dangerouslySetInnerHTML={{ __html: seo }}
@@ -213,13 +209,12 @@ export const Footer = ({
             <div className="sm:flex sm:flex-wrap sm:gap-6 sm:items-center sm:justify-start sm:w-full">
               {logos.map(({
                 alt,
-                src
+                src,
               }, index) => (
                 <Image
                   alt={alt}
                   className="sm:flex-shrink-0 sm:h-5 sm:max-w-full sm:object-contain sm:w-auto"
                   height={0}
-                  key={index}
                   src={src}
                   width={500}
                 />

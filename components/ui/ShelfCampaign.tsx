@@ -141,7 +141,6 @@ export default function ShelfCampaign({
                 <Slider.Item
                   className="carousel-item sm:h-auto sm:w-[17.5rem]"
                   index={index}
-                  key={index}
                 >
                   <ProductCard
                     backgroundColor="#FFFFFF"

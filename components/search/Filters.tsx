@@ -31,10 +31,7 @@ function Filters({ filters }: Props) {
               label,
               url,
             }, index) => (
-              <li
-                className="sm:flex sm:items-center sm:justify-between sm:w-full"
-                key={index}
-              >
+              <li className="sm:flex sm:items-center sm:justify-between sm:w-full">
                 <a
                   className="sm:flex sm:font-roboto sm:font-normal sm:items-center sm:justify-between sm:text-[#151515] sm:text-sm sm:w-full"
                   href={url}
@@ -68,10 +65,7 @@ function Filters({ filters }: Props) {
           if (values.length == 0) return null;
 
           return (
-            <li
-              className="collapse collapse-arrow sm:bg-[#fcfcfc] sm:rounded-none sm:shadow-[0_0.25rem_0.375rem_#00000012] sm:w-full"
-              key={index}
-            >
+            <li className="collapse collapse-arrow sm:bg-[#fcfcfc] sm:rounded-none sm:shadow-[0_0.25rem_0.375rem_#00000012] sm:w-full">
               <input
                 className="sm:min-h-0 sm:p-0"
                 type="checkbox"
@@ -102,10 +96,7 @@ function Filters({ filters }: Props) {
                         quantity,
                         url,
                       }, index) => (
-                        <li
-                          className="sm:flex"
-                          key={index}
-                        >
+                        <li className="sm:flex">
                           <a
                             className="sm:font-roboto sm:font-normal sm:text-[#333] sm:text-sm"
                             href={url}

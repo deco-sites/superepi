@@ -160,7 +160,7 @@ function Header({
   upper,
   middle,
   lower,
-  searchbar
+  searchbar,
 }: Props) {
   const platform = usePlatform();
 
@@ -187,10 +187,12 @@ function Header({
             </div>
           </div>
 
-          <div className={clx(
-            "sm:bg-[#fff] sm:hidden sm:max-h-full sm:px-6 sm:relative sm:w-full",
-            "lg:flex"
-          )}>
+          <div
+            className={clx(
+              "sm:bg-[#fff] sm:hidden sm:max-h-full sm:px-6 sm:relative sm:w-full",
+              "lg:flex",
+            )}
+          >
             <div className="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
               <Lower {...lower} />
             </div>

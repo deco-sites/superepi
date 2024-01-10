@@ -119,13 +119,16 @@ function Searchbar({
         />
       </form>
 
-      <div className={clx(
-        "dropdown sm:flex sm:h-0 sm:w-full",
-        (hasProducts || hasTerms) && "dropdown-open"
-      )}>
+      <div
+        className={clx(
+          "dropdown sm:flex sm:h-0 sm:w-full",
+          (hasProducts || hasTerms) && "dropdown-open",
+        )}
+      >
         <div
           aria-hidden
-          tabIndex={0} role="button"
+          tabIndex={0}
+          role="button"
           className="sm:hidden"
         />
 
@@ -137,12 +140,9 @@ function Searchbar({
             <ul className="sm:flex sm:flex-col sm:gap-5 sm:w-full">
               {searches.map(({
                 href,
-                term
+                term,
               }, index) => (
-                <li
-                  className="sm:flex sm:w-full"
-                  key={index}
-                >
+                <li className="sm:flex sm:w-full">
                   <a
                     className="sm:font-medium sm:font-roboto sm:text-[#333] sm:text-sm sm:underline"
                     href={`/pesquisa?t=${term}`}
@@ -162,10 +162,7 @@ function Searchbar({
 
               <ul className="sm:flex sm:flex-col sm:w-full">
                 {products.map((product, index) => (
-                  <li
-                    className="sm:border-t-[0.0625rem] sm:border-t-[#f5f5f5] sm:flex sm:py-2 sm:w-full"
-                    key={index}
-                  >
+                  <li className="sm:border-t-[0.0625rem] sm:border-t-[#f5f5f5] sm:flex sm:py-2 sm:w-full">
                     <SearchbarCard product={product} />
                   </li>
                 ))}

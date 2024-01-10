@@ -48,7 +48,6 @@ export const Sort = ({
           value,
         }, index) => (
           <option
-            key={index}
             value={value}
           >
             {label}

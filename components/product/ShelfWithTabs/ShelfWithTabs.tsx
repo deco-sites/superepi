@@ -106,7 +106,6 @@ export const ShelfWithTabs = ({
                   "sm:focus:text-[#FFAB0080]",
                   "sm:aria-selected:text-[#FFAB00] sm:aria-selected:border-b-[#FFAB00]",
                 )}
-                key={index}
                 value={index}
               >
                 {name}
@@ -117,12 +116,10 @@ export const ShelfWithTabs = ({
           {tabs.map((tab, index) => (
             <Tabs.TabPanel
               className="sm:w-full"
-              key={index}
               value={index}
             >
               <Tab
                 {...tab}
-                key={index}
               />
             </Tabs.TabPanel>
           ))}

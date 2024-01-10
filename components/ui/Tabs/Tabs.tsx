@@ -18,15 +18,17 @@ export const Base = forwardRef<HTMLDivElement, TabsProps>(({
 }, ref) => {
   const id = useId();
 
-  return (<>
-    <div
-      {...props}
-      id={id}
-      ref={ref}
-    />
+  return (
+    <>
+      <div
+        {...props}
+        id={id}
+        ref={ref}
+      />
 
-    <TabsJS id={id} />
-  </>);
+      <TabsJS id={id} />
+    </>
+  );
 });
 
 export const Tabs = Object.assign(Base, {

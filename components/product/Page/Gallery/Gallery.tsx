@@ -30,7 +30,6 @@ export const Gallery = ({
           <li
             className="carousel-item sm:aspect-square sm:flex sm:w-full"
             id={`${id}-${index}`}
-            key={index}
           >
             <Image
               alt=""
@@ -45,10 +44,7 @@ export const Gallery = ({
 
       <ul className="carousel sm:gap-2 sm:w-full">
         {image.map(({ url }, index) => (
-          <li
-            className="carousel-item sm:border-[#e9e8e8] sm:border-[0.125rem] sm:aspect-square sm:flex sm:w-[6.25rem]"
-            key={index}
-          >
+          <li className="carousel-item sm:border-[#e9e8e8] sm:border-[0.125rem] sm:aspect-square sm:flex sm:w-[6.25rem]">
             <a
               className="sm:flex sm:h-full sm:w-full"
               href={`#${id}-${index}`}
