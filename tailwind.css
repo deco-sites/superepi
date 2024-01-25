@@ -3,97 +3,137 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        font-family: Roboto;
+    }
 
-  /* Allow changing font family via CMS */
-  html {
-    font-family: var(--font-family);
-  }
+    mark {
+        @apply bg-accent text-accent-content;
+    }
 
-  mark {
-    @apply bg-accent text-accent-content;
-  }
+    /** Remove default styles from input[type=number] */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-  /** Remove default styles from input[type=number] */
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+    .animate-walk {
+        animation: walk 30s ease-in-out alternate infinite;
+    }
 
-  .animate-walk {
-    animation: walk 30s ease-in-out alternate infinite;
-  }
+    .buttonSummaryDot:disable .dotUnit {
+        background-color: #f8f8f8;
+    }
 
-  .buttonSummaryDot:disable .dotUnit {
-    background-color: #f8f8f8;
-  }
+    .popUpSuperLojas {
+        width: 298px;
+        height: 205px;
+        background-color: #ffff;
+        left: -150px;
+        top: 50px;
+        z-index: 9999999;
+        background-repeat: no-repeat;
+        text-align: end;
+    }
 
-  .popUpSuperLojas {
-    width: 298px;
-    height: 205px;
-    background-color: #ffff;
-    left: -150px;
-    top: 50px;
-    z-index: 9999999;
-    background-repeat: no-repeat;
-    text-align: end;
-  }
+    .containerSuperLojas {
+        display: block;
+        text-align: center;
+        font-size: 25px;
+        position: absolute;
+        top: 20px;
+        right: 7px;
+        width: auto;
+        border: 2px solid #fff;
+        border-radius: 8px;
+        padding: 15px 37px 3px 37px;
+    }
 
-  .containerSuperLojas {
-    display: block;
-    text-align: center;
-    font-size: 25px;
-    position: absolute;
-    top: 20px;
-    right: 7px;
-    width: auto;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    padding: 15px 37px 3px 37px;
-  }
+    .conhecanossaslojas {
+        background-color: #F8A531;
+        text-transform: lowercase;
+        text-align: center;
+        border-radius: 30px;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 3px 11px;
+        font-weight: lighter;
+        position: absolute;
+        right: 25px;
+        z-index: 1;
+        font-size: 13px;
+    }
 
-  .conhecanossaslojas {
-    background-color: #F8A531;
-    text-transform: lowercase;
-    text-align: center;
-    border-radius: 30px;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 3px 11px;
-    font-weight: lighter;
-    position: absolute;
-    right: 25px;
-    z-index: 1;
-    font-size: 13px;
-  }
-
-  /* Disable scroll once drawer/modal is openned */
-  body:has(.drawer-toggle:checked),
-  body:has(.modal-toggle:checked) {
-    overflow: hidden;
-    height: 100vh;
-  }
+    /* Disable scroll once drawer/modal is openned */
+    body:has(.drawer-toggle:checked),
+    body:has(.modal-toggle:checked) {
+        overflow: hidden;
+        height: 100vh;
+    }
 }
 
 .group:disabled .group-disabled\:animate-progress {
-  animation: progress-frame ease normal
+    animation: progress-frame ease normal
 }
 
 @keyframes progress-frame {
-  0% {
-    --dot-progress: 0%
-  }
+    0% {
+        --dot-progress: 0%
+    }
 
-  to {
-    --dot-progress: 100%
-  }
+    to {
+        --dot-progress: 100%
+    }
 }
 
 @keyframes walk {
-  from {
-    transform: translateX(0%)
-  }
-  to {
-    transform: translateX(-50%)
-  }
+    from {
+        transform: translateX(0%)
+    }
+
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+.plp-seo-text {
+    font-size: 14px;
+    color: #151515;
+}
+
+.plp-seo-text a {
+    color: #f8a531;
+}
+
+.plp-seo-text strong {
+    font-weight: bolder;
+}
+
+.plp-seo-text p:not(:has(br)) {
+    line-height: 1.3em;
+    margin-bottom: 1.2em;
+}
+
+.plp-seo-text :is(h1, h2, h3, h4, h5, h6) {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.plp-seo-text h1 {
+    font-size: 2.1em;
+}
+
+.plp-seo-text h2 {
+    font-size: 1.8em;
+}
+
+.plp-seo-text h3 {
+    font-size: 1.6em;
+}
+
+.plp-seo-text h4 {
+    font-size: 1.4em;
 }
