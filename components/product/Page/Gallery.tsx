@@ -22,10 +22,19 @@ export const Gallery = ({ product }: GalleryProps) => {
     const smallImages = mediaGroups.map(({ Small: { MediaPath } }) => CDN + MediaPath)
     const mediumImages = mediaGroups.map(({ Medium: { MediaPath } }) => CDN + MediaPath)
 
-    console.log(smallImages)
+    const flags = rawProduct.Model.Flags[0]
 
     return (
-        <div class='flex flex-col gap-2 w-full max-w-[505px]'>
+        <div class='flex flex-col gap-2 w-full max-w-[500px] relative px-6'>
+            <Image
+                src={`https://d3bhvz7al37iy6.cloudfront.net/Custom/Content${flags.ImagePath}`}
+                alt=''
+                class='absolute top-0 right-2 z-[1]'
+                width={64}
+                height={52}
+                fit='contain'
+            />
+
             {/* <ul class='carousel border-[#e9e8e8] border-[0.125rem] gap-2 w-full'>
                 {mediumImages.map((url, index) => (
                     <li class='carousel-item aspect-square flex w-full' id={`${id}-${index}`}>
@@ -40,19 +49,10 @@ export const Gallery = ({ product }: GalleryProps) => {
                 ))}
             </ul> */}
             <Slider.Root id={id}>
-                <Slider.Carousel
-                    id={id}
-                    class='carousel border-[#e9e8e8] border-[0.125rem] gap-2 w-full'
-                >
+                <Slider.Carousel id={id} class='carousel gap-2'>
                     {[...mediumImages, ...mediumImages, ...mediumImages].map((url, index) => (
-                        <Slider.Item index={index} class='carousel-item flex w-full'>
-                            <Image
-                                alt=''
-                                class='h-full object-cover w-full'
-                                height={390}
-                                src={url ?? ''}
-                                width={460}
-                            />
+                        <Slider.Item index={index} class='carousel-item flex'>
+                            <Image alt='' src={url ?? ''} width={450} height={460} fit='contain' />
                         </Slider.Item>
                     ))}
                 </Slider.Carousel>

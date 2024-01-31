@@ -11,6 +11,7 @@ import { clx } from '$store/sdk/clx.ts'
 import { useOffer } from '$store/sdk/useOffer.ts'
 import { ProductDetailsPage } from 'apps/commerce/types.ts'
 import { mapProductToAnalyticsItem } from 'apps/commerce/utils/productToAnalyticsItem.ts'
+import FloatingBuyButton from '$store/components/product/Page/FloatingBuyButton.tsx'
 
 export interface Props {
     page: ProductDetailsPage | null
@@ -44,6 +45,8 @@ export const Page = ({ page }: Props) => {
 
     return (
         <>
+            <FloatingBuyButton product={product} />
+
             <div class={clx('flex flex-col py-5 w-full', 'lg:py-7')}>
                 <div class='flex px-6 w-full'>
                     <div class='flex max-w-page-container mx-auto w-full'>

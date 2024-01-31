@@ -58,5 +58,7 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
         discountTicket: discountTicket?.price,
         seller,
         installments: installment && price ? installmentToString(installment, price) : null,
+        billingDuration: installment?.billingDuration,
+        billingIncrement: installment?.billingIncrement,
     }
 }

@@ -92,6 +92,7 @@ export const ProductInfo = ({ product }: Props) => {
 
             {description && (
                 <div
+                    id='short-description'
                     class='font-normal font-roboto leading-normal text-[13px] text-[#212529]'
                     dangerouslySetInnerHTML={{ __html: description }}
                 />
