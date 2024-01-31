@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/seals/Seals.tsx";
+export { default } from '$store/components/seals/Seals.tsx'

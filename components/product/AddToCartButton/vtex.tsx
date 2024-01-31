@@ -1,22 +1,24 @@
-import { useCart } from "apps/vtex/hooks/useCart.ts";
-import Button, { Props as BtnProps } from "./common.tsx";
+import { useCart } from 'apps/vtex/hooks/useCart.ts'
+import Button, { Props as BtnProps } from './common.tsx'
 
-export interface Props extends Omit<BtnProps, "onAddItem" | "platform"> {
-  seller: string;
+export interface Props extends Omit<BtnProps, 'onAddItem' | 'platform'> {
+    seller: string
 }
 
 function AddToCartButton(props: Props) {
-  const { addItems } = useCart();
-  const onAddItem = (quantity) =>
-    addItems({
-      orderItems: [{
-        id: props.productID,
-        seller: props.seller,
-        quantity,
-      }],
-    });
+    const { addItems } = useCart()
+    const onAddItem = quantity =>
+        addItems({
+            orderItems: [
+                {
+                    id: props.productID,
+                    seller: props.seller,
+                    quantity,
+                },
+            ],
+        })
 
-  return <Button onAddItem={onAddItem} {...props} />;
+    return <Button onAddItem={onAddItem} {...props} />
 }
 
-export default AddToCartButton;
+export default AddToCartButton

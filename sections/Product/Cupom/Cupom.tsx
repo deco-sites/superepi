@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/product/Cupom/Cupom.tsx";
+export { default } from '$store/components/product/Cupom/Cupom.tsx'

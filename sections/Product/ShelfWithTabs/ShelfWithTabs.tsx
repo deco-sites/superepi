@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/product/ShelfWithTabs/ShelfWithTabs.tsx";
+export { default } from '$store/components/product/ShelfWithTabs/ShelfWithTabs.tsx'

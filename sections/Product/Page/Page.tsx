@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/product/Page/Page.tsx";
+export { default } from '$store/components/product/Page/Page.tsx'

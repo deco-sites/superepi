@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/gridBanners/GridBanners.tsx";
+export { default } from '$store/components/gridBanners/GridBanners.tsx'

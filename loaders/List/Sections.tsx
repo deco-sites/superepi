@@ -1,16 +1,16 @@
-import type { Section } from "deco/blocks/section.ts";
-import type { VNode } from "../../constants.tsx";
+import type { Section } from 'deco/blocks/section.ts'
+import type { VNode } from '../../constants.tsx'
 
 interface Props {
-  sections: Section[] | null;
+    sections: Section[] | null
 }
 
 function Sections({ sections }: Props): VNode[] | null {
-  if (sections === null) {
-    return null;
-  }
+    if (sections === null) {
+        return null
+    }
 
-  return sections.map(({ Component, props }) => <Component {...props} />);
+    return sections.map(({ Component, props }) => <Component {...props} />)
 }
 
-export default Sections;
+export default Sections

@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/bannerCarousel/bannerCarousel.tsx";
+export { default } from '$store/components/bannerCarousel/bannerCarousel.tsx'

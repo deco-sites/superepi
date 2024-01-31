@@ -1,53 +1,43 @@
-import type {
-  FilterToggleValue,
-  ProductListingPage,
-} from "apps/commerce/types.ts";
+import type { FilterToggleValue, ProductListingPage } from 'apps/commerce/types.ts'
 
 type SelectedConstructor = {
-  label: string;
-  url: string;
-};
-
-class Selected {
-  public label: SelectedConstructor["label"];
-  public url: SelectedConstructor["url"];
-
-  constructor({
-    label,
-    url,
-  }: SelectedConstructor) {
-    this.label = label;
-    this.url = url;
-  }
+    label: string
+    url: string
 }
 
-export const tags = (filter: ProductListingPage["filters"] | undefined) => {
-  if (filter === undefined) return [];
+class Selected {
+    public label: SelectedConstructor['label']
+    public url: SelectedConstructor['url']
 
-  const items: Selected[] = [];
+    constructor({ label, url }: SelectedConstructor) {
+        this.label = label
+        this.url = url
+    }
+}
 
-  filter
-    .filter((filter) => filter["@type"] === "FilterToggle")
-    .map(({ values: valuesProp }) => {
-      const values = valuesProp as FilterToggleValue[];
+export const tags = (filter: ProductListingPage['filters'] | undefined) => {
+    if (filter === undefined) return []
 
-      values.forEach(({
-        label,
-        url,
-        selected,
-      }) => {
-        if (selected === true) {
-          items.push(
-            new Selected({
-              label: label,
-              url: url,
-            }),
-          );
-        }
-      });
-    });
+    const items: Selected[] = []
 
-  return items;
-};
+    filter
+        .filter(filter => filter['@type'] === 'FilterToggle')
+        .map(({ values: valuesProp }) => {
+            const values = valuesProp as FilterToggleValue[]
 
-export default tags;
+            values.forEach(({ label, url, selected }) => {
+                if (selected === true) {
+                    items.push(
+                        new Selected({
+                            label: label,
+                            url: url,
+                        }),
+                    )
+                }
+            })
+        })
+
+    return items
+}
+
+export default tags

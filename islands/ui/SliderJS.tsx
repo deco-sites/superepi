@@ -1,1 +1,1 @@
-export { default } from "deco-sites/superepi/components/ui/SliderJS.tsx";
+export { default } from '$store/components/ui/SliderJS.tsx'

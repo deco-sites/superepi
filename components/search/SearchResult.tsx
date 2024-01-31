@@ -1,77 +1,64 @@
-import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
-import { Product, ProductListingPage } from "apps/commerce/types.ts";
-import { SectionProps } from "deco/types.ts";
-import { DepartamentCarousel } from "deco-sites/superepi/components/search/DepartamentCarousel/DepartamentCarousel.tsx";
-import { Result } from "deco-sites/superepi/components/search/Result/Result.tsx";
-import Breadcrumb from "deco-sites/superepi/components/ui/Breadcrumb.tsx";
-import { clx } from "deco-sites/superepi/sdk/clx.ts";
+import { DepartamentCarousel } from '$store/components/search/DepartamentCarousel/DepartamentCarousel.tsx'
+import { Result } from '$store/components/search/Result/Result.tsx'
+import TopProducts from '$store/components/search/TopProducts.tsx'
+import Breadcrumb from '$store/components/ui/Breadcrumb.tsx'
+import Collapsable from '$store/components/ui/Collapsable.tsx'
+import { clx } from '$store/sdk/clx.ts'
+import { HTMLWidget, ImageWidget } from 'apps/admin/widgets.ts'
+import { Product, ProductListingPage } from 'apps/commerce/types.ts'
+import { SectionProps } from 'deco/types.ts'
 import { globToRegExp } from 'std/path/glob.ts'
-import Collapsable from "deco-sites/superepi/components/ui/Collapsable.tsx";
 
 /** @titleBy name */
 export interface CarouselsDepartamentItem {
     /** @description Link do item do carousel */
-    href: string;
+    href: string
     /** @description Nome da lista no admin */
-    name: string;
+    name: string
     /** @description Imagem do item do carousel [***Use uma resolução de 150x150 para melhor performace] */
-    image: ImageWidget;
-}
-
-/** @titleBy matcher */
-export interface CarouselsDepartament {
-    /** @description URL a ser comparada [***Use $ no final para uma busca exata] */
-    matcher: string;
-    /** @description Lista com os carouseis */
-    carousel: CarouselsDepartamentItem[];
+    image: ImageWidget
 }
 
 /** @titleBy matcher */
 export interface Seo {
     /** @description URL a ser comparada [***Use $ no final para uma busca exata] */
-    matcher: string;
+    matcher: string
     /** @description Texto SEO da página página */
-    seo: HTMLWidget;
+    seo: HTMLWidget
+    /** @description Lista com os carouseis */
+    carousel?: CarouselsDepartamentItem[]
+    /** @description Lista de produtos do topo da página */
+    topProducts?: Product[] | null
 }
 
 export interface Props {
     /** @title Integration */
-    page: ProductListingPage | null;
-    seos?: Seo[];
-    carouselsDepartament?: CarouselsDepartament[];
+    page: ProductListingPage | null
+    seos?: Seo[]
 }
 
 function NotFound() {
     return (
-        <div class="w-full flex justify-center items-center py-10">
+        <div class='w-full flex justify-center items-center py-10'>
             <span>Not Found!</span>
         </div>
-    );
+    )
 }
 
-function SearchResult({
-    carouselDepartament,
-    page,
-    seo,
-}: SectionProps<ReturnType<typeof loader>>) {
+function SearchResult({ page, seo }: SectionProps<ReturnType<typeof loader>>) {
     if (page === null) {
-        return <NotFound />;
+        return <NotFound />
     }
 
-    const { breadcrumb } = page;
+    const { breadcrumb } = page
 
     return (
-        <div
-            class={clx(
-                "sm:flex sm:flex-col sm:pb-5 sm:w-full",
-                "lg:pb-7",
-            )}
-        >
-            <div class="sm:flex sm:p-6 sm:w-full">
+        <div class={clx('sm:flex sm:flex-col sm:pb-5 sm:w-full', 'lg:pb-7')}>
+            <div class='sm:flex sm:p-6 sm:w-full'>
                 <div
                     class={clx(
-                        "sm:flex sm:justify-center sm:max-w-page-container sm:mx-auto sm:w-full",
-                        "[&_ul]:!max-w-full [&_ul]:!w-fit",
+                        'sm:flex sm:justify-center sm:max-w-page-container sm:mx-auto sm:w-full',
+                        '[&_ul]:!max-w-full [&_ul]:!w-fit',
                     )}
                 >
                     <Breadcrumb itemListElement={breadcrumb.itemListElement} home={false} />
@@ -80,68 +67,62 @@ function SearchResult({
 
             <div
                 class={clx(
-                    "sm:bg-[#f0f0f0] sm:border-b-[0.3125rem] sm:border-b-[#F8A531] sm:flex sm:mb-6 sm:px-6 py-10",
-                    "lg:mb-12 pb-20",
+                    'sm:bg-[#f0f0f0] sm:border-b-[0.3125rem] sm:border-b-[#F8A531] sm:flex sm:mb-6 sm:px-6 py-10',
+                    'lg:mb-4 pb-20',
                 )}
             >
-                <Collapsable class="relative max-w-page-container mx-auto w-full">
+                <Collapsable class='relative max-w-page-container mx-auto w-full'>
                     <Collapsable.Trigger class='absolute top-full bg-[#f8a531] py-2 px-3 group text-black'>
                         <span class='block peer-checked:group-[]:hidden'>Leia mais +</span>
                         <span class='hidden peer-checked:group-[]:block'>Leia menos -</span>
                     </Collapsable.Trigger>
-                    <Collapsable.ContentWrapper customTransition class='grid-rows-[0.08fr] peer-checked:grid-rows-[1fr]'>
+                    <Collapsable.ContentWrapper
+                        customTransition
+                        class='grid-rows-[0.08fr] peer-checked:grid-rows-[1fr]'
+                    >
                         <Collapsable.Content>
-                            {seo === undefined
-                                ? (
-                                    <h1 class="sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl">
-                                        {breadcrumb.itemListElement.slice(-1)[0].name}
-                                    </h1>
-                                )
-                                : (
-                                    <div
-                                        class='plp-seo-text'
-                                        dangerouslySetInnerHTML={{ __html: seo.seo }}
-                                    />
-                                )}
+                            {seo === undefined ? (
+                                <h1 class='sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl'>
+                                    {breadcrumb.itemListElement.slice(-1)[0].name}
+                                </h1>
+                            ) : (
+                                <div
+                                    class='plp-seo-text'
+                                    dangerouslySetInnerHTML={{ __html: seo.seo }}
+                                />
+                            )}
                         </Collapsable.Content>
                     </Collapsable.ContentWrapper>
                 </Collapsable>
             </div>
 
-            {carouselDepartament !== undefined && (
-                <div class="sm:flex sm:mb-6 sm:px-6 sm:w-full">
-                    <DepartamentCarousel carouselDepartament={carouselDepartament} />
+            {seo?.topProducts && <TopProducts products={seo.topProducts} />}
+
+            {seo?.carousel !== undefined && (
+                <div class='sm:flex sm:mb-6 sm:px-6 sm:w-full'>
+                    <DepartamentCarousel carouselDepartament={seo.carousel} />
                 </div>
             )}
 
-            <div class="sm:flex sm:px-6 sm:w-full">
-                <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+            <div class='sm:flex sm:px-6 sm:w-full'>
+                <div class='sm:flex sm:max-w-page-container sm:mx-auto sm:w-full'>
                     <Result page={page} />
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 export const loader = (props: Props, req: Request) => {
-    const {
-        carouselsDepartament = [],
-        seos = [],
-    } = props;
-    const pathname = new URL(req.url).pathname;
+    const { seos = [] } = props
+    const pathname = new URL(req.url).pathname
 
-    const carouselDepartament = carouselsDepartament.find(({ matcher }) =>
-        globToRegExp(matcher).test(pathname)
-    );
-    const seo = seos.find(({ matcher }) =>
-        globToRegExp(matcher).test(pathname)
-    );
+    const seo = seos.find(({ matcher }) => globToRegExp(matcher).test(pathname))
 
     return {
         ...props,
-        carouselDepartament: carouselDepartament,
         seo: seo,
-    };
-};
+    }
+}
 
-export default SearchResult;
+export default SearchResult
