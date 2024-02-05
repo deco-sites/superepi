@@ -76,22 +76,22 @@ function Searchbar({
     }, [displaySearchPopup.value])
 
     return (
-        <div class='sm:flex sm:flex-col sm:relative sm:w-full'>
-            <form class='sm:flex sm:items-center sm:relative sm:w-full' id={id} action={action}>
-                <Button
+        <div class='flex flex-col relative w-full justify-center'>
+            <form class='flex items-center relative w-full' id={id} action={action}>
+                <button
                     aria-label='Pesquisar'
-                    class='sm:absolute sm:flex sm:right-4 sm:w-fit'
+                    class='absolute flex right-4 w-fit'
                     for={id}
                     tabIndex={-1}
                     type='submit'
                 >
-                    <Icon class='sm:h-5 sm:text-[#999999] sm:w-5' id='Search' />
-                </Button>
+                    <Icon class='h-5 text-[#999999] w-5' id='Search' />
+                </button>
 
                 <input
                     ref={searchInputRef}
                     id='search-input'
-                    class='sm:bg-[#f0f0f0] sm:border-none sm:flex sm:font-normal sm:font-roboto sm:h-12 sm:leading-normal sm:px-4 sm:pr-12 sm:text-[#999999] sm:text-sm sm:w-full'
+                    class='bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full'
                     name={name}
                     onInput={e => {
                         const value = e.currentTarget.value
@@ -114,22 +114,22 @@ function Searchbar({
 
             <div
                 class={clx(
-                    'dropdown sm:flex sm:h-0 sm:w-full',
+                    'dropdown flex h-0 w-full',
                     (hasProducts || hasTerms) && 'dropdown-open',
                 )}
             >
-                <div aria-hidden tabIndex={0} role='button' class='sm:hidden' />
+                <div aria-hidden tabIndex={0} role='button' class='hidden' />
 
                 <div
-                    class='dropdown-content sm:bg-white sm:border-[0.0625rem] sm:border-[#ddd] sm:flex sm:flex-col sm:gap-6 sm:max-h-[calc(100vh-12.5rem)] sm:overflow-y-auto sm:p-6 sm:w-full sm:z-30'
+                    class='dropdown-content bg-white border-[0.0625rem] border-[#ddd] flex flex-col gap-6 max-h-[calc(100vh-12.5rem)] overflow-y-auto p-6 w-full z-30'
                     tabIndex={0}
                 >
                     {searches.length !== 0 && (
-                        <ul class='sm:flex sm:flex-col sm:gap-5 sm:w-full'>
+                        <ul class='flex flex-col gap-5 w-full'>
                             {searches.map(({ href, term }, index) => (
-                                <li class='sm:flex sm:w-full'>
+                                <li class='flex w-full'>
                                     <a
-                                        class='sm:font-medium sm:font-roboto sm:text-[#333] sm:text-sm sm:underline'
+                                        class='font-medium font-roboto text-[#333] text-sm underline'
                                         href={`/pesquisa?t=${term}`}
                                     >
                                         {term}
@@ -140,14 +140,14 @@ function Searchbar({
                     )}
 
                     {products.length !== 0 && (
-                        <div class='sm:flex sm:flex-col sm:gap-6 sm:w-full'>
-                            <span class='sm:font-bold sm:font-roboto sm:text-black sm:text-base'>
+                        <div class='flex flex-col gap-6 w-full'>
+                            <span class='font-bold font-roboto text-black text-base'>
                                 Sugestões de produtos
                             </span>
 
-                            <ul class='sm:flex sm:flex-col sm:w-full'>
+                            <ul class='flex flex-col w-full'>
                                 {products.map((product, index) => (
-                                    <li class='sm:border-t-[0.0625rem] sm:border-t-[#f5f5f5] sm:flex sm:py-2 sm:w-full'>
+                                    <li class='border-t-[0.0625rem] border-t-[#f5f5f5] flex py-2 w-full'>
                                         <SearchbarCard product={product} />
                                     </li>
                                 ))}

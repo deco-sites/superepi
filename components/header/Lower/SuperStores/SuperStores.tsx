@@ -5,49 +5,49 @@ export const SuperStores = () => {
     return (
         <div
             class={clx(
-                'carousel-item dropdown dropdown-hover sm:ml-auto',
-                'sm:[&_div]:pointer-events-auto',
+                'carousel-item dropdown dropdown-hover ml-auto',
+                '[&_div]:pointer-events-auto',
             )}
             style={{ position: 'initial' }}
         >
             <div
-                class='sm:bg-[#000] sm:flex sm:flex-shrink-0 sm:gap-1 sm:h-8 sm:items-center sm:px-2'
+                class='bg-[#000] flex flex-shrink-0 gap-1 h-8 items-center px-2'
                 role='button'
                 tabIndex={0}
             >
                 <Image
                     alt=''
-                    class='sm:h-4 sm:object-contain sm:w-4'
+                    class='h-4 object-contain w-4'
                     height={16}
                     src='/selo-epi.png'
                     width={0}
                 />
 
-                <span class='sm:font-medium sm:font-roboto sm:leading-normal sm:text-white sm:text-sm sm:whitespace-nowrap'>
-                    Super <span class='sm:text-[#F8A531]'>Lojas</span>
+                <span class='font-medium font-roboto leading-normal text-white text-sm whitespace-nowrap'>
+                    Super <span class='text-[#F8A531]'>Lojas</span>
                 </span>
             </div>
 
             <div
                 class={clx(
-                    'dropdown-content sm:absolute sm:bottom-0 sm:h-fit sm:left-0 sm:top-full sm:pointer-events-none sm:px-6 sm:w-full',
-                    'sm:data-[background=true]:focus:bg-[#00000080]',
+                    'dropdown-content absolute bottom-0 h-fit left-0 top-full pointer-events-none px-6 w-full',
+                    'data-[background=true]:focus:bg-[#00000080]',
                 )}
                 data-size='large'
                 tabIndex={0}
             >
-                <div class='sm:flex sm:justify-end sm:max-w-page-container sm:mx-auto sm:relative sm:w-full'>
-                    <a class='sm:flex sm:w-fit' href='/super-lojas'>
+                <div class='flex justify-end max-w-page-container mx-auto relative w-full'>
+                    <a class='flex w-fit' href='/super-lojas'>
                         <Image
                             alt=''
-                            class='sm:aspect-[300/200] sm:max-w-[18.75rem] sm:object-cover sm:w-full'
+                            class='aspect-[300/200] max-w-[18.75rem] object-cover w-full'
                             height={200}
                             src='/seal.webp'
                             width={0}
                         />
                     </a>
 
-                    <div class='sm:absolute sm:bg-[#000000bf] sm:h-[100vh] sm:left-1/2 sm:top-0 sm:-translate-x-1/2 sm:w-[100vw] sm:-z-10' />
+                    <div class='absolute bg-[#000000bf] h-[100vh] left-1/2 top-0 -translate-x-1/2 w-[100vw] -z-10' />
                 </div>
             </div>
         </div>

@@ -13,22 +13,22 @@ export type WidgetProps = JSX.HTMLAttributes<HTMLAnchorElement> & {
 
 export const Widget = ({ content, icon, title, ...props }: WidgetProps) => {
     return (
-        <a {...props} class='sm:flex sm:gap-3 sm:items-center sm:max-w-full sm:w-fit'>
+        <a {...props} class='flex gap-3 items-center max-w-full w-fit'>
             <Image
                 alt=''
-                class='sm:h-8 sm:object-contain sm:w-8'
+                class='h-8 object-contain w-8'
                 height={32}
                 loading='eager'
                 src={icon}
                 width={32}
             />
 
-            <div class='sm:flex sm:flex-col'>
-                <strong class='sm:font-bold sm:font-roboto sm:leading-normal sm:text-xs sm:text-black'>
+            <div class='flex flex-col'>
+                <strong class='font-bold font-roboto leading-normal text-xs text-black'>
                     {title}
                 </strong>
 
-                <span class='sm:font-normal sm:font-roboto sm:leading-normal sm:text-xs sm:text-black'>
+                <span class='font-normal font-roboto leading-normal text-xs text-black'>
                     {content}
                 </span>
             </div>

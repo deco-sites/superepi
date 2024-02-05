@@ -155,7 +155,7 @@ export interface Props {
     searchbar?: Omit<SearchbarProps, 'platform'>
 }
 
-function Header({ isMobile, upper, middle, lower, searchbar }: Props) {
+function Header({ isMobile, upper, middle, lower, searchbar }: ReturnType<typeof loader>) {
     const platform = usePlatform()
 
     return (
@@ -174,6 +174,7 @@ function Header({ isMobile, upper, middle, lower, searchbar }: Props) {
                                 lower={lower}
                                 middle={middle}
                                 searchbar={searchbar && { ...searchbar, platform }}
+                                isMobile={isMobile}
                             />
                         </div>
                     </div>

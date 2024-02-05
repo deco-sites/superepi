@@ -11,45 +11,44 @@ export const Menu = ({ lower }: MenuProps) => {
     const id = useId()
 
     return (
-        <div class={clx('drawer drawer-end sm:ml-auto sm:w-fit', 'lg:hidden')}>
+        <div class={clx('drawer drawer-end w-fit', 'lg:hidden')}>
             <input class='drawer-toggle' id={id} type='checkbox' />
 
             <div class='drawer-content'>
-                <label
-                    class='sm:flex sm:items-center sm:h-12 sm:justify-center sm:w-12'
-                    htmlFor={id}
-                >
-                    <Icon class='sm:h-8 sm:text-black sm:w-8' id='Menu' />
+                <label class='flex items-center justify-center translate-y-2' for={id}>
+                    <Icon
+                        class='text-black scale-[80%] shrink-0'
+                        id='Menu'
+                        width={32}
+                        height={22}
+                    />
                 </label>
             </div>
 
             <div class='drawer-side'>
-                <label htmlFor={id} aria-label='close sidebar' class='drawer-overlay'></label>
+                <label for={id} aria-label='close sidebar' class='drawer-overlay' />
 
-                <div class='menu sm:bg-[#f0f0f0] sm:p-6 sm:max-w-full sm:min-h-full sm:w-64'>
+                <div class='menu bg-[#f0f0f0] p-6 max-w-full min-h-full w-64'>
                     {lower.menus.map(({ items, name }, index) => (
-                        <div class='collapse sm:rounded-none'>
+                        <div class='collapse rounded-none'>
                             <input type='checkbox' />
 
-                            <strong class='collapse-title sm:font-roboto sm:font-black sm:leading-normal sm:min-h-0 sm:p-0 sm:text-black sm:text-base'>
+                            <strong class='collapse-title font-roboto font-black leading-normal min-h-0 p-0 text-black text-base'>
                                 {name}
                             </strong>
 
-                            <div class='collapse-content sm:flex sm:flex-col sm:gap-6 sm:w-full'>
+                            <div class='collapse-content flex flex-col gap-6 w-full'>
                                 {items.map(({ name, links }, jindex) => (
-                                    <div
-                                        class='sm:flex sm:flex-col sm:gap-4 sm:w-full'
-                                        key={jindex}
-                                    >
-                                        <span class='sm:font-roboto sm:font-medium sm:leading-normal sm:min-h-0 sm:p-0 sm:text-black sm:text-sm'>
+                                    <div class='flex flex-col gap-4 w-full' key={jindex}>
+                                        <span class='font-roboto font-medium leading-normal min-h-0 p-0 text-black text-sm'>
                                             {name}
                                         </span>
 
-                                        <ul class='sm:flex sm:flex-col sm:gap-3 sm:items-start sm:w-full'>
+                                        <ul class='flex flex-col gap-3 items-start w-full'>
                                             {links.map(({ href, name }, kindex) => (
-                                                <li class='sm:flex' key={kindex}>
+                                                <li class='flex' key={kindex}>
                                                     <a
-                                                        class='sm:font-roboto sm:font-normal sm:leading-normal sm:min-h-0 sm:p-0 sm:text-black sm:text-sm'
+                                                        class='font-roboto font-normal leading-normal min-h-0 p-0 text-black text-sm'
                                                         href={href}
                                                     >
                                                         {name}

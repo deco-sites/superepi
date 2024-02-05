@@ -1,5 +1,5 @@
 import { Props } from '$store/components/header/Header.tsx'
-import { Widget, WidgetProps } from '$store/components/header/Middle/Widget/Widget.tsx'
+import { Widget, WidgetProps } from './Widget.tsx'
 import { clx } from '$store/sdk/clx.ts'
 
 export type AssistanceProps = {
