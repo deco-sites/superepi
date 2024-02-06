@@ -10,11 +10,8 @@
  */
 
 import type { Platform } from "$store/apps/site.ts";
-import ProductCard from "$store/components/product/ProductCard.tsx";
 import { SearchbarCard } from "$store/components/product/SearchbarCard/SearchbarCard.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { clx } from "$store/sdk/clx.ts";
 import { useId } from "$store/sdk/useId.ts";
@@ -59,12 +56,11 @@ function Searchbar({
   action = "/s",
   name = "q",
   loader,
-  platform,
 }: Props) {
   const id = useId();
   const { displaySearchPopup } = useUI();
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setQuery, payload, loading } = useSuggestions(loader);
+  const { setQuery, payload } = useSuggestions(loader);
   const { products = [], searches = [] } = payload.value ?? {};
   const hasProducts = Boolean(products.length);
   const hasTerms = Boolean(searches.length);
@@ -91,7 +87,7 @@ function Searchbar({
         <input
           ref={searchInputRef}
           id="search-input"
-          class="bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full"
+          class="bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full line-clamp-1 text-ellipsis"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -105,6 +101,8 @@ function Searchbar({
 
             setQuery(value);
           }}
+          onFocus={() => (displaySearchPopup.value = true)}
+          onBlur={() => (displaySearchPopup.value = false)}
           placeholder={placeholder}
           role="combobox"
           aria-controls="search-suggestion"
@@ -112,50 +110,59 @@ function Searchbar({
         />
       </form>
 
-      <div
-        class={clx(
-          "dropdown flex h-0 w-full",
-          (hasProducts || hasTerms) && "dropdown-open",
-        )}
-      >
-        <div aria-hidden tabIndex={0} role="button" class="hidden" />
-
+      {displaySearchPopup.value && (
         <div
-          class="dropdown-content bg-white border-[0.0625rem] border-[#ddd] flex flex-col gap-6 max-h-[calc(100vh-12.5rem)] overflow-y-auto p-6 w-full z-30"
-          tabIndex={0}
-        >
-          {searches.length !== 0 && (
-            <ul class="flex flex-col gap-5 w-full">
-              {searches.map(({ href, term }, index) => (
-                <li class="flex w-full">
-                  <a
-                    class="font-medium font-roboto text-[#333] text-sm underline"
-                    href={`/pesquisa?t=${term}`}
-                  >
-                    {term}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          class={clx(
+            "dropdown flex h-0 w-full",
+            (hasProducts || hasTerms) && "dropdown-open",
           )}
-
-          {products.length !== 0 && (
-            <div class="flex flex-col gap-6 w-full">
-              <span class="font-bold font-roboto text-black text-base">
-                Sugestões de produtos
-              </span>
-
-              <ul class="flex flex-col w-full">
-                {products.map((product, index) => (
-                  <li class="border-t-[0.0625rem] border-t-[#f5f5f5] flex py-2 w-full">
-                    <SearchbarCard product={product} />
+        >
+          <div
+            class="dropdown-content bg-white border-[0.0625rem] border-[#ddd] flex flex-col gap-6 max-h-[calc(100vh-12.5rem)] overflow-y-auto p-6 w-full z-30"
+            tabIndex={0}
+          >
+            <button
+              class="text-[#999999] text-lg leading-[18px] font-bold text-left pl-[10px]"
+              onClick={() => (displaySearchPopup.value = false)}
+            >
+              X
+            </button>
+            {searches.length !== 0 && (
+              <ul class="flex flex-col gap-5 w-full">
+                {searches.map(({ term }) => (
+                  <li class="flex w-full" key={term}>
+                    <a
+                      class="font-medium font-roboto text-[#333] text-sm underline"
+                      href={`/pesquisa?t=${term}`}
+                    >
+                      {term}
+                    </a>
                   </li>
                 ))}
               </ul>
-            </div>
-          )}
+            )}
+
+            {products.length !== 0 && (
+              <div class="flex flex-col gap-6 w-full">
+                <span class="font-bold font-roboto text-black text-base">
+                  Sugestões de produtos
+                </span>
+
+                <ul class="flex flex-col w-full">
+                  {products.map((product) => (
+                    <li
+                      key={product.productID}
+                      class="border-t-[0.0625rem] border-t-[#f5f5f5] flex py-2 w-full"
+                    >
+                      <SearchbarCard product={product} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

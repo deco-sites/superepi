@@ -1,15 +1,14 @@
 import { Props } from "$store/components/header/Header.tsx";
-import { Assistance } from "./Assistance.tsx";
-import { Cart } from "./Cart.tsx";
-import { Menu } from "./Menu.tsx";
-/* import { Searchbar } from "$store/components/header/Middle/Searchbar/Searchbar.tsx"; */
-import { Widget } from "./Widget.tsx";
+import SearchButton from "$store/components/header/Middle/SearchButton.tsx";
 import Searchbar, {
   Props as SearchbarProps,
 } from "$store/components/search/Searchbar.tsx";
 import { clx } from "$store/sdk/clx.ts";
 import Image from "apps/website/components/Image.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
+import { Assistance } from "./Assistance.tsx";
+import { Cart } from "./Cart.tsx";
+import { Menu } from "./Menu.tsx";
+import { Widget } from "./Widget.tsx";
 
 export type MiddleProps = {
   lower: Props["lower"];
@@ -28,22 +27,23 @@ export const Middle = ({ lower, middle, searchbar, isMobile }: MiddleProps) => {
         "lg:grid lg:gap-8 lg:grid-cols-[auto_1fr_auto]",
       )}
     >
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center px-[15px] lg:px-0">
         {isMobile && <Menu loginIcon={visitant.icon} lower={lower} />}
 
-        <a class="/" href="/">
+        <a href="/">
           <Image
             alt={logo.alt}
             height={46}
             loading="eager"
             src={logo.src}
+            class="aspect-[268/90] mr-5 lg:mr-0 w-[134px] lg:w-[163px] object-contain"
             width={163}
           />
         </a>
 
         {isMobile && (
           <div class="flex items-center gap-2">
-            <Icon id="Search" width={24} height={24} />
+            <SearchButton />
             <Cart content="" icon={cart} title="" isMobile />
           </div>
         )}
@@ -60,24 +60,22 @@ export const Middle = ({ lower, middle, searchbar, isMobile }: MiddleProps) => {
         </div>
       )}
 
-      <div
-        class={clx(
-          "flex flex-wrap gap-[1rem_1rem] items-center justify-end order-2 w-full",
-          "lg:flex lg:gap-[1rem_2rem] lg:order-3",
-        )}
-      >
-        {!isMobile && (
-          <>
-            <Assistance assistance={assistance} />
-            <Widget
-              {...visitant}
-              aria-label="Ir para página de login"
-              href="/login"
-            />
-            <Cart content="R$ 0,00" icon={cart} title="0 itens" />
-          </>
-        )}
-      </div>
+      {!isMobile && (
+        <div
+          class={clx(
+            "flex flex-wrap gap-[1rem_1rem] items-center justify-end order-2 w-full",
+            "lg:flex lg:gap-[1rem_2rem] lg:order-3",
+          )}
+        >
+          <Assistance assistance={assistance} />
+          <Widget
+            {...visitant}
+            aria-label="Ir para página de login"
+            href="/login"
+          />
+          <Cart content="R$ 0,00" icon={cart} title="0 itens" />
+        </div>
+      )}
     </div>
   );
 };

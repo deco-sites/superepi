@@ -170,7 +170,7 @@ function Header(
             </div>
           </div>
 
-          <div class="bg-[#fff] flex px-6 w-full">
+          <div class="bg-[#fff] flex lg:px-6 w-full">
             <div class="flex max-w-page-container mx-auto w-full">
               <Middle
                 lower={lower}

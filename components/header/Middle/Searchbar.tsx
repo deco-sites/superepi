@@ -12,7 +12,7 @@ export const Searchbar = () => {
         </span>
 
         <input
-          class="bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full"
+          class="bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full line-clamp-1 text-ellipsis"
           name="search"
           placeholder="Encontre aqui o produto que você procura..."
           type="text"
