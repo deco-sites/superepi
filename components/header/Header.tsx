@@ -1,7 +1,10 @@
 import HeaderJS from "$store/components/header/HeaderJs.tsx";
 import { Lower } from "$store/components/header/Lower/Lower.tsx";
 import { Middle } from "$store/components/header/Middle/Middle.tsx";
-import { Upper } from "$store/components/header/Upper/Upper.tsx";
+import {
+  type Props as UpperProps,
+  Upper,
+} from "$store/components/header/Upper/Upper.tsx";
 import { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import { clx } from "$store/sdk/clx.ts";
@@ -46,30 +49,6 @@ export interface MiddleType {
   visitant: Visitant;
   /** @description Ícone do carrinho de compras [***Use uma resolução de 64x64 e formato webp para melhor performace] */
   cart: ImageWidget;
-}
-
-/** @titleBy name */
-export interface LinkWithBackground {
-  /** @description Cor do fundo do link */
-  backgroundColor: string;
-  /** @description Cor do texto do link */
-  color: string;
-  /** @description Endereço do link */
-  href: string;
-  /** @description Nome do link */
-  name: string;
-}
-
-/** @titleBy name */
-export interface LinkWithIcons {
-  /** @description Cor do texto do link */
-  color: string;
-  /** @description Ícone do link [***Use uma resolução de 64x64 e formato webp para melhor performace] */
-  icon: ImageWidget;
-  /** @description Endereço do link */
-  href: string;
-  /** @description Nome do link */
-  name: string;
 }
 
 export interface Logo {
@@ -127,12 +106,6 @@ export interface MenuItemLink {
   name: string;
 }
 
-export interface UpperType {
-  /** @description Lista com os links preenchidos */
-  linksWithBackground: LinkWithBackground[];
-  linksWithIcons: LinkWithIcons[];
-}
-
 export interface Visitant {
   /** @description Icone lateral [***Use uma resolução de 64x64 e formato webp para melhor performace] */
   icon: ImageWidget;
@@ -146,7 +119,7 @@ export interface Props {
   /** @ignore */
   isMobile: boolean;
   /** @description Barra de cima do header */
-  upper: UpperType;
+  upper: UpperProps;
   /** @description Barra do meio do header */
   middle: MiddleType;
   /** @description Barra de baixo do header */
@@ -164,11 +137,7 @@ function Header(
     <>
       <header class="group flex pt-[171.4px] w-full" id="main-header">
         <div class="duration-300 ease-in-out h-fit flex flex-col fixed shadow-[0_0_0.25rem_0_#00000040] top-0 transition-[grid-template] w-full z-50">
-          <div class="group-data-[micro-header=true]:hidden bg-[#f0f0f0] flex overflow-x-auto px-6 w-full">
-            <div class="flex max-w-page-container mx-auto w-full">
-              <Upper {...upper} />
-            </div>
-          </div>
+          <Upper {...upper} isMobile={isMobile} />
 
           <div class="bg-[#fff] flex lg:px-6 w-full">
             <div class="flex max-w-page-container mx-auto w-full">
