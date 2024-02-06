@@ -29,7 +29,7 @@ export const Middle = ({ lower, middle, searchbar, isMobile }: MiddleProps) => {
       )}
     >
       <div class="flex justify-between items-center">
-        <Menu lower={lower} />
+        {isMobile && <Menu loginIcon={visitant.icon} lower={lower} />}
 
         <a class="/" href="/">
           <Image
