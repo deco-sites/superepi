@@ -1,7 +1,7 @@
-import Component from '$store/components/header/Buttons/Cart/linx.tsx'
+import Component from "$store/components/header/Buttons/Cart/linx.tsx";
 
 function Island() {
-    return <Component />
+  return <Component />;
 }
 
-export default Island
+export default Island;

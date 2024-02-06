@@ -1,1 +1,1 @@
-export { default } from '$store/components/gridBanners/GridBanners.tsx'
+export { default } from "$store/components/gridBanners/GridBanners.tsx";

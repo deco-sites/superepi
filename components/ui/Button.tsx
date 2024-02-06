@@ -1,16 +1,26 @@
-import type { JSX } from 'preact'
-import { forwardRef } from 'preact/compat'
+import type { JSX } from "preact";
+import { forwardRef } from "preact/compat";
 
-export type Props = Omit<JSX.IntrinsicElements['button'], 'loading'> & {
-    loading?: boolean
-}
+export type Props = Omit<JSX.IntrinsicElements["button"], "loading"> & {
+  loading?: boolean;
+};
 
 const Button = forwardRef<HTMLButtonElement, Props>(
-    ({ type = 'button', class: _class = '', loading, disabled, children, ...props }, ref) => (
-        <button {...props} disabled={disabled || loading} type={type} ref={ref}>
-            {loading ? <span class='loading loading-spinner' /> : children}
-        </button>
-    ),
-)
+  (
+    {
+      type = "button",
+      class: _class = "",
+      loading,
+      disabled,
+      children,
+      ...props
+    },
+    ref,
+  ) => (
+    <button {...props} disabled={disabled || loading} type={type} ref={ref}>
+      {loading ? <span class="loading loading-spinner" /> : children}
+    </button>
+  ),
+);
 
-export default Button
+export default Button;

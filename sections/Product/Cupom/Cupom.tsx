@@ -1,1 +1,1 @@
-export { default } from '$store/components/product/Cupom/Cupom.tsx'
+export { default } from "$store/components/product/Cupom/Cupom.tsx";

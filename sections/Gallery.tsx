@@ -1,15 +1,15 @@
-import { Section } from 'deco/blocks/section.ts'
+import { Section } from "deco/blocks/section.ts";
 
 interface Props {
-    children: Section
+  children: Section;
 }
 
 function Gallery({ children: { Component, props } }: Props) {
-    return (
-        <>
-            <Component {...props} />
-        </>
-    )
+  return (
+    <>
+      <Component {...props} />
+    </>
+  );
 }
 
-export default Gallery
+export default Gallery;

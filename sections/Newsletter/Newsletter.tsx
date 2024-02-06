@@ -1,1 +1,1 @@
-export { default } from '$store/components/Newsletter/Newsletter.tsx'
+export { default } from "$store/components/Newsletter/Newsletter.tsx";

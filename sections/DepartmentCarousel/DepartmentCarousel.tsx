@@ -1,1 +1,1 @@
-export { default } from '$store/components/departmentCarousel/DepartmentCarousel.tsx'
+export { default } from "$store/components/departmentCarousel/DepartmentCarousel.tsx";

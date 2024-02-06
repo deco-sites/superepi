@@ -1,27 +1,27 @@
-import { useSignal } from '@preact/signals'
-import { useEffect } from 'preact/hooks'
+import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 function useBackToTop(percentageToAppear: number) {
-    const isVisible = useSignal(false)
+  const isVisible = useSignal(false);
 
-    useEffect(() => {
-        function handleScroll() {
-            const scrollY = globalThis.scrollY
-            const windowHeight = innerHeight
-            const documentHeight = document.documentElement.scrollHeight
+  useEffect(() => {
+    function handleScroll() {
+      const scrollY = globalThis.scrollY;
+      const windowHeight = innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-            const positionToAppear = documentHeight * percentageToAppear
-            isVisible.value = scrollY + windowHeight >= positionToAppear
-        }
+      const positionToAppear = documentHeight * percentageToAppear;
+      isVisible.value = scrollY + windowHeight >= positionToAppear;
+    }
 
-        addEventListener('scroll', handleScroll)
+    addEventListener("scroll", handleScroll);
 
-        return () => {
-            removeEventListener('scroll', handleScroll)
-        }
-    }, [percentageToAppear])
+    return () => {
+      removeEventListener("scroll", handleScroll);
+    };
+  }, [percentageToAppear]);
 
-    return isVisible.value
+  return isVisible.value;
 }
 
-export default useBackToTop
+export default useBackToTop;
