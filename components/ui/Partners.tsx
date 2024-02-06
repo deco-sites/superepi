@@ -27,30 +27,30 @@ export const Partners = ({ partners = [] }: Props) => {
   if (partners.length === 0) return null;
 
   return (
-    <div class={clx("sm:flex sm:px-6 sm:py-5 sm:w-full", "lg:py-7")} id={id}>
-      <div class="sm:flex sm:items-center sm:gap-3 sm:max-w-[81.25rem] sm:mx-auto sm:w-full">
+    <div class={clx("flex px-6 py-5 w-full", "lg:py-7")} id={id}>
+      <div class="flex items-center gap-3 max-w-[81.25rem] mx-auto w-full">
         <Slider.PrevButton
           class={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+            "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+            "hover:bg-black hover:text-white",
+            "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
           )}
         >
-          <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+          <Icon class="h-4 w-4" id="ChevronLeft" />
         </Slider.PrevButton>
 
-        <Slider class="sm:carousel sm:gap-16 sm:w-full">
+        <Slider class="carousel gap-16 w-full">
           {partners.map(({ alt, href, logo }, index) => (
             <Slider.Item
-              class="sm:carousel-item sm:flex sm:w-fit"
+              class="carousel-item flex w-fit"
               index={index}
             >
-              <a aria-label={`Navegar para ${alt}`} class="sm:flex" href={href}>
+              <a aria-label={`Navegar para ${alt}`} class="flex" href={href}>
                 <Image
                   alt=""
                   class={clx(
-                    "sm:duration-300 sm:ease-in-out sm:h-16 sm:object-contain sm:grayscale sm:transition-[filter] sm:w-auto",
-                    "sm:hover:grayscale-0",
+                    "duration-300 ease-in-out h-16 object-contain grayscale transition-[filter] w-auto",
+                    "hover:grayscale-0",
                   )}
                   height={64}
                   src={logo}
@@ -63,12 +63,12 @@ export const Partners = ({ partners = [] }: Props) => {
 
         <Slider.NextButton
           class={clx(
-            "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-            "sm:hover:bg-black sm:hover:text-white",
-            "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+            "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+            "hover:bg-black hover:text-white",
+            "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
           )}
         >
-          <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+          <Icon class="h-4 w-4" id="ChevronRight" />
         </Slider.NextButton>
       </div>
 

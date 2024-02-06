@@ -17,13 +17,13 @@ export const DepartmentCarousel = ({ heading, cards = [] }: Props) => {
   return (
     <div
       id="department-carousel"
-      class={clx("sm:flex sm:px-6 sm:py-5 sm:w-full", "lg:py-7")}
+      class={clx("flex px-6 py-5 w-full", "lg:py-7")}
     >
-      <div class="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
-        <div class="sm:grid sm:grid-cols-[1fr_auto] sm:items-center sm:w-full">
+      <div class="flex flex-col gap-8 max-w-page-container mx-auto w-full">
+        <div class="grid grid-cols-[1fr_auto] items-center w-full">
           <h2
             class={clx(
-              "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+              "font-roboto font-medium leading-normal tracking-[0.125rem] text-[#000000] text-lg uppercase",
               "lg:leading-normal lg:text-xl",
             )}
           >
@@ -32,50 +32,50 @@ export const DepartmentCarousel = ({ heading, cards = [] }: Props) => {
 
           <div
             class={clx(
-              "sm:gap-8 sm:hidden sm:items-center sm:w-fit",
+              "gap-8 hidden items-center w-fit",
               "lg:flex",
             )}
           >
             <Slider.PrevButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+              <Icon class="h-4 w-4" id="ChevronLeft" />
             </Slider.PrevButton>
 
             <Slider.NextButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+              <Icon class="h-4 w-4" id="ChevronRight" />
             </Slider.NextButton>
           </div>
         </div>
 
         <div
           class={clx(
-            "sm:flex sm:flex-col sm:gap-3 sm:items-center sm:justify-center sm:px-12 sm:relative sm:w-full",
+            "flex flex-col gap-3 items-center justify-center px-12 relative w-full",
             "lg:px-0",
           )}
         >
           <div
             class={clx(
-              "sm:absolute sm:flex sm:items-center sm:justify-between sm:pointer-events-none sm:w-full",
+              "absolute flex items-center justify-between pointer-events-none w-full",
               "lg:hidden",
             )}
           >
-            <Slider.PrevButton class="sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:w-9">
-              <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+            <Slider.PrevButton class="bg-transparent border-[0.125rem] border-[#000] flex h-9 items-center justify-center pointer-events-auto w-9">
+              <Icon class="h-4 w-4" id="ChevronLeft" />
             </Slider.PrevButton>
 
-            <Slider.NextButton class="sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:w-9">
-              <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+            <Slider.NextButton class="bg-transparent border-[0.125rem] border-[#000] flex h-9 items-center justify-center pointer-events-auto w-9">
+              <Icon class="h-4 w-4" id="ChevronRight" />
             </Slider.NextButton>
           </div>
 

@@ -36,10 +36,10 @@ export interface CardProps {
 
 export const Card = ({ background, links, title }: CardProps) => {
   return (
-    <div class="group aspect-square sm:flex sm:overflow-hidden sm:relative sm:w-full">
+    <div class="group aspect-square flex overflow-hidden relative w-full">
       <Image
         alt={background.alt}
-        class="sm:h-full sm:object-cover sm:w-full"
+        class="h-full object-cover w-full"
         height={250}
         src={background.src}
         width={250}
@@ -47,15 +47,15 @@ export const Card = ({ background, links, title }: CardProps) => {
 
       <div
         class={clx(
-          "sm:absolute sm:bg-[#000000b8] sm:bottom-[4.6875rem] sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:h-full sm:overflow-y-hidden sm:pb-8 sm:transition-transform sm:transform-gpu sm:translate-y-full sm:w-full",
-          "sm:group-hover:overflow-y-auto sm:group-hover:translate-y-[4.6875rem]",
+          "absolute bg-[#000000b8] bottom-[4.6875rem] duration-300 ease-in-out flex flex-col h-full overflow-y-hidden pb-8 transition-transform transform-gpu translate-y-full w-full",
+          "group-hover:overflow-y-auto group-hover:translate-y-[4.6875rem]",
         )}
       >
-        <h3 class="sm:flex sm:flex-shrink-0 sm:h-[4.6875rem] sm:items-center sm:justify-center sm:w-full">
+        <h3 class="flex flex-shrink-0 h-[4.6875rem] items-center justify-center w-full">
           <a
             class={clx(
-              "sm:block sm:duration-300 sm:ease-in-out sm:font-bold sm:font-roboto sm:leading-normal sm:overflow-hidden sm:px-1 sm:text-ellipsis sm:text-white sm:text-base sm:text-center sm:transform-gpu sm:transition-colors sm:uppercase sm:w-full sm:whitespace-nowrap",
-              "sm:hover:text-[#ffab00]",
+              "block duration-300 ease-in-out font-bold font-roboto leading-normal overflow-hidden px-1 text-ellipsis text-white text-base text-center transform-gpu transition-colors uppercase w-full whitespace-nowrap",
+              "hover:text-[#ffab00]",
             )}
             href={links.general}
           >
@@ -65,16 +65,16 @@ export const Card = ({ background, links, title }: CardProps) => {
 
         <ul
           class={clx(
-            "sm:duration-300 sm:ease-in-out sm:flex sm:flex-col sm:flex-shrink-0 sm:gap-2 sm:mt-auto sm:opacity-0 sm:px-8 sm:transition-opacity sm:transform-gpu sm:w-full",
-            "sm:group-hover:opacity-100",
+            "duration-300 ease-in-out flex flex-col flex-shrink-0 gap-2 mt-auto opacity-0 px-8 transition-opacity transform-gpu w-full",
+            "group-hover:opacity-100",
           )}
         >
           {links.categories.map(({ href, name }, index) => (
-            <li class="sm:flex sm:w-full">
+            <li class="flex w-full">
               <a
                 class={clx(
-                  "sm:block sm:duration-300 sm:ease-in-out sm:font-normal sm:font-roboto sm:leading-normal sm:max-w-full sm:overflow-hidden sm:text-xs sm:text-white sm:text-ellipsis sm:transition-colors sm:transform-gpu sm:w-fit sm:whitespace-nowrap",
-                  "sm:hover:text-[#ffab00] sm:hover:underline",
+                  "block duration-300 ease-in-out font-normal font-roboto leading-normal max-w-full overflow-hidden text-xs text-white text-ellipsis transition-colors transform-gpu w-fit whitespace-nowrap",
+                  "hover:text-[#ffab00] hover:underline",
                 )}
                 href={href}
               >
@@ -86,8 +86,8 @@ export const Card = ({ background, links, title }: CardProps) => {
           <li>
             <a
               class={clx(
-                "sm:block sm:duration-300 sm:ease-in-out sm:font-normal sm:font-roboto sm:leading-normal sm:max-w-full sm:overflow-hidden sm:text-xs sm:text-[#ffab00] sm:text-ellipsis sm:transition-colors sm:transform-gpu sm:w-fit sm:whitespace-nowrap",
-                "sm:hover:underline",
+                "block duration-300 ease-in-out font-normal font-roboto leading-normal max-w-full overflow-hidden text-xs text-[#ffab00] text-ellipsis transition-colors transform-gpu w-fit whitespace-nowrap",
+                "hover:underline",
               )}
               href={links.general}
             >

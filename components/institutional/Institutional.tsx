@@ -64,14 +64,14 @@ export const Institutional = ({
   articles = [],
 }: SectionProps<ReturnType<typeof loader>>) => {
   return (
-    <div class="sm:flex sm:w-full">
+    <div class="flex w-full">
       <div
         class={clx(
-          "sm:bg-[#f0f0f0] sm:flex sm:flex-col sm:pb-6 sm:pt-12 sm:px-6 sm:w-full",
+          "bg-[#f0f0f0] flex flex-col pb-6 pt-12 px-6 w-full",
           "lg:py-20",
         )}
       >
-        <div class="sm:flex sm:flex-col sm:max-w-page-container sm:mx-auto sm:w-full">
+        <div class="flex flex-col max-w-page-container mx-auto w-full">
           <Breadcrumb
             itemListElement={[
               {
@@ -89,13 +89,13 @@ export const Institutional = ({
             ]}
           />
 
-          <h2 class="sm:font-black sm:font-roboto sm:mb-12 sm:mt-6 sm:text-[#151515] sm:text-2xl sm:-tracking-[0.078125rem] sm:uppercase">
+          <h2 class="font-black font-roboto mb-12 mt-6 text-[#151515] text-2xl -tracking-[0.078125rem] uppercase">
             {article?.name}
           </h2>
 
           <div
             class={clx(
-              "sm:gap-4 sm:grid sm:grid-cols-1 sm:items-start sm:w-full",
+              "gap-4 grid grid-cols-1 items-start w-full",
               "lg:gap-10 lg:grid-cols-[18.75rem_1fr]",
             )}
           >
@@ -103,12 +103,12 @@ export const Institutional = ({
 
             <div
               class={clx(
-                "sm:bg-white sm:flex sm:flex-col sm:font-normal sm:font-roboto sm:p-6 sm:shadow-[0_0_0.625rem_#00000033] sm:text-sm sm:text-black sm:w-full",
-                "sm:[&_a]:font-black sm:[&_a]:text-[#f39c12]",
-                "sm:[&_h2]:font-black sm:[&_h2]:text-base",
-                "sm:[&_img]:h-auto sm:[&_img]:w-full",
-                "sm:[&_ul]:flex sm:[&_ul]:flex-col sm:[&_ul]:gap-2 sm:[&_ul]:pl-6 sm:[&_ul]:w-full lg:[&_ul]:pl-12",
-                "sm:[&_li]:flex sm:[&_li]:flex-col",
+                "bg-white flex flex-col font-normal font-roboto p-6 shadow-[0_0_0.625rem_#00000033] text-sm text-black w-full",
+                "[&_a]:font-black [&_a]:text-[#f39c12]",
+                "[&_h2]:font-black [&_h2]:text-base",
+                "[&_img]:h-auto [&_img]:w-full",
+                "[&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-6 [&_ul]:w-full lg:[&_ul]:pl-12",
+                "[&_li]:flex [&_li]:flex-col",
                 "lg:p-10",
               )}
               dangerouslySetInnerHTML={{ __html: article?.content ?? "" }}

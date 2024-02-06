@@ -49,33 +49,33 @@ export default function ShelfCampaign({
   );
 
   return (
-    <div class={clx("sm:flex sm:py-5 sm:w-full", "lg:py-7")} id={id}>
+    <div class={clx("flex py-5 w-full", "lg:py-7")} id={id}>
       <div
         class={clx(
-          "sm:bg-[#f5f5f5] sm:flex sm:px-4 sm:py-8 sm:w-full",
+          "bg-[#f5f5f5] flex px-4 py-8 w-full",
           "lg:py-4",
         )}
       >
         <div
           class={clx(
-            "sm:gap-5 sm:grid sm:grid-cols-1 sm:items-center sm:justify-items-center sm:max-w-page-container sm:mx-auto sm:w-full",
+            "gap-5 grid grid-cols-1 items-center justify-items-center max-w-page-container mx-auto w-full",
             "lg:grid-cols-2",
           )}
         >
           <div
             class={clx(
-              "sm:flex sm:flex-col sm:items-center sm:w-full",
+              "flex flex-col items-center w-full",
               "lg:max-w-[26.25rem] lg:items-start",
             )}
           >
             <h3
               class={clx(
-                "sm:flex sm:font-roboto sm:font-black sm:gap-5 sm:items-center sm:leading-tight sm:max-w-full sm:text-4xl sm:text-black sm:text-center sm:uppercase",
+                "flex font-roboto font-black gap-5 items-center leading-tight max-w-full text-4xl text-black text-center uppercase",
                 "lg:text-left",
               )}
             >
               <Icon
-                class="sm:flex-shrink-0 sm:h-10 sm:w-10"
+                class="flex-shrink-0 h-10 w-10"
                 id="TimerCampaign"
               />
 
@@ -84,7 +84,7 @@ export default function ShelfCampaign({
 
             <p
               class={clx(
-                "sm:font-roboto sm:font-normal sm:leading-normal sm:text-black sm:text-base sm:text-center",
+                "font-roboto font-normal leading-normal text-black text-base text-center",
                 "lg:text-left",
               )}
             >
@@ -93,7 +93,7 @@ export default function ShelfCampaign({
 
             <div
               class={clx(
-                "sm:flex sm:justify-center sm:my-5 sm:w-full",
+                "flex justify-center my-5 w-full",
                 "lg:justify-start",
               )}
             >
@@ -101,33 +101,33 @@ export default function ShelfCampaign({
             </div>
 
             <a
-              class="sm:bg-black sm:flex sm:font-roboto sm:font-normal sm:items-center sm:justify-center sm:leading-normal sm:min-h-12 sm:min-w-[13.75rem] sm:text-white sm:text-sm sm:text-center"
+              class="bg-black flex font-roboto font-normal items-center justify-center leading-normal min-h-12 min-w-[13.75rem] text-white text-sm text-center"
               href={cta?.href}
             >
               {cta?.text}
             </a>
           </div>
 
-          <div class="sm:flex sm:items-center sm:justify-center sm:relative sm:w-full">
+          <div class="flex items-center justify-center relative w-full">
             <Slider.PrevButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:-mr-[1.125rem] sm:pointer-events-auto sm:transition-colors sm:w-9 sm:z-30",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center -mr-[1.125rem] pointer-events-auto transition-colors w-9 z-30",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+              <Icon class="h-4 w-4" id="ChevronLeft" />
             </Slider.PrevButton>
 
             <Slider
               class={clx(
-                "carousel sm:gap-3 sm:items-stretch sm:w-full",
+                "carousel gap-3 items-stretch w-full",
                 "lg:max-w-[35.75rem]",
               )}
             >
               {products.map((product, index) => (
                 <Slider.Item
-                  class="carousel-item sm:h-auto sm:w-[17.5rem]"
+                  class="carousel-item h-auto w-[17.5rem]"
                   index={index}
                 >
                   <ProductCard
@@ -142,12 +142,12 @@ export default function ShelfCampaign({
 
             <Slider.NextButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:-ml-[1.125rem] sm:pointer-events-auto sm:transition-colors sm:w-9 sm:z-30",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center -ml-[1.125rem] pointer-events-auto transition-colors w-9 z-30",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+              <Icon class="h-4 w-4" id="ChevronRight" />
             </Slider.NextButton>
           </div>
         </div>

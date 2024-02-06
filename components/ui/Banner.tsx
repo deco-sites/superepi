@@ -16,14 +16,14 @@ export interface Banner {
 
 export const Banner = ({ alt, href, src }: Banner) => {
   return (
-    <div class={clx("sm:flex sm:px-4 sm:py-5 sm:w-full", "py-7")}>
+    <div class={clx("flex px-4 py-5 w-full", "py-7")}>
       <a
-        class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full"
+        class="flex max-w-page-container mx-auto w-full"
         href={href}
       >
         <Image
           alt={alt}
-          class="aspect-[1440/400] sm:h-auto sm:object-cover sm:w-full"
+          class="aspect-[1440/400] h-auto object-cover w-full"
           height={400}
           src={src}
           width={1440}

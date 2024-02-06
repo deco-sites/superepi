@@ -27,19 +27,19 @@ export const BannerCarousel = ({ banners = [] }: Props) => {
   if (banners.length === 0) return null;
 
   return (
-    <div class={clx("sm:flex sm:pb-5 sm:w-full", "lg:pb-7")} id={id}>
-      <div class="sm:flex sm:items-center sm:justify-center sm:relative sm:w-full">
-        <Slider class="carousel sm:w-full" role="list">
+    <div class={clx("flex pb-5 w-full", "lg:pb-7")} id={id}>
+      <div class="flex items-center justify-center relative w-full">
+        <Slider class="carousel w-full" role="list">
           {banners.map(({ alt, href, src }, index) => (
             <Slider.Item
-              class="carousel-item sm:w-full"
+              class="carousel-item w-full"
               index={index}
               role="listitem"
             >
-              <a class="sm:flex sm:w-full" href={href}>
+              <a class="flex w-full" href={href}>
                 <Image
                   alt={alt}
-                  class="sm:aspect-[1440/400] sm:w-full"
+                  class="aspect-[1440/400] w-full"
                   height={400}
                   loading={index === 0 ? "eager" : "lazy"}
                   src={src}
@@ -50,37 +50,37 @@ export const BannerCarousel = ({ banners = [] }: Props) => {
           ))}
         </Slider>
 
-        <div class="sm:absolute sm:flex sm:gap-8 sm:items-center sm:justify-between sm:max-w-[83.25rem] sm:mx-auto sm:pointer-events-none sm:px-4 sm:w-full sm:z-10">
+        <div class="absolute flex gap-8 items-center justify-between max-w-[83.25rem] mx-auto pointer-events-none px-4 w-full z-10">
           <Slider.PrevButton
             class={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
+              "bg-transparent border-[0.125rem] border-[#c7bcbc] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto text-[#c7bcbc] transition-colors w-9",
+              "hover:bg-black hover:text-white",
+              "disabled:cursor-not-allowed disabled:bg-transparent",
               "lg:h-12 lg:w-12",
             )}
           >
-            <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+            <Icon class="h-4 w-4" id="ChevronLeft" />
           </Slider.PrevButton>
 
           <Slider.NextButton
             class={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#c7bcbc] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:text-[#c7bcbc] sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent",
+              "bg-transparent border-[0.125rem] border-[#c7bcbc] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto text-[#c7bcbc] transition-colors w-9",
+              "hover:bg-black hover:text-white",
+              "disabled:cursor-not-allowed disabled:bg-transparent",
               "lg:h-12 lg:w-12",
             )}
           >
-            <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+            <Icon class="h-4 w-4" id="ChevronRight" />
           </Slider.NextButton>
         </div>
 
-        <ul class="sm:absolute sm:bottom-6 sm:flex sm:gap-3 sm:items-center sm:justify-center sm:max-w-full sm:px-3 sm:w-fit sm:z-10">
-          {banners.map(({}, index) => (
+        <ul class="absolute bottom-6 flex gap-3 items-center justify-center max-w-full px-3 w-fit z-10">
+          {banners.map(({ }, index) => (
             <li
               class={clx(
-                "sm:flex",
-                "sm:[&_button]:bg-[#f1f1f1] sm:[&_button]:border-none sm:[&_button]:w-4 sm:[&_button]:h-4",
-                "sm:disabled:[&_button]:bg-[#F8A531]",
+                "flex",
+                "[&_button]:bg-[#f1f1f1] [&_button]:border-none [&_button]:w-4 [&_button]:h-4",
+                "disabled:[&_button]:bg-[#F8A531]",
               )}
             >
               <Slider.Dot children={undefined} index={index} />

@@ -162,16 +162,16 @@ function Header(
 
   return (
     <>
-      <header class="group sm:flex sm:pt-[171.4px] sm:w-full" id="main-header">
-        <div class="sm:duration-300 sm:ease-in-out sm:h-fit sm:flex sm:flex-col sm:fixed sm:shadow-[0_0_0.25rem_0_#00000040] sm:top-0 sm:transition-[grid-template] sm:w-full sm:z-50">
-          <div class="group-data-[micro-header=true]:hidden sm:bg-[#f0f0f0] sm:flex sm:overflow-x-auto sm:px-6 sm:w-full">
-            <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+      <header class="group flex pt-[171.4px] w-full" id="main-header">
+        <div class="duration-300 ease-in-out h-fit flex flex-col fixed shadow-[0_0_0.25rem_0_#00000040] top-0 transition-[grid-template] w-full z-50">
+          <div class="group-data-[micro-header=true]:hidden bg-[#f0f0f0] flex overflow-x-auto px-6 w-full">
+            <div class="flex max-w-page-container mx-auto w-full">
               <Upper {...upper} />
             </div>
           </div>
 
-          <div class="sm:bg-[#fff] sm:flex sm:px-6 sm:w-full">
-            <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+          <div class="bg-[#fff] flex px-6 w-full">
+            <div class="flex max-w-page-container mx-auto w-full">
               <Middle
                 lower={lower}
                 middle={middle}
@@ -183,11 +183,11 @@ function Header(
 
           <div
             class={clx(
-              "sm:bg-[#fff] sm:hidden sm:max-h-full sm:px-6 sm:relative sm:w-full",
+              "bg-[#fff] hidden max-h-full px-6 relative w-full",
               "lg:flex",
             )}
           >
-            <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+            <div class="flex max-w-page-container mx-auto w-full">
               <Lower {...lower} />
             </div>
           </div>

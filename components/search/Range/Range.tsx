@@ -33,29 +33,28 @@ export const Range = ({ max, min }: RangeProps) => {
   const interval = max - min;
 
   return (
-    <div class="sm:flex sm:flex-col sm:gap-[1.25rem] sm:w-full">
-      <div class="sm:flex sm:items-center sm:relative sm:w-full">
-        <div class="sm:bg-[#ddd] sm:flex sm:h-1 sm:items-center sm:relative sm:w-full">
+    <div class="flex flex-col gap-[1.25rem] w-full">
+      <div class="flex items-center relative w-full">
+        <div class="bg-[#ddd] flex h-1 items-center relative w-full">
           <div
-            class="sm:absolute sm:bg-[#cf6196] sm:h-full sm:flex"
+            class="absolute bg-[#cf6196] h-full flex"
             style={{
               left: `${(100 * (price.value.min - min)) / interval}%`,
               right: `${(100 * (price.value.max - min)) / interval}%`,
-              width: `${
-                (100 * (price.value.max - price.value.min)) / interval
-              }%`,
+              width: `${(100 * (price.value.max - price.value.min)) / interval
+                }%`,
             }}
           />
         </div>
 
-        <label class="sm:absolute sm:flex sm:w-full">
-          <span class="sm:absolute sm:h-0 sm:overflow-hidden sm:w-0">
+        <label class="absolute flex w-full">
+          <span class="absolute h-0 overflow-hidden w-0">
             Preço mínimo
           </span>
 
           <input
             aria-label="Ranger de preço"
-            class={clx("custom-range", "sm:w-full")}
+            class={clx("custom-range", "w-full")}
             max={max}
             min={min}
             onChange={(event) => {
@@ -82,14 +81,14 @@ export const Range = ({ max, min }: RangeProps) => {
           />
         </label>
 
-        <label class="sm:absolute sm:flex sm:w-full">
-          <span class="sm:absolute sm:h-0 sm:overflow-hidden sm:w-0">
+        <label class="absolute flex w-full">
+          <span class="absolute h-0 overflow-hidden w-0">
             Preço máximo
           </span>
 
           <input
             aria-label="Ranger de preço"
-            class={clx("custom-range", "sm:w-full")}
+            class={clx("custom-range", "w-full")}
             max={max}
             min={min}
             onChange={(event) => {
@@ -117,18 +116,18 @@ export const Range = ({ max, min }: RangeProps) => {
         </label>
       </div>
 
-      <div class="sm:gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:w-full">
+      <div class="gap-2 flex flex-wrap items-center justify-between w-full">
         <button
           class={clx(
-            "sm:bg-[#2e294e] sm:duration-300 sm:ease-in-out sm:flex sm:font-normal sm:items-center sm:justify-center sm:h-9 sm:leading-normal sm:rounded sm:text-[#FFFFFF] sm:text-base sm:transition-colors sm:w-16",
-            "sm:hover:text-[#cf6196]",
+            "bg-[#2e294e] duration-300 ease-in-out flex font-normal items-center justify-center h-9 leading-normal rounded text-[#FFFFFF] text-base transition-colors w-16",
+            "hover:text-[#cf6196]",
           )}
           onClick={() => POST(price.value)}
         >
           Filtrar
         </button>
 
-        <span class="sm:font-normal sm:leading-normal sm:text-sm sm:text-[#646a7c]">
+        <span class="font-normal leading-normal text-sm text-[#646a7c]">
           Preço: {formatPrice(price.value.min)} - {formatPrice(price.value.max)}
         </span>
       </div>

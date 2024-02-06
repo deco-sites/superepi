@@ -53,11 +53,11 @@ function SearchResult({ page, seo }: SectionProps<ReturnType<typeof loader>>) {
   const { breadcrumb } = page;
 
   return (
-    <div class={clx("sm:flex sm:flex-col sm:pb-5 sm:w-full", "lg:pb-7")}>
-      <div class="sm:flex sm:p-6 sm:w-full">
+    <div class={clx("flex flex-col pb-5 w-full", "lg:pb-7")}>
+      <div class="flex p-6 w-full">
         <div
           class={clx(
-            "sm:flex sm:justify-center sm:max-w-page-container sm:mx-auto sm:w-full",
+            "flex justify-center max-w-page-container mx-auto w-full",
             "[&_ul]:!max-w-full [&_ul]:!w-fit",
           )}
         >
@@ -70,7 +70,7 @@ function SearchResult({ page, seo }: SectionProps<ReturnType<typeof loader>>) {
 
       <div
         class={clx(
-          "sm:bg-[#f0f0f0] sm:border-b-[0.3125rem] sm:border-b-[#F8A531] sm:flex sm:mb-6 sm:px-6 py-10",
+          "bg-[#f0f0f0] border-b-[0.3125rem] border-b-[#F8A531] flex mb-6 px-6 py-10",
           "lg:mb-4 pb-20",
         )}
       >
@@ -86,7 +86,7 @@ function SearchResult({ page, seo }: SectionProps<ReturnType<typeof loader>>) {
             <Collapsable.Content>
               {seo === undefined
                 ? (
-                  <h1 class="sm:font-bold sm:font-roboto sm:text-[#151515] sm:text-3xl">
+                  <h1 class="font-bold font-roboto text-[#151515] text-3xl">
                     {breadcrumb.itemListElement.slice(-1)[0].name}
                   </h1>
                 )
@@ -104,13 +104,13 @@ function SearchResult({ page, seo }: SectionProps<ReturnType<typeof loader>>) {
       {seo?.topProducts && <TopProducts products={seo.topProducts} />}
 
       {seo?.carousel !== undefined && (
-        <div class="sm:flex sm:mb-6 sm:px-6 sm:w-full">
+        <div class="flex mb-6 px-6 w-full">
           <DepartamentCarousel carouselDepartament={seo.carousel} />
         </div>
       )}
 
-      <div class="sm:flex sm:px-6 sm:w-full">
-        <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+      <div class="flex px-6 w-full">
+        <div class="flex max-w-page-container mx-auto w-full">
           <Result page={page} />
         </div>
       </div>

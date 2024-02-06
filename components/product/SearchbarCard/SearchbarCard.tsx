@@ -16,26 +16,26 @@ export const SearchbarCard = ({ product }: SearchbarCardProps) => {
   return (
     <a
       class={clx(
-        "sm:duration-300 sm:ease-in-out sm:gap-6 sm:grid sm:grid-cols-[3.125rem_1fr_auto] sm:items-center sm:transition-colors sm:w-full",
-        "sm:hover:bg-[#f5f5f5]",
+        "duration-300 ease-in-out gap-6 grid grid-cols-[3.125rem_1fr_auto] items-center transition-colors w-full",
+        "hover:bg-[#f5f5f5]",
       )}
       href={url}
     >
       {image !== undefined && image.length !== 0 && (
         <Image
           alt=""
-          class="sm:h-[3.125rem] sm:object-cover sm:w-full"
+          class="h-[3.125rem] object-cover w-full"
           height={50}
           src={image[0].url ?? ""}
           width={50}
         />
       )}
 
-      <span class="sm:font-semibold sm:font-roboto sm:text-[#333] sm:text-xs">
+      <span class="font-semibold font-roboto text-[#333] text-xs">
         {isVariantOf?.name}
       </span>
 
-      <span class="sm:font-extrabold sm:font-roboto sm:text-black sm:text-sm sm:-tracking-[0.01875rem]">
+      <span class="font-extrabold font-roboto text-black text-sm -tracking-[0.01875rem]">
         {formatPrice(listPrice)}
       </span>
     </a>

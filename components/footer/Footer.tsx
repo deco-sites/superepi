@@ -80,34 +80,34 @@ export const Footer = (
   { groups, logos = [], payments, seo, social }: Props,
 ) => {
   return (
-    <div class="sm:bg-[#f0f0f0] sm:flex sm:px-6 sm:w-full">
+    <div class="bg-[#f0f0f0] flex px-6 w-full">
       <footer
         class={clx(
-          "sm:flex sm:flex-col sm:gap-6 sm:max-w-page-container sm:mx-auto sm:py-6 sm:w-full",
+          "flex flex-col gap-6 max-w-page-container mx-auto py-6 w-full",
           "md:gap-20 md:py-20",
         )}
       >
         <div
           class={clx(
-            "sm:gap-6 sm:grid sm:grid-cols-1 sm:w-full",
+            "gap-6 grid grid-cols-1 w-full",
             "md:grid-cols-3",
             "lg:grid-cols-6",
           )}
         >
           {groups.map(({ items, name }, index) => (
-            <div class="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:max-w-full">
-              <h4 class="sm:font-roboto sm:font-bold sm:leading-normal sm:text-base sm:text-black">
+            <div class="flex flex-col gap-4 items-start max-w-full">
+              <h4 class="font-roboto font-bold leading-normal text-base text-black">
                 {name}
               </h4>
 
-              <ul class="sm:flex sm:flex-col sm:gap-1 sm:items-start sm:w-full">
+              <ul class="flex flex-col gap-1 items-start w-full">
                 {items.map(({ content, href, icon }, jindex) => (
-                  <li class="sm:flex" key={jindex}>
-                    <a class="sm:flex sm:items-center" href={href}>
+                  <li class="flex" key={jindex}>
+                    <a class="flex items-center" href={href}>
                       {icon !== undefined && (
                         <Image
                           alt=""
-                          class="sm:flex-shrink-0 sm:h-5 sm:w-5"
+                          class="flex-shrink-0 h-5 w-5"
                           height={20}
                           src={icon}
                           width={0}
@@ -116,9 +116,9 @@ export const Footer = (
 
                       <span
                         class={clx(
-                          "sm:duration-300 sm:ease-in-out sm:font-roboto sm:font-normal sm:leading-normal sm:text-black sm:text-sm sm:transition-colors",
+                          "duration-300 ease-in-out font-roboto font-normal leading-normal text-black text-sm transition-colors",
                           "[&_strong]",
-                          "sm:hover:text-[#f8a531]",
+                          "hover:text-[#f8a531]",
                         )}
                         dangerouslySetInnerHTML={{ __html: content }}
                       />
@@ -129,22 +129,22 @@ export const Footer = (
             </div>
           ))}
 
-          <div class="sm:flex sm:flex-col sm:gap-4 sm:items-start sm:w-full">
-            <h4 class="sm:font-roboto sm:font-bold sm:leading-normal sm:text-base sm:text-black">
+          <div class="flex flex-col gap-4 items-start w-full">
+            <h4 class="font-roboto font-bold leading-normal text-base text-black">
               {social.name}
             </h4>
 
-            <p class="sm:font-roboto sm:font-normal sm:leading-tight sm:text-sm sm:text-black">
+            <p class="font-roboto font-normal leading-tight text-sm text-black">
               {social.description}
             </p>
 
-            <ul class="sm:flex sm:flex-wrap sm:gap-3 sm:items-center sm:w-full">
+            <ul class="flex flex-wrap gap-3 items-center w-full">
               {social.icons.map(({ href, name, src }, index) => (
-                <li class="sm:flex">
-                  <a class="sm:flex" href={href}>
+                <li class="flex">
+                  <a class="flex" href={href}>
                     <Image
                       alt={name}
-                      class="sm:h-10 sm:object-cover sm:w-10"
+                      class="h-10 object-cover w-10"
                       height={40}
                       src={src}
                       width={0}
@@ -155,14 +155,14 @@ export const Footer = (
             </ul>
           </div>
 
-          <div class="sm:flex sm:flex-col sm:gap-4 sm:h-fit sm:items-start sm:w-full">
-            <h4 class="sm:font-roboto sm:font-bold sm:leading-normal sm:text-base sm:text-black">
+          <div class="flex flex-col gap-4 h-fit items-start w-full">
+            <h4 class="font-roboto font-bold leading-normal text-base text-black">
               {payments.name}
             </h4>
 
             <Image
               alt=""
-              class="sm:aspect-[250/130] sm:max-w-[15.625rem] sm:object-contain sm:w-full"
+              class="aspect-[250/130] max-w-[15.625rem] object-contain w-full"
               height={130}
               src="/meios-pagamento.webp"
               width={0}
@@ -172,21 +172,21 @@ export const Footer = (
 
         <div
           class={clx(
-            "sm:gap-6 sm:grid sm:grid-cols-1 sm:items-center sm:w-full",
+            "gap-6 grid grid-cols-1 items-center w-full",
             "lg:gap-8 lg:grid-cols-[57.6920%_1fr]",
           )}
         >
           <div
-            class="sm:font-normal sm:font-roboto sm:leading-tight sm:text-[#999999] sm:text-sm sm:w-full"
+            class="font-normal font-roboto leading-tight text-[#999999] text-sm w-full"
             dangerouslySetInnerHTML={{ __html: seo }}
           />
 
           {logos.length !== 0 && (
-            <div class="sm:flex sm:flex-wrap sm:gap-6 sm:items-center sm:justify-start sm:w-full">
+            <div class="flex flex-wrap gap-6 items-center justify-start w-full">
               {logos.map(({ alt, src }, index) => (
                 <Image
                   alt={alt}
-                  class="sm:flex-shrink-0 sm:h-5 sm:max-w-full sm:object-contain sm:w-auto"
+                  class="flex-shrink-0 h-5 max-w-full object-contain w-auto"
                   height={0}
                   src={src}
                   width={500}

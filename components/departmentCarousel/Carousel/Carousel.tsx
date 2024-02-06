@@ -10,10 +10,10 @@ export type CarouselProps = {
 
 export const Carousel = ({ cards }: CarouselProps) => {
   return (
-    <Slider class="carousel sm:gap-3 sm:w-full" role="list">
+    <Slider class="carousel gap-3 w-full" role="list">
       {cards.map((card, index) => (
         <Slider.Item
-          class="sm:carousel-item sm:max-w-full sm:w-[15.625rem]"
+          class="carousel-item max-w-full w-[15.625rem]"
           index={index}
         >
           <Card {...card} />

@@ -3,21 +3,21 @@
 import { SendEventOnLoad } from "$store/components/Analytics.tsx";
 import { BuyProduct } from "$store/components/product/Page/BuyProduct.tsx";
 import { Description } from "$store/components/product/Page/Description.tsx";
+import FloatingBuyButton from "$store/components/product/Page/FloatingBuyButton.tsx";
 import { Gallery } from "$store/components/product/Page/Gallery.tsx";
 import { ProductInfo } from "$store/components/product/Page/Information.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import { rawProduct } from "$store/mocked-pdp.ts";
 import { clx } from "$store/sdk/clx.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import FloatingBuyButton from "$store/components/product/Page/FloatingBuyButton.tsx";
 
 export interface Props {
   page: ProductDetailsPage | null;
 }
 
 export const Page = ({ page }: Props) => {
+  if (!page) return null;
   const { breadcrumbList, product } = page;
   const { offers } = product;
 

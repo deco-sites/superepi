@@ -9,64 +9,64 @@ import { Product } from "apps/commerce/types.ts";
 
 /** @titleBy name */
 export interface TabProps {
-  /** @description Nome da tab */
-  name: string;
-  /** @description Integração dos produtos */
-  productsPath: string;
+    /** @description Nome da tab */
+    name: string;
+    /** @description Integração dos produtos */
+    productsPath: string;
 }
 
 export const Tab = ({ productsPath }: TabProps) => {
-  const products = useSignal<Product[]>([]);
+    const products = useSignal<Product[]>([]);
 
-  if (IS_BROWSER && !products.value.length) {
-    invoke.linx.loaders.product.list({ path: productsPath }).then((i) => {
-      products.value = i || [];
-    });
-  }
+    if (IS_BROWSER && !products.value.length) {
+        invoke.linx.loaders.product.list({ path: productsPath }).then((i) => {
+            products.value = i || [];
+        });
+    }
 
-  if (!products.value.length) return null;
+    if (!products.value.length) return null;
 
-  return (
-    <div
-      class={clx(
-        "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
-        "lg:grid-cols-1",
-      )}
-    >
-      <Slider.PrevButton
-        class={clx(
-          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-          "sm:hover:bg-black sm:hover:text-white",
-          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-          "lg:hidden",
-        )}
-      >
-        <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
-      </Slider.PrevButton>
+    return (
+        <div
+            class={clx(
+                "gap-3 grid grid-cols-[auto_1fr_auto] items-center w-full",
+                "lg:grid-cols-1",
+            )}
+        >
+            <Slider.PrevButton
+                class={clx(
+                    "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                    "hover:bg-black hover:text-white",
+                    "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
+                    "lg:hidden",
+                )}
+            >
+                <Icon class="h-4 w-4" id="ChevronLeft" />
+            </Slider.PrevButton>
 
-      <Slider class="carousel sm:gap-3 sm:items-stretch sm:w-full" role="list">
-        {products.value.map((product, index) => (
-          <Slider.Item
-            class="carousel-item sm:h-auto sm:max-w-full sm:w-[19.75rem]"
-            index={index}
-          >
-            <ProductComponent product={product} />
-          </Slider.Item>
-        ))}
-      </Slider>
+            <Slider class="carousel gap-3 items-stretch w-full" role="list">
+                {products.value.map((product, index) => (
+                    <Slider.Item
+                        class="carousel-item h-auto max-w-full w-[19.75rem]"
+                        index={index}
+                    >
+                        <ProductComponent product={product} />
+                    </Slider.Item>
+                ))}
+            </Slider>
 
-      <Slider.NextButton
-        class={clx(
-          "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-          "sm:hover:bg-black sm:hover:text-white",
-          "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
-          "lg:hidden",
-        )}
-      >
-        <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
-      </Slider.NextButton>
-    </div>
-  );
+            <Slider.NextButton
+                class={clx(
+                    "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                    "hover:bg-black hover:text-white",
+                    "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
+                    "lg:hidden",
+                )}
+            >
+                <Icon class="h-4 w-4" id="ChevronRight" />
+            </Slider.NextButton>
+        </div>
+    );
 };
 
 export default Tab;

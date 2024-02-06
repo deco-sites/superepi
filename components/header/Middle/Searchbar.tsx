@@ -4,15 +4,15 @@ export const Searchbar = () => {
   return (
     <form
       action="/pesquisa"
-      class="sm:flex sm:items-center sm:relative sm:w-full"
+      class="flex items-center relative w-full"
     >
-      <label class="sm:flex sm:items-center sm:justify-center sm:relative sm:w-full">
-        <span class="sm:absolute sm:flex sm:h-0 sm:opacity-0 sm:overflow-hidden sm:w-0">
+      <label class="flex items-center justify-center relative w-full">
+        <span class="absolute flex h-0 opacity-0 overflow-hidden w-0">
           Encontre aqui o produto que você procura...
         </span>
 
         <input
-          class="sm:bg-[#f0f0f0] sm:border-none sm:flex sm:font-normal sm:font-roboto sm:h-12 sm:leading-normal sm:px-4 sm:pr-12 sm:text-[#999999] sm:text-sm sm:w-full"
+          class="bg-[#f0f0f0] border-none flex font-normal font-roboto h-12 leading-normal px-4 pr-12 text-[#999999] text-sm w-full"
           name="search"
           placeholder="Encontre aqui o produto que você procura..."
           type="text"
@@ -21,10 +21,10 @@ export const Searchbar = () => {
 
       <button
         aria-label="Pesquisar"
-        class="sm:absolute sm:flex sm:right-4 sm:w-fit"
+        class="absolute flex right-4 w-fit"
         type="submit"
       >
-        <Icon class="sm:h-5 sm:text-[#999999] sm:w-5" id="Search" />
+        <Icon class="h-5 text-[#999999] w-5" id="Search" />
       </button>
     </form>
   );

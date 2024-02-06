@@ -39,21 +39,21 @@ export const Shelf = (
   const id = useId();
 
   return (
-    <div class={clx("sm:flex sm:px-6 sm:py-5 sm:w-full", "lg:py-7")} id={id}>
-      <div class="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
-        <div class="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:relative sm:w-full">
+    <div class={clx("flex px-6 py-5 w-full", "lg:py-7")} id={id}>
+      <div class="flex flex-col gap-8 max-w-page-container mx-auto w-full">
+        <div class="flex gap-8 items-center justify-between relative w-full">
           <div
             class={clx(
-              "sm:flex sm:gap-4 sm:items-center ",
-              variant === "left" && "sm:w-full",
+              "flex gap-4 items-center ",
+              variant === "left" && "w-full",
               variant === "center" &&
-                "sm:border-b-[0.1875rem] sm:border-b-[#ffa500] sm:mx-auto sm:pb-2 sm:w-fit",
+              "border-b-[0.1875rem] border-b-[#ffa500] mx-auto pb-2 w-fit",
             )}
           >
             {icon !== undefined && (
               <Image
                 alt=""
-                class="sm:flex-shrink-0 sm:h-8 sm:object-cover sm:w-8"
+                class="flex-shrink-0 h-8 object-cover w-8"
                 height={32}
                 src={icon}
                 width={32}
@@ -62,7 +62,7 @@ export const Shelf = (
 
             <h2
               class={clx(
-                "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+                "font-roboto font-medium leading-normal tracking-[0.125rem] text-[#000000] text-lg uppercase",
                 "lg:leading-normal lg:text-xl",
               )}
             >
@@ -72,57 +72,57 @@ export const Shelf = (
 
           <div
             class={clx(
-              "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
+              "hidden flex-shrink-0 gap-8 items-center w-fit",
               "lg:flex",
               variant === "center" && "lg:absolute lg:right-0",
             )}
           >
             <Slider.PrevButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+              <Icon class="h-4 w-4" id="ChevronLeft" />
             </Slider.PrevButton>
 
             <Slider.NextButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+              <Icon class="h-4 w-4" id="ChevronRight" />
             </Slider.NextButton>
           </div>
         </div>
 
         <div
           class={clx(
-            "sm:gap-3 sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:w-full",
+            "gap-3 grid grid-cols-[auto_1fr_auto] items-center w-full",
             "lg:grid-cols-1",
           )}
         >
           <Slider.PrevButton
             class={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+              "hover:bg-black hover:text-white",
+              "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               "lg:hidden",
             )}
           >
-            <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+            <Icon class="h-4 w-4" id="ChevronLeft" />
           </Slider.PrevButton>
 
           <Slider
-            class="carousel sm:gap-3 sm:items-stretch sm:w-full"
+            class="carousel gap-3 items-stretch w-full"
             role="list"
           >
             {products.value.map((product, index) => (
               <Slider.Item
-                class="carousel-item sm:h-auto sm:max-w-full sm:w-[19.75rem]"
+                class="carousel-item h-auto max-w-full w-[19.75rem]"
                 index={index}
               >
                 <ProductComponent product={product} />
@@ -132,13 +132,13 @@ export const Shelf = (
 
           <Slider.NextButton
             class={clx(
-              "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-              "sm:hover:bg-black sm:hover:text-white",
-              "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+              "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+              "hover:bg-black hover:text-white",
+              "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               "lg:hidden",
             )}
           >
-            <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+            <Icon class="h-4 w-4" id="ChevronRight" />
           </Slider.NextButton>
         </div>
       </div>

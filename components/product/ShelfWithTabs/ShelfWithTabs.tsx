@@ -27,14 +27,14 @@ export const ShelfWithTabs = ({ icon, heading, tabs = [] }: Props) => {
   if (tabs.length === 0) return null;
 
   return (
-    <div class={clx("sm:flex sm:px-6 sm:py-5 sm:w-full", "lg:py-7")} id={id}>
-      <div class="sm:flex sm:flex-col sm:gap-8 sm:max-w-page-container sm:mx-auto sm:w-full">
-        <div class="sm:flex sm:gap-8 sm:items-center sm:justify-between sm:w-full">
-          <div class="sm:flex sm:gap-4 sm:w-full">
+    <div class={clx("flex px-6 py-5 w-full", "lg:py-7")} id={id}>
+      <div class="flex flex-col gap-8 max-w-page-container mx-auto w-full">
+        <div class="flex gap-8 items-center justify-between w-full">
+          <div class="flex gap-4 w-full">
             {icon !== undefined && (
               <Image
                 alt=""
-                class="sm:flex-shrink-0 sm:h-8 sm:object-cover sm:w-8"
+                class="flex-shrink-0 h-8 object-cover w-8"
                 height={32}
                 src={icon}
                 width={32}
@@ -43,7 +43,7 @@ export const ShelfWithTabs = ({ icon, heading, tabs = [] }: Props) => {
 
             <h2
               class={clx(
-                "sm:font-roboto sm:font-medium sm:leading-normal sm:tracking-[0.125rem] sm:text-[#000000] sm:text-lg sm:uppercase",
+                "font-roboto font-medium leading-normal tracking-[0.125rem] text-[#000000] text-lg uppercase",
                 "lg:leading-normal lg:text-xl",
               )}
             >
@@ -53,40 +53,40 @@ export const ShelfWithTabs = ({ icon, heading, tabs = [] }: Props) => {
 
           <div
             class={clx(
-              "sm:hidden sm:flex-shrink-0 sm:gap-8 sm:items-center w-fit",
+              "hidden flex-shrink-0 gap-8 items-center w-fit",
               "lg:flex",
             )}
           >
             <Slider.PrevButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronLeft" />
+              <Icon class="h-4 w-4" id="ChevronLeft" />
             </Slider.PrevButton>
 
             <Slider.NextButton
               class={clx(
-                "sm:bg-transparent sm:border-[0.125rem] sm:border-[#000] sm:duration-300 sm:ease-in-out sm:flex sm:h-9 sm:items-center sm:justify-center sm:pointer-events-auto sm:transition-colors sm:w-9",
-                "sm:hover:bg-black sm:hover:text-white",
-                "sm:disabled:cursor-not-allowed sm:disabled:bg-transparent sm:disabled:text-black",
+                "bg-transparent border-[0.125rem] border-[#000] duration-300 ease-in-out flex h-9 items-center justify-center pointer-events-auto transition-colors w-9",
+                "hover:bg-black hover:text-white",
+                "disabled:cursor-not-allowed disabled:bg-transparent disabled:text-black",
               )}
             >
-              <Icon class="sm:h-4 sm:w-4" id="ChevronRight" />
+              <Icon class="h-4 w-4" id="ChevronRight" />
             </Slider.NextButton>
           </div>
         </div>
 
-        <Tabs class="sm:flex sm:flex-col sm:gap-8 sm:w-full" defaultValue={0}>
-          <Tabs.TabsList class="sm:flex sm:flex-wrap sm:gap-[0.5rem_1rem] sm:items-center sm:justify-start sm:w-full">
+        <Tabs class="flex flex-col gap-8 w-full" defaultValue={0}>
+          <Tabs.TabsList class="flex flex-wrap gap-[0.5rem_1rem] items-center justify-start w-full">
             {tabs.map(({ name }, index) => (
               <Tabs.Tab
                 class={clx(
-                  "sm:border-b-[0.125rem] sm:border-b-transparent sm:duration-300 sm:ease-in-out sm:font-bold sm:font-roboto sm:leading-normal sm:outline-none sm:text-center sm:text-sm sm:text-[#999999] sm:-tracking-[0.0625rem] sm:transition-colors sm:uppercase",
-                  "sm:focus:text-[#FFAB0080]",
-                  "sm:aria-selected:text-[#FFAB00] sm:aria-selected:border-b-[#FFAB00]",
+                  "border-b-[0.125rem] border-b-transparent duration-300 ease-in-out font-bold font-roboto leading-normal outline-none text-center text-sm text-[#999999] -tracking-[0.0625rem] transition-colors uppercase",
+                  "focus:text-[#FFAB0080]",
+                  "aria-selected:text-[#FFAB00] aria-selected:border-b-[#FFAB00]",
                 )}
                 value={index}
               >
@@ -96,7 +96,7 @@ export const ShelfWithTabs = ({ icon, heading, tabs = [] }: Props) => {
           </Tabs.TabsList>
 
           {tabs.map((tab, index) => (
-            <Tabs.TabPanel class="sm:w-full" value={index}>
+            <Tabs.TabPanel class="w-full" value={index}>
               <Tab {...tab} />
             </Tabs.TabPanel>
           ))}

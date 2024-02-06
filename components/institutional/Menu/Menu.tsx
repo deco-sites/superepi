@@ -14,37 +14,37 @@ export const Menu = ({ article, articles }: MenuProps) => {
   return (
     <div
       class={clx(
-        "collapse sm:bg-transparent sm:rounded-md sm:shadow-[0_0_0.375rem_0.0625rem_#0000001A]",
+        "collapse bg-transparent rounded-md shadow-[0_0_0.375rem_0.0625rem_#0000001A]",
         "lg:collapse-open lg:shadow-none",
       )}
     >
-      <input class="peer sm:min-h-0" type="checkbox" />
+      <input class="peer min-h-0" type="checkbox" />
 
       <div
         class={clx(
-          "collapse-title sm:bg-white sm:flex sm:gap-4 sm:h-12 sm:items-center sm:justify-between sm:px-6 sm:py-0 sm:rounded-md sm:shadow-[0_0_0.375rem_0.0625rem_#0000001A] sm:w-full",
+          "collapse-title bg-white flex gap-4 h-12 items-center justify-between px-6 py-0 rounded-md shadow-[0_0_0.375rem_0.0625rem_#0000001A] w-full",
           "lg:bg-transparent lg:hidden lg:shadow-none",
         )}
       >
         <a
           aria-label="Voltar para página inicial"
-          class="sm:flex sm:h-4 sm:text-[#151515] sm:w-4"
+          class="flex h-4 text-[#151515] w-4"
           href="/"
         >
-          <Icon class="sm:flex-shrink-0 sm:h-full sm:w-full" id="Home" />
+          <Icon class="flex-shrink-0 h-full w-full" id="Home" />
         </a>
 
-        <span class="sm:flex sm:font-bold sm:font-roboto sm:gap-2 sm:items-center sm:text-[#151515] sm:text-sm">
+        <span class="flex font-bold font-roboto gap-2 items-center text-[#151515] text-sm">
           <span>Menu</span>
 
-          <Icon class="sm:flex-shrink-0 sm:h-3 sm:w-3" id="ChevronDown" />
+          <Icon class="flex-shrink-0 h-3 w-3" id="ChevronDown" />
         </span>
       </div>
 
-      <div class="collapse-content sm:peer-checked:pt-4 sm:p-0 sm:!pb-[0rem]">
+      <div class="collapse-content peer-checked:pt-4 p-0 !pb-[0rem]">
         <ul
           class={clx(
-            "sm:bg-white sm:flex sm:flex-col sm:px-6 sm:py-5 sm:rounded-md sm:shadow-[0_0_0.375rem_0.0625rem_#0000001A] sm:w-full",
+            "bg-white flex flex-col px-6 py-5 rounded-md shadow-[0_0_0.375rem_0.0625rem_#0000001A] w-full",
             "lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none",
           )}
         >
@@ -55,23 +55,23 @@ export const Menu = ({ article, articles }: MenuProps) => {
             return (
               <li
                 class={clx(
-                  "sm:flex sm:w-full",
+                  "flex w-full",
                   index !== array.length - 1 &&
-                    "sm:border-b-[0.0625rem] sm:border-b-[#F0F0F0]",
+                  "border-b-[0.0625rem] border-b-[#F0F0F0]",
                 )}
               >
                 <a
                   class={clx(
-                    "sm:flex sm:font-normal sm:font-roboto sm:gap-4 sm:items-center sm:justify-between sm:text-[#999999] sm:text-base sm:-tracking-[0.053125rem] sm:min-h-16 sm:w-full",
+                    "flex font-normal font-roboto gap-4 items-center justify-between text-[#999999] text-base -tracking-[0.053125rem] min-h-16 w-full",
                     article?.name === name &&
-                      "sm:!font-medium sm:!text-[#151515]",
+                    "!font-medium !text-[#151515]",
                   )}
                   href={href}
                 >
                   <span>{name}</span>
 
                   <Icon
-                    class="sm:flex-shrink-0 sm:h-5 sm:text-[#999999] sm:w-5"
+                    class="flex-shrink-0 h-5 text-[#999999] w-5"
                     id="ChevronRight"
                   />
                 </a>

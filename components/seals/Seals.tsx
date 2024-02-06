@@ -20,20 +20,20 @@ export const Seals = ({ seals = [] }: Props) => {
   if (seals.length === 0) return null;
 
   return (
-    <div class={clx("sm:flex sm:px-4 sm:py-5 sm:w-full", "lg:py-7")}>
-      <div class="sm:flex sm:max-w-page-container sm:mx-auto sm:w-full">
+    <div class={clx("flex px-4 py-5 w-full", "lg:py-7")}>
+      <div class="flex max-w-page-container mx-auto w-full">
         <ul
           class={clx(
-            "sm:flex sm:flex-wrap sm:gap-4 sm:items-center sm:justify-center sm:w-full",
+            "flex flex-wrap gap-4 items-center justify-center w-full",
             "lg:gap-8",
           )}
         >
           {seals.map(({ icon, href, name }, index) => (
-            <li class="sm:flex">
-              <a class="sm:flex sm:items-center sm:gap-2" href={href}>
+            <li class="flex">
+              <a class="flex items-center gap-2" href={href}>
                 <Image
                   alt=""
-                  class="sm:h-6 sm:object-contain sm:w-6"
+                  class="h-6 object-contain w-6"
                   height={32}
                   src={icon}
                   width={0}
@@ -41,8 +41,8 @@ export const Seals = ({ seals = [] }: Props) => {
 
                 <div
                   class={clx(
-                    "sm:font-normal sm:font-roboto sm:leading-normal sm:text-black sm:text-sm",
-                    "sm:[&_strong]:font-bold",
+                    "font-normal font-roboto leading-normal text-black text-sm",
+                    "[&_strong]:font-bold",
                   )}
                   dangerouslySetInnerHTML={{ __html: name }}
                 />

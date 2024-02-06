@@ -13,10 +13,10 @@ export const Shelf = ({ id, page }: ShelfProps) => {
   const { products } = page;
 
   return (
-    <div class="sm:flex sm:flex-col sm:w-full">
+    <div class="flex flex-col w-full">
       <ul
         class={clx(
-          "sm:gap-4 sm:grid sm:grid-cols-1 sm:w-full",
+          "gap-4 grid grid-cols-1 w-full",
           "smA:grid-cols-2",
           "mdA:grid-cols-3",
         )}

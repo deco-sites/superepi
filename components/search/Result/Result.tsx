@@ -21,39 +21,39 @@ export const Result = ({ page }: ResultProps) => {
   return (
     <div
       class={clx(
-        "sm:gap-6 sm:grid sm:grid-cols-1 sm:w-full",
+        "gap-6 grid grid-cols-1 w-full",
         "lg:grid-cols-[15.625rem_1fr]",
       )}
     >
       <div
         class={clx(
-          "sm:bg-[#f0f0f0] sm:flex sm:flex-wrap sm:gap-3 sm:items-center sm:px-8 sm:py-5 sm:w-full",
+          "bg-[#f0f0f0] flex flex-wrap gap-3 items-center px-8 py-5 w-full",
           "lg:col-span-2",
         )}
       >
-        <h2 class="sm:flex sm:font-roboto sm:font-bold sm:gap-3 sm:items-center sm:text-base sm:text-[#151515]">
-          <Icon class="sm:h-4 sm:w-4" id="Options" />
+        <h2 class="flex font-roboto font-bold gap-3 items-center text-base text-[#151515]">
+          <Icon class="h-4 w-4" id="Options" />
           Filtros
         </h2>
 
-        <div class="sm:flex sm:flex-shrink-0 sm:gap-3 sm:items-center sm:ml-auto sm:w-fit">
-          <span class="sm:flex-shrink-0 sm:font-roboto sm:font-medium sm:text-sm sm:text-[#999999]">
+        <div class="flex flex-shrink-0 gap-3 items-center ml-auto w-fit">
+          <span class="flex-shrink-0 font-roboto font-medium text-sm text-[#999999]">
             Ordenar por:
           </span>
 
           <Sort sortOptions={sortOptions} />
         </div>
 
-        <div class={clx("sm:hidden sm:ml-3", "lg:flex")}>
+        <div class={clx("hidden ml-3", "lg:flex")}>
           <LayoutControl id={id} />
         </div>
       </div>
 
-      <div class="sm:flex sm:w-full">
+      <div class="flex w-full">
         <Filters filters={filters} />
       </div>
 
-      <div class="sm:flex sm:w-full">
+      <div class="flex w-full">
         <Shelf id={id} page={page} />
       </div>
     </div>

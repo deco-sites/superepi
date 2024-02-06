@@ -13,11 +13,11 @@ export const Description = ({ product }: DescriptionProps) => {
     <article
       id="description"
       class={clx(
-        "sm:gap-10 sm:grid sm:grid-cols-1 sm:w-full",
+        "gap-10 grid grid-cols-1 w-full",
         "lg:grid-cols-[21.875rem_1fr]",
       )}
     >
-      <h2 class="sm:font-roboto sm:font-bold sm:leading-none sm:text-[#151515] sm:text-4xl">
+      <h2 class="font-roboto font-bold leading-none text-[#151515] text-4xl">
         Descrição completa
       </h2>
 

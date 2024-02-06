@@ -10,18 +10,18 @@ export const Upper = (props: UpperProps) => {
   const { linksWithBackground, linksWithIcons } = props;
 
   return (
-    <div class="sm:flex sm:flex-shrink-0 sm:gap-4 sm:items-center sm:justify-between sm:min-h-[2.5rem] sm:min-w-full sm:w-fit">
-      <ul class="sm:flex sm:flex-shrink-0 sm:gap-8 sm:items-center sm:w-fit">
+    <div class="flex flex-shrink-0 gap-4 items-center justify-between min-h-[2.5rem] min-w-full w-fit">
+      <ul class="flex flex-shrink-0 gap-8 items-center w-fit">
         {linksWithIcons.map(({ color, href, icon, name }, index) => (
-          <li class="sm:flex sm:flex-shrink-0">
+          <li class="flex flex-shrink-0">
             <a
-              class="sm:flex sm:gap-1 sm:items-center sm:font-bold sm:font-roboto sm:leading-normal sm:text-sm sm:tracking-[0.025rem]"
+              class="flex gap-1 items-center font-bold font-roboto leading-normal text-sm tracking-[0.025rem]"
               href={href}
               style={{ color: color }}
             >
               <Image
                 alt=""
-                class="sm:h-6 sm:w-6"
+                class="h-6 w-6"
                 height={24}
                 src={icon}
                 width={24}
@@ -33,14 +33,14 @@ export const Upper = (props: UpperProps) => {
         ))}
       </ul>
 
-      <ul class="sm:flex sm:flex-shrink-0 sm:items-center sm:justify-end sm:w-fit">
+      <ul class="flex flex-shrink-0 items-center justify-end w-fit">
         {linksWithBackground.map((
           { backgroundColor, color, href, name },
           index,
         ) => (
-          <li class="sm:flex sm:flex-shrink-0">
+          <li class="flex flex-shrink-0">
             <a
-              class="sm:border-none sm:flex sm:font-bold sm:font-roboto sm:items-center sm:justify-center sm:leading-normal sm:px-8 sm:text-sm sm:min-h-[2.5rem]"
+              class="border-none flex font-bold font-roboto items-center justify-center leading-normal px-8 text-sm min-h-[2.5rem]"
               href={href}
               style={{
                 backgroundColor: backgroundColor,
