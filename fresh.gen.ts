@@ -10,6 +10,7 @@ import * as $AddToCartButton_vtex from "./islands/AddToCartButton/vtex.tsx";
 import * as $AddToCartButton_wake from "./islands/AddToCartButton/wake.tsx";
 import * as $Alert from "./islands/Alert.tsx";
 import * as $ContainerNavItem from "./islands/ContainerNavItem.tsx";
+import * as $HeaderJs from "./islands/HeaderJs.tsx";
 import * as $Header_Buttons from "./islands/Header/Buttons.tsx";
 import * as $Header_Cart_linx from "./islands/Header/Cart/linx.tsx";
 import * as $Header_Cart_shopify from "./islands/Header/Cart/shopify.tsx";
@@ -21,7 +22,6 @@ import * as $Header_SearchInput from "./islands/Header/SearchInput.tsx";
 import * as $Header_Searchbar from "./islands/Header/Searchbar.tsx";
 import * as $Header_SearchbarDesktop from "./islands/Header/SearchbarDesktop.tsx";
 import * as $Header_ServiceButton from "./islands/Header/ServiceButton.tsx";
-import * as $HeaderJs from "./islands/HeaderJs.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $OutOfStock from "./islands/OutOfStock.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
@@ -51,6 +51,7 @@ const manifest = {
     "./islands/AddToCartButton/wake.tsx": $AddToCartButton_wake,
     "./islands/Alert.tsx": $Alert,
     "./islands/ContainerNavItem.tsx": $ContainerNavItem,
+    "./islands/HeaderJs.tsx": $HeaderJs,
     "./islands/Header/Buttons.tsx": $Header_Buttons,
     "./islands/Header/Cart/linx.tsx": $Header_Cart_linx,
     "./islands/Header/Cart/shopify.tsx": $Header_Cart_shopify,
@@ -62,7 +63,6 @@ const manifest = {
     "./islands/Header/Searchbar.tsx": $Header_Searchbar,
     "./islands/Header/SearchbarDesktop.tsx": $Header_SearchbarDesktop,
     "./islands/Header/ServiceButton.tsx": $Header_ServiceButton,
-    "./islands/HeaderJs.tsx": $HeaderJs,
     "./islands/Newsletter.tsx": $Newsletter,
     "./islands/OutOfStock.tsx": $OutOfStock,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
