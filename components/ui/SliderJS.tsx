@@ -54,8 +54,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`)
     const dots = root?.querySelectorAll(`[${ATTRIBUTES['data-dot']}]`)
 
-    console.log(dots)
-
     if (!root || !slider || !items || items.length === 0) {
         console.warn(
             'Missing necessary slider attributes. It will not work as intended. Necessary elements:',
@@ -91,8 +89,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
             return
         }
-
-        console.log('OK')
 
         slider.scrollTo({
             top: 0,
@@ -158,9 +154,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     items.forEach(item => observer.observe(item))
 
     for (let it = 0; it < (dots?.length ?? 0); it++) {
-        console.log(it)
         dots?.item(it).addEventListener('click', () => {
-            console.log('click', it)
             goToItem(it)
         })
     }

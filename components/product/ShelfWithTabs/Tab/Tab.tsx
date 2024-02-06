@@ -16,7 +16,6 @@ export interface TabProps {
 }
 
 export const Tab = ({ productsPath }: TabProps) => {
-    console.log(productsPath, 'tab')
     const products = useSignal<Product[]>([])
 
     if (IS_BROWSER && !products.value.length) {

@@ -21,8 +21,6 @@ function VariantSelector({ product }: Props) {
         i => i.Name === 'Titulo das variações:',
     )?.Value
 
-    console.log(possibilities)
-
     return (
         <ul class='flex flex-col gap-3 w-full'>
             {Object.keys(possibilities).map((name, index) => (

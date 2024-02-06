@@ -34,9 +34,6 @@ export const ProductInfo = ({ product }: Props) => {
     const fichaComercialModal = useModal()
     const videoModal = useModal()
 
-    console.log(metadatas)
-    console.log(rawProduct.Model.ExtendedMetadatas.map(i => i.Name as string))
-
     return (
         <div class='flex flex-col gap-5 w-full lg:max-w-[29%]'>
             {fichaComercial && (

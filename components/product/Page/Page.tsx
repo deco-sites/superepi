@@ -19,27 +19,7 @@ export interface Props {
 
 export const Page = ({ page }: Props) => {
     const { breadcrumbList, product } = page
-    const { isVariantOf, offers } = product
-
-    console.log(product)
-
-    console.log(
-        rawProduct.Model.Items.flatMap(i =>
-            i.Items.flatMap(j => j.Price.BestInstallment.PaymentName),
-        ),
-    )
-
-    // const mostCheapAndAvailableSKU = isVariantOf?.hasVariant.reduce((acc, cur) => {
-    //     const { price = 0, availability } = useOffer(cur.offers)
-
-    //     if (
-    //         availability === 'https://schema.org/InStock' &&
-    //         price < (useOffer(acc.offers).price ?? 0)
-    //     ) {
-    //         return cur
-    //     }
-    //     return acc
-    // }) as Product
+    const { offers } = product
 
     const { price = 0, listPrice } = useOffer(offers)
 
